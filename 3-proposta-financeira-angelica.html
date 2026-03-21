@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposta Financeira · Angélica Pires</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:   #7C3E52;
+  --rose2:  #6A3346;
+  --champ:  #D4B896;
+  --champ2: #EAD5BF;
+  --blush:  #F2E8EC;
+  --blush2: #E8D5DD;
+  --ivory:  #FAF7F2;
+  --ink:    #2A1F24;
+  --text:   #4A3840;
+  --muted:  #8A7278;
+  --border: #E8DADE;
+  --green:  #1A6B45;
+  --grn-bg: #EEF8F3;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.75;}
+
+/* COVER */
+.cover{
+  background:var(--rose);
+  padding:96px 40px 80px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cover::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;border:1px solid rgba(212,184,150,.07);top:-200px;right:-160px;pointer-events:none;}
+.cover::after{content:'';position:absolute;width:350px;height:350px;border-radius:50%;border:1px solid rgba(212,184,150,.05);bottom:-100px;left:-80px;pointer-events:none;}
+.cv{position:relative;max-width:680px;margin:0 auto;}
+.cv-orn{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:22px;}
+.cv-line{width:48px;height:1px;background:var(--champ);opacity:.5;}
+.cv-dia{width:7px;height:7px;background:var(--champ);transform:rotate(45deg);}
+.cv-eye{font-size:10px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px;display:block;}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7.5vw,80px);font-weight:700;color:#fff;line-height:1.02;margin-bottom:12px;}
+.cover h1 em{font-style:italic;color:var(--champ2);font-weight:300;}
+.cv-sub{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:0;font-weight:300;line-height:1.7;}
+
+/* LAYOUT */
+.wrap{max-width:800px;margin:0 auto;padding:0 32px;}
+section{padding:68px 0;border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+.eye{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+.eye::before{content:'';width:20px;height:1px;background:var(--champ);}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--ink);line-height:1.12;margin-bottom:12px;}
+h2 .g{color:var(--rose);}
+h2 em{font-style:italic;font-weight:300;}
+.lead{font-size:16px;color:var(--muted);max-width:620px;margin-bottom:40px;font-weight:300;line-height:1.85;}
+p{margin-bottom:12px;}
+strong{color:var(--ink);}
+
+/* PRICE HERO */
+.price-hero{
+  background:var(--rose);
+  border-radius:24px;
+  padding:52px 48px;
+  text-align:center;
+  position:relative;overflow:hidden;
+  margin:36px 0;
+}
+.price-hero::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;border:1px solid rgba(212,184,150,.08);top:-150px;right:-100px;pointer-events:none;}
+.ph-tag{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px;display:block;position:relative;}
+.ph-orn{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:20px;}
+.ph-line{width:36px;height:1px;background:var(--champ);opacity:.4;}
+.ph-dia{width:5px;height:5px;background:var(--champ);transform:rotate(45deg);}
+.ph-price{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(64px,12vw,96px);
+  font-weight:900;color:#fff;line-height:1;
+  position:relative;
+  margin-bottom:6px;
+}
+.ph-price sup{font-size:.4em;vertical-align:super;color:var(--champ2);}
+.ph-period{font-size:14px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;position:relative;}
+.ph-desc{font-size:15px;color:rgba(255,255,255,.6);line-height:1.7;max-width:480px;margin:0 auto;position:relative;font-weight:300;}
+.ph-contract{
+  display:inline-block;
+  background:rgba(212,184,150,.15);
+  border:1px solid rgba(212,184,150,.3);
+  color:var(--champ2);
+  font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  padding:8px 22px;border-radius:100px;
+  margin-top:20px;position:relative;
+}
+
+/* ROI BOX */
+.roi{
+  background:var(--grn-bg);
+  border:1px solid #B0D9C0;
+  border-radius:16px;
+  padding:28px 32px;
+  margin:28px 0;
+  display:flex;gap:16px;align-items:flex-start;
+}
+.roi-icon{font-size:28px;flex-shrink:0;line-height:1.3;}
+.roi-body{flex:1;}
+.roi-title{font-size:14px;font-weight:700;color:var(--green);margin-bottom:6px;}
+.roi-text{font-size:14px;color:#2A5A3A;line-height:1.7;margin:0;}
+
+/* DELIVERABLES */
+.del-block{
+  background:#fff;border:1px solid var(--border);
+  border-radius:18px;overflow:hidden;margin-bottom:16px;
+}
+.db-header{
+  background:var(--rose);padding:18px 26px;
+  display:flex;align-items:center;gap:14px;
+}
+.db-icon{font-size:22px;flex-shrink:0;}
+.db-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;font-weight:700;}
+.db-sub{font-size:11px;color:rgba(255,255,255,.38);margin-top:2px;}
+.db-body{padding:20px 26px;}
+.db-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.db-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.6;color:var(--text);margin:0;}
+.db-list li::before{content:'✦';color:var(--champ);font-size:9px;flex-shrink:0;margin-top:4px;}
+
+/* CALLOUT */
+.callout{border-radius:14px;padding:18px 22px;margin:20px 0;display:flex;gap:12px;}
+.callout.rose{background:var(--blush);border-left:3px solid var(--rose);}
+.callout.champ{background:#FAF5EE;border-left:3px solid var(--champ);}
+.ci{font-size:17px;flex-shrink:0;line-height:1.6;}
+.ct{font-size:14px;line-height:1.7;color:#555;}
+.ct strong{color:var(--ink);}
+
+/* WHAT IS NOT */
+.not-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:20px 0;}
+.not-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.55;color:var(--muted);margin:0;}
+.not-list li::before{content:'—';color:var(--border);font-weight:700;flex-shrink:0;}
+
+/* INSIGHT */
+.insight{background:var(--rose);border-radius:20px;padding:40px 44px;margin:32px 0;position:relative;overflow:hidden;}
+.insight::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:160px;color:rgba(212,184,150,.06);position:absolute;top:-20px;left:16px;line-height:1;pointer-events:none;}
+.insight-text{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.3vw,22px);line-height:1.55;color:#fff;position:relative;margin-bottom:12px;}
+.insight-text em{color:var(--champ2);font-style:italic;}
+.insight-src{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);position:relative;}
+
+/* FOOTER */
+footer{background:var(--rose);padding:52px 32px;text-align:center;}
+.ft{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--champ2);margin-bottom:8px;}
+footer p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.22);}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cv">
+    <div class="cv-orn"><div class="cv-line"></div><div class="cv-dia"></div><div class="cv-line"></div></div>
+    <span class="cv-eye">Proposta Financeira · @angelicapires_s</span>
+    <h1>O investimento<br><em>e o que ele inclui</em></h1>
+    <p class="cv-sub">Transparência completa — o que você recebe, o que não está incluso e o retorno esperado.</p>
+  </div>
+</div>
+
+<!-- VALOR -->
+<section>
+<div class="wrap">
+  <div class="eye">O Investimento</div>
+  <h2>Um valor justo para<br>um <span class="g"><em>trabalho completo</em></span></h2>
+  <p class="lead">Depois de analisar os dois perfis, estruturar toda a estratégia e produzir o material do primeiro mês, chegamos a um valor que reflete o escopo real do trabalho — e o retorno que ele gera.</p>
+
+  <div class="price-hero">
+    <span class="ph-tag">Investimento mensal</span>
+    <div class="ph-orn"><div class="ph-line"></div><div class="ph-dia"></div><div class="ph-line"></div></div>
+    <div class="ph-price"><sup>R$</sup>2.000</div>
+    <div class="ph-period">por mês</div>
+    <p class="ph-desc">Estratégia de conteúdo, produção completa, identidade visual e gestão do perfil — tudo incluso, tudo alinhado com a sua missão.</p>
+    <span class="ph-contract">Contrato mínimo · 3 meses</span>
+  </div>
+
+  <div class="roi">
+    <div class="roi-icon">💰</div>
+    <div class="roi-body">
+      <div class="roi-title">Retorno sobre o investimento</div>
+      <p class="roi-text">Se a sua mentoria for vendida a R$&nbsp;1.000 por aluna, <strong>2 inscrições</strong> cobrem o mês inteiro de trabalho. Uma turma de 10 a 20 alunas — meta conservadora para os primeiros 90 dias — representa retorno de 5 a 10 vezes o valor investido no período. O perfil deixa de ser vitrine vazia e passa a ser <strong>o seu melhor vendedor.</strong></p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ENTREGÁVEIS -->
+<section>
+<div class="wrap">
+  <div class="eye">O que está incluso</div>
+  <h2>Tudo que você <span class="g"><em>recebe</em></span><br>todo mês</h2>
+  <p class="lead">Cada entregável foi pensado para funcionar em conjunto — não são peças soltas, são partes de um sistema que cresce mês a mês.</p>
+
+  <div class="del-block">
+    <div class="db-header">
+      <div class="db-icon">⚡</div>
+      <div>
+        <div class="db-title">Mês 01 — Estruturação completa do perfil</div>
+        <div class="db-sub">Feito uma vez. Fica para sempre.</div>
+      </div>
+    </div>
+    <div class="db-body">
+      <ul class="db-list">
+        <li>Reformulação completa da bio com posicionamento, autoridade e CTA</li>
+        <li>Nome de exibição estratégico e indexável no buscador do Instagram</li>
+        <li>Orientação para nova foto de perfil (instruções de produção)</li>
+        <li>3 posts fixados prontos: apresentação · autoridade · mentoria</li>
+        <li>6 destaques estruturados com roteiros completos de stories</li>
+        <li>Link na bio organizado com até 3 destinos estratégicos</li>
+        <li>Identidade visual completa: paleta, fontes e templates no Canva</li>
+        <li>Guia de como usar os templates (para você ou sua equipe)</li>
+        <li>Redirecionamento estratégico do @diretoranotamil</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="del-block">
+    <div class="db-header">
+      <div class="db-icon">📅</div>
+      <div>
+        <div class="db-title">Todo mês — Conteúdo estratégico completo</div>
+        <div class="db-sub">16 a 20 posts + roteiros + stories + relatório</div>
+      </div>
+    </div>
+    <div class="db-body">
+      <ul class="db-list">
+        <li>Calendário editorial mensal — pauta completa com formato, tema e objetivo de cada post</li>
+        <li>16 a 20 posts por mês: carrosséis completos slide a slide, fotos com legendas, posts de citação</li>
+        <li>4 a 6 roteiros de Reels por mês — gancho, desenvolvimento, CTA e instruções de gravação</li>
+        <li>Estrutura semanal de Stories com sequência estratégica diária</li>
+        <li>Banco de ganchos e frases autorais personalizadas para a voz da Angélica</li>
+        <li>Estratégia de conteúdo para eventos — sequência antes, durante e depois</li>
+        <li>1 sequência de Stories de venda por mês (funil da mentoria)</li>
+        <li>Hashtags estratégicas por tipo de post</li>
+        <li>Relatório mensal de crescimento, alcance e engajamento</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="del-block">
+    <div class="db-header">
+      <div class="db-icon">🎓</div>
+      <div>
+        <div class="db-title">Mês 03 — Lançamento da mentoria</div>
+        <div class="db-sub">Sequência completa de abertura de vagas</div>
+      </div>
+    </div>
+    <div class="db-body">
+      <ul class="db-list">
+        <li>Sequência de lançamento de 3 semanas: aquecimento → vagas abertas → urgência → fechamento</li>
+        <li>Posts diários de lançamento com copy completo</li>
+        <li>Stories de contagem regressiva e depoimentos</li>
+        <li>Live de apresentação da mentoria — roteiro completo</li>
+        <li>Copy de vendas para bio, posts e stories do lançamento</li>
+        <li>Acompanhamento semanal durante o período de lançamento</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>O que não está incluso neste valor</h3>
+  <ul class="not-list">
+    <li>Edição de vídeo dos Reels (entrego o roteiro e as instruções; a edição fica com você, sua equipe ou um editor indicado)</li>
+    <li>Criação das artes finais no Canva (entrego os templates prontos; a execução das artes é sua ou da sua equipe com os templates)</li>
+    <li>Publicação e agendamento dos posts (entrego o conteúdo aprovado; a publicação é sua)</li>
+    <li>Tráfego pago ou anúncios (trabalho orgânico — impulsionamento é opcional e separado)</li>
+    <li>Produção de fotos ou vídeos (oriento o que produzir; a produção é com você)</li>
+  </ul>
+
+  <div class="callout rose">
+    <div class="ci">💬</div>
+    <p class="ct"><strong>Por que é assim:</strong> Esse modelo existe para que você tenha controle total sobre o que vai ao ar e para que o investimento seja focado no que mais gera resultado — estratégia, escrita e planejamento. A execução operacional (publicar, editar vídeo, fazer arte) pode ser feita por você ou delegada para alguém da sua equipe com muito menos tempo e esforço quando a estratégia está clara.</p>
+  </div>
+
+  <div class="insight">
+    <p class="insight-text">Angélica, <em>uma aluna a mais na mentoria por mês</em> já cobre parte do investimento. Em 90 dias, com o perfil estruturado e o lançamento executado, a meta conservadora é uma turma de 10 a 20 alunas. <em>O trabalho se paga — com folga.</em></p>
+    <div class="insight-src">Proposta Financeira · Maria Loyola</div>
+  </div>
+
+</div>
+</section>
+
+<footer>
+  <div class="ft">Proposta Financeira · Angélica Pires</div>
+  <p>Elaborado por Maria Loyola · Estrategista de Conteúdo &amp; Storytelling</p>
+</footer>
+
+</body>
+</html>

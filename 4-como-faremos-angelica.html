@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Como Faremos Isso · Angélica Pires</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:   #7C3E52;
+  --rose2:  #6A3346;
+  --champ:  #D4B896;
+  --champ2: #EAD5BF;
+  --blush:  #F2E8EC;
+  --ivory:  #FAF7F2;
+  --ink:    #2A1F24;
+  --text:   #4A3840;
+  --muted:  #8A7278;
+  --border: #E8DADE;
+  --sage:   #6B7C6A;
+  --sage-bg:#EDF0EC;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.75;}
+
+/* NAV */
+.nav{
+  position:sticky;top:0;z-index:99;
+  background:var(--rose);padding:12px 24px;
+  display:flex;align-items:center;gap:6px;
+  overflow-x:auto;border-bottom:2px solid var(--champ);
+  scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none;}
+.nav a{
+  white-space:nowrap;font-size:10px;font-weight:600;
+  letter-spacing:3px;text-transform:uppercase;
+  color:rgba(255,255,255,.4);text-decoration:none;
+  padding:6px 14px;border-radius:100px;transition:all .2s;
+}
+.nav a:hover{background:rgba(212,184,150,.2);color:#fff;}
+
+/* COVER */
+.cover{
+  background:var(--rose);
+  padding:96px 40px 80px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cover::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;border:1px solid rgba(212,184,150,.07);top:-200px;right:-180px;pointer-events:none;}
+.cover::after{content:'';position:absolute;width:350px;height:350px;border-radius:50%;border:1px solid rgba(212,184,150,.05);bottom:-100px;left:-80px;pointer-events:none;}
+.cv{position:relative;max-width:680px;margin:0 auto;}
+.cv-orn{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:22px;}
+.cv-line{width:48px;height:1px;background:var(--champ);opacity:.5;}
+.cv-dia{width:7px;height:7px;background:var(--champ);transform:rotate(45deg);}
+.cv-eye{font-size:10px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px;display:block;}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7.5vw,80px);font-weight:700;color:#fff;line-height:1.02;margin-bottom:12px;}
+.cover h1 em{font-style:italic;color:var(--champ2);font-weight:300;}
+.cv-sub{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:36px;font-weight:300;line-height:1.7;max-width:520px;margin-left:auto;margin-right:auto;}
+.cv-pills{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;}
+.pill{background:rgba(212,184,150,.12);border:1px solid rgba(212,184,150,.35);color:var(--champ2);font-size:11px;font-weight:600;padding:6px 16px;border-radius:100px;letter-spacing:1px;}
+
+/* LAYOUT */
+.wrap{max-width:840px;margin:0 auto;padding:0 32px;}
+section{padding:68px 0;border-bottom:1px solid var(--border);}
+section:last-of-type{border-bottom:none;}
+.eye{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
+.eye::before{content:'';width:20px;height:1px;background:var(--champ);}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--ink);line-height:1.12;margin-bottom:12px;}
+h2 .g{color:var(--rose);}
+h2 em{font-style:italic;font-weight:300;}
+.lead{font-size:16px;color:var(--muted);max-width:620px;margin-bottom:40px;font-weight:300;line-height:1.85;}
+p{margin-bottom:12px;}
+strong{color:var(--ink);}
+
+/* PROMISE */
+.promise{
+  background:var(--blush);border-radius:20px;
+  padding:36px 40px;margin:28px 0;
+  border:1px solid var(--border);
+  display:flex;gap:20px;align-items:flex-start;
+}
+.pr-icon{font-size:32px;flex-shrink:0;line-height:1.2;}
+.pr-text{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--rose);line-height:1.5;font-style:italic;}
+.pr-sub{font-family:'Jost',sans-serif;font-size:13px;color:var(--muted);margin-top:8px;font-style:normal;line-height:1.6;}
+
+/* PROCESS CARDS */
+.process-cards{display:flex;flex-direction:column;gap:0;margin:28px 0;}
+.pc{
+  background:#fff;border:1px solid var(--border);
+  margin-top:-1px;
+  display:flex;gap:0;overflow:hidden;
+}
+.pc:first-child{border-radius:16px 16px 0 0;}
+.pc:last-child{border-radius:0 0 16px 16px;}
+.pc-num{
+  min-width:64px;
+  background:var(--rose);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+}
+.pc-num span{
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px;font-weight:700;color:var(--champ2);
+  writing-mode:initial;
+}
+.pc-body{padding:22px 26px;flex:1;}
+.pc-title{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.pc-desc{font-size:14px;color:var(--muted);line-height:1.7;margin:0;}
+.pc-desc strong{color:var(--ink);}
+
+/* MEETING CARDS */
+.meetings{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0;}
+@media(max-width:560px){.meetings{grid-template-columns:1fr;}}
+.meet{background:#fff;border:1px solid var(--border);border-radius:14px;padding:26px 22px;}
+.meet-icon{font-size:26px;margin-bottom:12px;display:block;}
+.meet-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:6px;}
+.meet-freq{
+  display:inline-block;
+  background:var(--blush);color:var(--rose);
+  font-size:10px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:3px 10px;border-radius:100px;
+  margin-bottom:10px;
+}
+.meet-desc{font-size:13px;color:var(--muted);line-height:1.65;margin:0;}
+
+/* FLOW */
+.flow{display:flex;flex-direction:column;gap:0;margin:28px 0;}
+.flow-item{
+  display:flex;gap:20px;align-items:flex-start;
+  padding:18px 0;border-bottom:1px solid var(--border);
+}
+.flow-item:last-child{border-bottom:none;}
+.fi-step{
+  min-width:36px;height:36px;border-radius:50%;
+  background:var(--rose);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;font-weight:700;flex-shrink:0;margin-top:1px;
+}
+.fi-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:4px;}
+.fi-desc{font-size:13px;color:var(--muted);line-height:1.6;margin:0;}
+
+/* DRIVE STRUCTURE */
+.drive{
+  background:#fff;border:1px solid var(--border);
+  border-radius:16px;padding:28px;margin:24px 0;
+}
+.drive-title{font-size:14px;font-weight:700;color:var(--ink);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.drive-title::before{content:'📁';font-size:18px;}
+.folder{
+  display:flex;flex-direction:column;gap:8px;
+}
+.f-item{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13px;color:var(--text);line-height:1.55;
+  padding:10px 14px;background:var(--blush);
+  border-radius:10px;
+}
+.f-icon{flex-shrink:0;font-size:15px;}
+.f-name{font-weight:600;color:var(--ink);}
+.f-desc{color:var(--muted);font-size:12px;}
+
+/* BRIEFING */
+.brief-card{
+  background:var(--rose);border-radius:20px;
+  padding:36px 40px;margin:28px 0;
+  position:relative;overflow:hidden;
+}
+.brief-card::before{content:'';position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid rgba(212,184,150,.08);right:-80px;top:-80px;pointer-events:none;}
+.bc-tag{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--champ);margin-bottom:12px;display:block;position:relative;}
+.bc-title{font-family:'Cormorant Garamond',serif;font-size:24px;color:#fff;font-weight:700;margin-bottom:12px;position:relative;}
+.bc-desc{font-size:14px;color:rgba(255,255,255,.6);line-height:1.75;position:relative;font-weight:300;}
+.bc-items{list-style:none;display:flex;flex-direction:column;gap:8px;margin-top:16px;position:relative;}
+.bc-items li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(255,255,255,.65);margin:0;line-height:1.55;}
+.bc-items li::before{content:'✦';color:var(--champ);font-size:9px;flex-shrink:0;margin-top:3px;}
+
+/* CALLOUT */
+.callout{border-radius:14px;padding:18px 22px;margin:20px 0;display:flex;gap:12px;}
+.callout.rose{background:var(--blush);border-left:3px solid var(--rose);}
+.callout.champ{background:#FAF5EE;border-left:3px solid var(--champ);}
+.callout.sage{background:var(--sage-bg);border-left:3px solid var(--sage);}
+.ci{font-size:17px;flex-shrink:0;line-height:1.6;}
+.ct{font-size:14px;line-height:1.7;color:#555;}
+.ct strong{color:var(--ink);}
+
+/* TIMELINE */
+.tl{position:relative;padding-left:28px;margin:28px 0;}
+.tl::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:linear-gradient(to bottom,var(--rose),rgba(124,62,82,.1));}
+.tl-item{position:relative;margin-bottom:32px;}
+.tl-item::before{content:'';position:absolute;left:-24px;top:7px;width:10px;height:10px;border-radius:50%;background:var(--rose);box-shadow:0 0 0 3px var(--ivory);}
+.tl-phase{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--rose);margin-bottom:4px;}
+.tl-title{font-family:'Cormorant Garamond',serif;font-size:20px;color:var(--ink);font-weight:600;margin-bottom:6px;}
+.tl-desc{font-size:14px;color:var(--muted);margin:0;line-height:1.65;}
+
+/* FOOTER */
+footer{background:var(--rose);padding:52px 32px;text-align:center;}
+.ft{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--champ2);margin-bottom:8px;}
+footer p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.22);}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="#promessa">A promessa</a>
+  <a href="#processo">O processo</a>
+  <a href="#reunioes">Reuniões</a>
+  <a href="#material">Material</a>
+  <a href="#briefing">Briefing</a>
+  <a href="#cronograma">Cronograma</a>
+</nav>
+
+<div class="cover">
+  <div class="cv">
+    <div class="cv-orn"><div class="cv-line"></div><div class="cv-dia"></div><div class="cv-line"></div></div>
+    <span class="cv-eye">Como Trabalharemos · @angelicapires_s</span>
+    <h1>O trabalho<br><em>na prática</em></h1>
+    <p class="cv-sub">Como tudo acontece — de forma simples, organizada e sem tomar seu tempo além do necessário.</p>
+    <div class="cv-pills">
+      <span class="pill">100% Online</span>
+      <span class="pill">Aprovação prévia</span>
+      <span class="pill">Você no controle</span>
+      <span class="pill">Sem surpresas</span>
+    </div>
+  </div>
+</div>
+
+<!-- PROMESSA -->
+<section id="promessa">
+<div class="wrap">
+  <div class="eye">A base de tudo</div>
+  <h2>O que você pode<br><span class="g"><em>esperar de mim</em></span></h2>
+
+  <div class="promise">
+    <div class="pr-icon">🤝</div>
+    <div>
+      <p class="pr-text">"Você nunca vai publicar um post que não aproveitou antes. Nada vai ao ar sem o seu olhar — e o seu tempo é sempre respeitado."</p>
+      <p class="pr-sub">Sei que você dirige três escolas, forma equipes, realiza eventos e ainda está construindo a mentoria. Por isso cada etapa do nosso trabalho foi pensada para exigir o mínimo possível de você — sem abrir mão da qualidade e do alinhamento.</p>
+    </div>
+  </div>
+
+  <div class="callout champ">
+    <div class="ci">✦</div>
+    <p class="ct"><strong>O princípio do nosso trabalho:</strong> Eu produzo, você aprova e publica. Você não precisará pensar do zero em nada — só revisar, ajustar se necessário, e confirmar. Toda a carga criativa e estratégica fica comigo.</p>
+  </div>
+</div>
+</section>
+
+<!-- PROCESSO -->
+<section id="processo">
+<div class="wrap">
+  <div class="eye">O processo mensal</div>
+  <h2>Como cada mês<br><span class="g"><em>funciona</em></span></h2>
+  <p class="lead">Um ciclo simples que se repete todo mês — previsível para você, fluido para o trabalho.</p>
+
+  <div class="process-cards">
+    <div class="pc">
+      <div class="pc-num"><span>01</span></div>
+      <div class="pc-body">
+        <div class="pc-title">Reunião de planejamento mensal</div>
+        <p class="pc-desc">No início de cada mês, nos encontramos por <strong>60 a 90 minutos</strong> por videochamada. Planejamos o calendário do mês, alinhamos eventos previstos e definimos as prioridades. Você sai sabendo exatamente o que vai ser publicado e por quê.</p>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-num"><span>02</span></div>
+      <div class="pc-body">
+        <div class="pc-title">Produção do conteúdo</div>
+        <p class="pc-desc">Com base no planejamento, produzo todos os posts da semana — legendas completas, roteiros de Reels, estrutura de Stories. Tudo entregue com antecedência de <strong>5 dias antes da publicação.</strong></p>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-num"><span>03</span></div>
+      <div class="pc-body">
+        <div class="pc-title">Aprovação — simples e rápida</div>
+        <p class="pc-desc">Você recebe o material pelo canal combinado (WhatsApp ou documento compartilhado). Lê, aprova ou pede ajuste. A <strong>aprovação leva em média 10 a 15 minutos por semana</strong> — sem precisar de reunião para isso.</p>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-num"><span>04</span></div>
+      <div class="pc-body">
+        <div class="pc-title">Publicação e acompanhamento</div>
+        <p class="pc-desc">Após aprovação, você (ou sua equipe) publica os posts nas datas programadas. Acompanho o desempenho ao longo da semana e faço ajustes quando necessário.</p>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-num"><span>05</span></div>
+      <div class="pc-body">
+        <div class="pc-title">Check-in quinzenal</div>
+        <p class="pc-desc">Uma conversa rápida de <strong>30 minutos</strong> a cada 15 dias para avaliar o que está funcionando, ajustar a estratégia se necessário e alinhar as próximas semanas.</p>
+      </div>
+    </div>
+    <div class="pc">
+      <div class="pc-num"><span>06</span></div>
+      <div class="pc-body">
+        <div class="pc-title">Relatório mensal</div>
+        <p class="pc-desc">No final de cada mês você recebe um relatório simples com crescimento de seguidores, alcance, engajamento e os posts que mais funcionaram. <strong>Dados que mostram o trabalho evoluindo.</strong></p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- REUNIÕES -->
+<section id="reunioes">
+<div class="wrap">
+  <div class="eye">Reuniões e comunicação</div>
+  <h2>Quando nos<br><span class="g"><em>encontramos</em></span></h2>
+  <p class="lead">Tudo feito à distância, com estrutura que evita reuniões desnecessárias e respeita a sua agenda.</p>
+
+  <div class="meetings">
+    <div class="meet">
+      <span class="meet-icon">📅</span>
+      <div class="meet-title">Reunião de planejamento</div>
+      <span class="meet-freq">1× por mês</span>
+      <p class="meet-desc">60 a 90 minutos no início do mês. Alinhamos calendário, eventos e prioridades. Via Google Meet ou Zoom.</p>
+    </div>
+    <div class="meet">
+      <span class="meet-icon">✅</span>
+      <div class="meet-title">Check-in de acompanhamento</div>
+      <span class="meet-freq">2× por mês</span>
+      <p class="meet-desc">30 minutos a cada 15 dias. Avaliamos resultados e ajustamos a estratégia em tempo real.</p>
+    </div>
+    <div class="meet">
+      <span class="meet-icon">💬</span>
+      <div class="meet-title">Aprovação de conteúdo</div>
+      <span class="meet-freq">Semanal · sem reunião</span>
+      <p class="meet-desc">Feita por WhatsApp ou documento. Você lê, aprova ou pede ajuste. Média de 10 a 15 minutos da sua semana.</p>
+    </div>
+    <div class="meet">
+      <span class="meet-icon">📲</span>
+      <div class="meet-title">Comunicação do dia a dia</div>
+      <span class="meet-freq">WhatsApp</span>
+      <p class="meet-desc">Para dúvidas rápidas, envio de material e alinhamentos pontuais. Resposta em até 24h em dias úteis.</p>
+    </div>
+  </div>
+
+  <div class="callout rose">
+    <div class="ci">⏱️</div>
+    <p class="ct"><strong>Tempo real que o trabalho exige de você por semana:</strong> Em média <strong>20 a 30 minutos</strong> — para revisar e aprovar o conteúdo da semana, enviar fotos ou vídeos para a pasta compartilhada e responder mensagens pontuais. Sem isso, o conteúdo não soa como você.</p>
+  </div>
+</div>
+</section>
+
+<!-- MATERIAL -->
+<section id="material">
+<div class="wrap">
+  <div class="eye">Envio de material</div>
+  <h2>Como você me envia<br><span class="g"><em>fotos e vídeos</em></span></h2>
+  <p class="lead">Organização simples que economiza tempo das duas partes — e garante que nunca falte material para o conteúdo.</p>
+
+  <div class="drive">
+    <div class="drive-title">Pasta compartilhada no Google Drive</div>
+    <div class="folder">
+      <div class="f-item">
+        <div class="f-icon">📸</div>
+        <div>
+          <div class="f-name">Fotos — Escola e Eventos</div>
+          <p class="f-desc">Fotos da escola, equipe, bastidores de eventos, momentos do dia a dia. Você joga ali quando tiver — eu uso no conteúdo da semana.</p>
+        </div>
+      </div>
+      <div class="f-item">
+        <div class="f-icon">🎬</div>
+        <div>
+          <div class="f-name">Vídeos — Brutos para Reels</div>
+          <p class="f-desc">Gravações seguindo o roteiro que envio. Você grava, joga na pasta — eu oriento o que precisa ser gravado com antecedência.</p>
+        </div>
+      </div>
+      <div class="f-item">
+        <div class="f-icon">📋</div>
+        <div>
+          <div class="f-name">Conteúdo Aprovado — Posts da semana</div>
+          <p class="f-desc">Onde entrego o material produzido para você revisar e publicar. Legendas, roteiros e artes organizados por data.</p>
+        </div>
+      </div>
+      <div class="f-item">
+        <div class="f-icon">📊</div>
+        <div>
+          <div class="f-name">Relatórios Mensais</div>
+          <p class="f-desc">Relatório de crescimento, alcance e engajamento. Fica aqui para consulta a qualquer momento.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="flow">
+    <div class="flow-item">
+      <div class="fi-step">1</div>
+      <div>
+        <div class="fi-title">Você envia fotos e vídeos na pasta</div>
+        <p class="fi-desc">Sempre que tiver um evento, bastidor ou momento relevante — joga na pasta. Pode ser uma foto pelo celular mesmo.</p>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="fi-step">2</div>
+      <div>
+        <div class="fi-title">Eu produzo o conteúdo da semana</div>
+        <p class="fi-desc">Com o material disponível e o planejamento do mês, produzo legendas, roteiros e estrutura dos Stories.</p>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="fi-step">3</div>
+      <div>
+        <div class="fi-title">Entrego para aprovação com 5 dias de antecedência</div>
+        <p class="fi-desc">Você recebe pelo WhatsApp ou na pasta — lê, aprova com um "ok" ou pede ajuste. Simples assim.</p>
+      </div>
+    </div>
+    <div class="flow-item">
+      <div class="fi-step">4</div>
+      <div>
+        <div class="fi-title">Você ou sua equipe publica</div>
+        <p class="fi-desc">Nas datas programadas no calendário editorial. Pode usar o próprio Instagram ou um agendador como o Later.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- BRIEFING -->
+<section id="briefing">
+<div class="wrap">
+  <div class="eye">O primeiro passo</div>
+  <h2>O briefing: onde<br><span class="g"><em>tudo começa</em></span></h2>
+
+  <div class="brief-card">
+    <span class="bc-tag">Briefing de Início</span>
+    <div class="bc-title">Uma vez só — e não precisamos perguntar de novo</div>
+    <p class="bc-desc">Preparei um briefing completo com tudo que preciso saber sobre você, suas escolas, a mentoria, os eventos e suas preferências — para que o conteúdo soe como você desde o primeiro post e não precisemos fazer reunião para cada detalhe.</p>
+    <ul class="bc-items">
+      <li>Sua história, seu tom de voz, suas frases características</li>
+      <li>Os momentos marcantes dos 35 anos que viram storytelling</li>
+      <li>Tudo sobre a mentoria — formato, público, preço, plataforma</li>
+      <li>Preferência de identidade visual (Opção 1 ou Opção 2)</li>
+      <li>Como você prefere receber, aprovar e publicar o conteúdo</li>
+      <li>Eventos previstos nos próximos 3 meses</li>
+      <li>Dias e horários disponíveis para as reuniões</li>
+    </ul>
+  </div>
+
+  <div class="callout champ">
+    <div class="ci">📋</div>
+    <p class="ct"><strong>Como responder:</strong> O briefing pode ser respondido por escrito (formulário online que envio), por áudio de WhatsApp (bloco por bloco) ou na primeira reunião de alinhamento. Você escolhe o formato mais cômodo para você.</p>
+  </div>
+</div>
+</section>
+
+<!-- CRONOGRAMA -->
+<section id="cronograma">
+<div class="wrap">
+  <div class="eye">Os primeiros 90 dias</div>
+  <h2>O que acontece<br><em>em cada <span class="g">fase</span></em></h2>
+
+  <div class="tl">
+    <div class="tl-item">
+      <div class="tl-phase">Semana 01</div>
+      <div class="tl-title">Estruturamos tudo antes de publicar</div>
+      <p class="tl-desc">Briefing respondido · bio reformulada · foto de perfil · nome de exibição · 6 destaques com capas · 3 posts fixados · identidade visual no Canva · link da bio configurado. O perfil novo vai ao ar ao final desta semana.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Semanas 02–04 · Mês 01</div>
+      <div class="tl-title">Apresentamos quem você é de verdade</div>
+      <p class="tl-desc">Carrossel de apresentação dos 35 anos · início do calendário editorial · storytelling pessoal · autoridade técnica · primeiros posts dos eventos. A audiência que já existe começa a entender quem você é e o que oferece.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Semanas 05–08 · Mês 02</div>
+      <div class="tl-title">Construímos autoridade e aquecemos a audiência</div>
+      <p class="tl-desc">Primeiro post direto sobre a mentoria · material gratuito para captar WhatsApp · divulgação estratégica dos eventos · depoimentos integrados · live de Q&amp;A sobre gestão escolar. A audiência cresce e começa a perguntar sobre a mentoria.</p>
+    </div>
+    <div class="tl-item">
+      <div class="tl-phase">Semanas 09–12 · Mês 03</div>
+      <div class="tl-title">Lançamos a primeira turma da mentoria</div>
+      <p class="tl-desc">Sequência completa de lançamento: aquecimento → abertura de vagas → urgência → fechamento. Posts diários, stories com contagem regressiva, live de apresentação. Meta conservadora: 10 a 20 inscrições. O investimento se paga nesta fase.</p>
+    </div>
+  </div>
+
+  <div class="callout sage">
+    <div class="ci">💛</div>
+    <p class="ct"><strong>O próximo passo:</strong> Se esta proposta faz sentido para você, o que precisamos fazer é simples — confirmar, acertar os detalhes do contrato e agendar a primeira reunião. Tudo o mais já está pensado e pronto para começar.</p>
+  </div>
+
+</div>
+</section>
+
+<footer>
+  <div class="ft">Como Faremos Tudo Isso · Angélica Pires</div>
+  <p>Elaborado por Maria Loyola · Estrategista de Conteúdo &amp; Storytelling</p>
+</footer>
+
+</body>
+</html>
