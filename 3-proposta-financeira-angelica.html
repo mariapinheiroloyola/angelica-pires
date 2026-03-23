@@ -3,285 +3,562 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Proposta Financeira · Angélica Pires</title>
+<title>Proposta · Gestão Estratégica de Instagram · Angélica Pires</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{
+:root {
   --rose:   #7C3E52;
-  --rose2:  #6A3346;
   --champ:  #D4B896;
   --champ2: #EAD5BF;
   --blush:  #F2E8EC;
-  --blush2: #E8D5DD;
   --ivory:  #FAF7F2;
   --ink:    #2A1F24;
   --text:   #4A3840;
   --muted:  #8A7278;
   --border: #E8DADE;
+  --sage:   #6B7C6A;
+  --sage-bg:#EDF0EC;
   --green:  #1A6B45;
   --grn-bg: #EEF8F3;
 }
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:'Jost',sans-serif;background:var(--ivory);color:var(--text);font-size:15px;line-height:1.75;}
-
-/* COVER */
-.cover{
-  background:var(--rose);
-  padding:96px 40px 80px;
-  text-align:center;
-  position:relative;overflow:hidden;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--ivory);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
 }
-.cover::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;border:1px solid rgba(212,184,150,.07);top:-200px;right:-160px;pointer-events:none;}
-.cover::after{content:'';position:absolute;width:350px;height:350px;border-radius:50%;border:1px solid rgba(212,184,150,.05);bottom:-100px;left:-80px;pointer-events:none;}
-.cv{position:relative;max-width:680px;margin:0 auto;}
-.cv-orn{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:22px;}
-.cv-line{width:48px;height:1px;background:var(--champ);opacity:.5;}
-.cv-dia{width:7px;height:7px;background:var(--champ);transform:rotate(45deg);}
-.cv-eye{font-size:10px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px;display:block;}
-.cover h1{font-family:'Cormorant Garamond',serif;font-size:clamp(44px,7.5vw,80px);font-weight:700;color:#fff;line-height:1.02;margin-bottom:12px;}
-.cover h1 em{font-style:italic;color:var(--champ2);font-weight:300;}
-.cv-sub{font-size:15px;color:rgba(255,255,255,.4);margin-bottom:0;font-weight:300;line-height:1.7;}
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 99;
+  background: var(--rose);
+  padding: 12px 24px;
+  display: flex; align-items: center; gap: 6px;
+  overflow-x: auto;
+  border-bottom: 2px solid var(--champ);
+  scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  white-space: nowrap;
+  font-size: 10px; font-weight: 600;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  text-decoration: none;
+  padding: 5px 13px; border-radius: 100px;
+  transition: all .2s;
+}
+.nav a:hover { background: rgba(212,184,150,.2); color: #fff; }
+
+/* CAPA */
+.cover {
+  background: var(--rose);
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 32px;
+  position: relative; overflow: hidden;
+}
+.cover::before {
+  content: '';
+  position: absolute;
+  width: 640px; height: 640px; border-radius: 50%;
+  border: 1px solid rgba(212,184,150,.07);
+  top: -220px; right: -180px; pointer-events: none;
+}
+.cover::after {
+  content: '';
+  position: absolute;
+  width: 380px; height: 380px; border-radius: 50%;
+  border: 1px solid rgba(212,184,150,.05);
+  bottom: -110px; left: -90px; pointer-events: none;
+}
+.cv { position: relative; max-width: 640px; margin: 0 auto; }
+.orn { display: flex; align-items: center; gap: 14px; justify-content: center; margin-bottom: 22px; }
+.orn-line { width: 48px; height: 1px; background: var(--champ); opacity: .45; }
+.orn-dia  { width: 7px; height: 7px; background: var(--champ); transform: rotate(45deg); }
+.cv-eye { font-size: 10px; font-weight: 600; letter-spacing: 6px; text-transform: uppercase; color: rgba(255,255,255,.35); margin-bottom: 16px; display: block; }
+.cover h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(40px, 7vw, 76px); font-weight: 700; color: #fff; line-height: 1.05; margin-bottom: 14px; }
+.cover h1 em { font-style: italic; color: var(--champ2); font-weight: 300; }
+.cv-sub { font-size: 15px; color: rgba(255,255,255,.4); font-weight: 300; line-height: 1.8; max-width: 480px; margin: 0 auto 36px; }
+.cv-pills { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.pill { background: rgba(212,184,150,.12); border: 1px solid rgba(212,184,150,.3); color: var(--champ2); font-size: 11px; font-weight: 600; padding: 6px 18px; border-radius: 100px; letter-spacing: 1px; }
 
 /* LAYOUT */
-.wrap{max-width:800px;margin:0 auto;padding:0 32px;}
-section{padding:68px 0;border-bottom:1px solid var(--border);}
-section:last-of-type{border-bottom:none;}
-.eye{display:inline-flex;align-items:center;gap:10px;font-size:10px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--rose);margin-bottom:16px;}
-.eye::before{content:'';width:20px;height:1px;background:var(--champ);}
-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4vw,44px);font-weight:700;color:var(--ink);line-height:1.12;margin-bottom:12px;}
-h2 .g{color:var(--rose);}
-h2 em{font-style:italic;font-weight:300;}
-.lead{font-size:16px;color:var(--muted);max-width:620px;margin-bottom:40px;font-weight:300;line-height:1.85;}
-p{margin-bottom:12px;}
-strong{color:var(--ink);}
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
+section { padding: 68px 0; border-bottom: 1px solid var(--border); }
+section:last-of-type { border-bottom: none; }
+.eye { display: inline-flex; align-items: center; gap: 10px; font-size: 10px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: var(--rose); margin-bottom: 16px; }
+.eye::before { content: ''; width: 20px; height: 1px; background: var(--champ); }
+h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 44px); font-weight: 700; color: var(--ink); line-height: 1.15; margin-bottom: 14px; }
+h2 em { font-style: italic; font-weight: 300; }
+h2 .g { color: var(--rose); }
+.lead { font-size: 16px; color: var(--muted); font-weight: 300; line-height: 1.9; max-width: 660px; margin-bottom: 36px; }
+p { margin-bottom: 14px; color: var(--text); }
+strong { color: var(--ink); }
 
-/* PRICE HERO */
-.price-hero{
-  background:var(--rose);
-  border-radius:24px;
-  padding:52px 48px;
-  text-align:center;
-  position:relative;overflow:hidden;
-  margin:36px 0;
+/* DIAGNÓSTICO PERSONALIZADO */
+.diag {
+  background: var(--rose);
+  border-radius: 20px;
+  padding: 44px 48px;
+  margin: 32px 0;
+  position: relative; overflow: hidden;
 }
-.price-hero::before{content:'';position:absolute;width:400px;height:400px;border-radius:50%;border:1px solid rgba(212,184,150,.08);top:-150px;right:-100px;pointer-events:none;}
-.ph-tag{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:12px;display:block;position:relative;}
-.ph-orn{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:20px;}
-.ph-line{width:36px;height:1px;background:var(--champ);opacity:.4;}
-.ph-dia{width:5px;height:5px;background:var(--champ);transform:rotate(45deg);}
-.ph-price{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(64px,12vw,96px);
-  font-weight:900;color:#fff;line-height:1;
-  position:relative;
-  margin-bottom:6px;
+.diag::before {
+  content: '"';
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 160px; color: rgba(212,184,150,.06);
+  position: absolute; top: -20px; left: 16px;
+  line-height: 1; pointer-events: none;
 }
-.ph-price sup{font-size:.4em;vertical-align:super;color:var(--champ2);}
-.ph-period{font-size:14px;color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;margin-bottom:24px;position:relative;}
-.ph-desc{font-size:15px;color:rgba(255,255,255,.6);line-height:1.7;max-width:480px;margin:0 auto;position:relative;font-weight:300;}
-.ph-contract{
-  display:inline-block;
-  background:rgba(212,184,150,.15);
-  border:1px solid rgba(212,184,150,.3);
-  color:var(--champ2);
-  font-size:11px;font-weight:600;
-  letter-spacing:2px;text-transform:uppercase;
-  padding:8px 22px;border-radius:100px;
-  margin-top:20px;position:relative;
-}
+.diag-tag { font-size: 9px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: var(--champ); margin-bottom: 12px; display: block; position: relative; }
+.diag-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2.3vw, 22px); line-height: 1.6; color: #fff; position: relative; margin-bottom: 0; }
+.diag-text em { color: var(--champ2); font-style: italic; }
 
-/* ROI BOX */
-.roi{
-  background:var(--grn-bg);
-  border:1px solid #B0D9C0;
-  border-radius:16px;
-  padding:28px 32px;
-  margin:28px 0;
-  display:flex;gap:16px;align-items:flex-start;
-}
-.roi-icon{font-size:28px;flex-shrink:0;line-height:1.3;}
-.roi-body{flex:1;}
-.roi-title{font-size:14px;font-weight:700;color:var(--green);margin-bottom:6px;}
-.roi-text{font-size:14px;color:#2A5A3A;line-height:1.7;margin:0;}
+/* VALOR ANCORADO */
+.anchor-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+@media(max-width: 560px) { .anchor-grid { grid-template-columns: 1fr; } }
+.anchor-card { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rose); border-radius: 14px; padding: 22px 20px; }
+.ac-icon { font-size: 22px; margin-bottom: 10px; display: block; }
+.ac-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.ac-text { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
 
-/* DELIVERABLES */
-.del-block{
-  background:#fff;border:1px solid var(--border);
-  border-radius:18px;overflow:hidden;margin-bottom:16px;
-}
-.db-header{
-  background:var(--rose);padding:18px 26px;
-  display:flex;align-items:center;gap:14px;
-}
-.db-icon{font-size:22px;flex-shrink:0;}
-.db-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;font-weight:700;}
-.db-sub{font-size:11px;color:rgba(255,255,255,.38);margin-top:2px;}
-.db-body{padding:20px 26px;}
-.db-list{list-style:none;display:flex;flex-direction:column;gap:9px;}
-.db-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.6;color:var(--text);margin:0;}
-.db-list li::before{content:'✦';color:var(--champ);font-size:9px;flex-shrink:0;margin-top:4px;}
+/* PLANOS */
+.plans { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 36px 0; }
+@media(max-width: 580px) { .plans { grid-template-columns: 1fr; } }
+.plan { border-radius: 22px; overflow: hidden; border: 2px solid transparent; transition: transform .2s; display: flex; flex-direction: column; position: relative; }
+.plan:hover { transform: translateY(-3px); }
+.plan.p1 { background: #fff; border-color: var(--border); }
+.plan.p2 { background: var(--rose); border-color: var(--champ); }
+.plan-rec { position: absolute; top: 16px; right: 16px; background: var(--champ); color: var(--rose); font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; padding: 4px 12px; border-radius: 100px; }
+.plan-body { padding: 34px 28px; flex: 1; }
+.plan-tag { font-size: 9px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+.plan.p1 .plan-tag { color: var(--rose); }
+.plan.p2 .plan-tag { color: var(--champ2); }
+.plan-name { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; line-height: 1.25; margin-bottom: 6px; }
+.plan.p1 .plan-name { color: var(--ink); }
+.plan.p2 .plan-name { color: #fff; }
+.plan-caption { font-family: 'Cormorant Garamond', serif; font-size: 14px; font-style: italic; margin-bottom: 24px; }
+.plan.p1 .plan-caption { color: var(--muted); }
+.plan.p2 .plan-caption { color: rgba(255,255,255,.45); }
+.plan-price { font-family: 'Cormorant Garamond', serif; font-size: clamp(44px, 8vw, 58px); font-weight: 900; line-height: 1; margin-bottom: 4px; }
+.plan.p1 .plan-price { color: var(--ink); }
+.plan.p2 .plan-price { color: var(--champ2); }
+.plan-price sup { font-size: .38em; vertical-align: super; }
+.plan-period { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 24px; }
+.plan.p1 .plan-period { color: var(--muted); }
+.plan.p2 .plan-period { color: rgba(255,255,255,.35); }
+.plan-div { border: none; border-top: 1px solid; margin: 20px 0; }
+.plan.p1 .plan-div { border-color: var(--border); }
+.plan.p2 .plan-div { border-color: rgba(255,255,255,.12); }
+.plan-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.plan-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.65; margin: 0; }
+.plan.p1 .plan-list li { color: var(--text); }
+.plan.p2 .plan-list li { color: rgba(255,255,255,.75); }
+.plan-list li::before { content: '✦'; font-size: 9px; flex-shrink: 0; margin-top: 4px; }
+.plan.p1 .plan-list li::before { color: var(--champ); }
+.plan.p2 .plan-list li::before { color: var(--champ2); }
+.plan-obs { margin-top: 18px; padding: 14px 16px; border-radius: 10px; font-size: 12px; font-style: italic; line-height: 1.65; }
+.plan.p1 .plan-obs { background: var(--blush); color: var(--muted); border-left: 2px solid var(--rose); }
+.plan.p2 .plan-obs { background: rgba(0,0,0,.15); color: rgba(255,255,255,.45); border-left: 2px solid rgba(212,184,150,.4); }
+
+/* TEMPO DA ANGÉLICA */
+.tempo-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin: 28px 0; }
+@media(max-width: 560px) { .tempo-grid { grid-template-columns: 1fr; } }
+.tempo-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px 18px; text-align: center; }
+.tc-val { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 900; color: var(--rose); line-height: 1; margin-bottom: 6px; }
+.tc-label { font-size: 12px; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.tc-desc { font-size: 12px; color: var(--muted); line-height: 1.5; }
+
+/* DURAÇÃO */
+.duracao { background: var(--rose); border-radius: 20px; padding: 44px 48px; margin: 36px 0; position: relative; overflow: hidden; }
+.duracao::before { content: ''; position: absolute; width: 380px; height: 380px; border-radius: 50%; border: 1px solid rgba(212,184,150,.07); right: -80px; top: -80px; pointer-events: none; }
+.dur-tag { font-size: 9px; font-weight: 700; letter-spacing: 5px; text-transform: uppercase; color: var(--champ); margin-bottom: 12px; display: block; position: relative; }
+.dur-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(20px, 3vw, 28px); color: #fff; font-weight: 700; line-height: 1.3; margin-bottom: 20px; position: relative; }
+.dur-title em { color: var(--champ2); font-style: italic; }
+.dur-items { list-style: none; display: flex; flex-direction: column; gap: 10px; position: relative; }
+.dur-items li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: rgba(255,255,255,.65); line-height: 1.65; margin: 0; font-weight: 300; }
+.dur-items li::before { content: '✦'; color: var(--champ); font-size: 9px; flex-shrink: 0; margin-top: 4px; }
+
+/* DIFFERENCIAL */
+.dif-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 28px 0; }
+@media(max-width: 560px) { .dif-grid { grid-template-columns: 1fr; } }
+.dif-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 22px 20px; }
+.dc-icon { font-size: 20px; margin-bottom: 10px; display: block; }
+.dc-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.dc-text { font-size: 13px; color: var(--muted); line-height: 1.7; margin: 0; }
 
 /* CALLOUT */
-.callout{border-radius:14px;padding:18px 22px;margin:20px 0;display:flex;gap:12px;}
-.callout.rose{background:var(--blush);border-left:3px solid var(--rose);}
-.callout.champ{background:#FAF5EE;border-left:3px solid var(--champ);}
-.ci{font-size:17px;flex-shrink:0;line-height:1.6;}
-.ct{font-size:14px;line-height:1.7;color:#555;}
-.ct strong{color:var(--ink);}
+.callout { border-radius: 14px; padding: 18px 22px; margin: 20px 0; display: flex; gap: 12px; }
+.callout.rose { background: var(--blush); border-left: 3px solid var(--rose); }
+.callout.sage { background: var(--sage-bg); border-left: 3px solid var(--sage); }
+.callout.green { background: var(--grn-bg); border-left: 3px solid var(--green); }
+.ci { font-size: 17px; flex-shrink: 0; line-height: 1.6; }
+.ct { font-size: 14px; line-height: 1.7; color: #555; }
+.ct strong { color: var(--ink); }
 
-/* WHAT IS NOT */
-.not-list{list-style:none;display:flex;flex-direction:column;gap:10px;margin:20px 0;}
-.not-list li{display:flex;align-items:flex-start;gap:10px;font-size:14px;line-height:1.55;color:var(--muted);margin:0;}
-.not-list li::before{content:'—';color:var(--border);font-weight:700;flex-shrink:0;}
+/* PRÓXIMOS PASSOS */
+.steps { display: flex; flex-direction: column; gap: 0; margin: 28px 0; }
+.step { background: #fff; border: 1px solid var(--border); margin-top: -1px; display: flex; gap: 0; overflow: hidden; }
+.step:first-child { border-radius: 16px 16px 0 0; }
+.step:last-child { border-radius: 0 0 16px 16px; }
+.step-num { min-width: 56px; background: var(--rose); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.step-num span { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 700; color: var(--champ2); }
+.step-body { padding: 20px 24px; flex: 1; }
+.step-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.step-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin: 0; }
+.step-desc strong { color: var(--ink); }
 
-/* INSIGHT */
-.insight{background:var(--rose);border-radius:20px;padding:40px 44px;margin:32px 0;position:relative;overflow:hidden;}
-.insight::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:160px;color:rgba(212,184,150,.06);position:absolute;top:-20px;left:16px;line-height:1;pointer-events:none;}
-.insight-text{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.3vw,22px);line-height:1.55;color:#fff;position:relative;margin-bottom:12px;}
-.insight-text em{color:var(--champ2);font-style:italic;}
-.insight-src{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.28);position:relative;}
+/* CARTA FINAL */
+.carta { background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--rose); border-radius: 0 0 20px 20px; padding: 44px 48px; position: relative; overflow: hidden; }
+.carta::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 160px; color: rgba(124,62,82,.05); position: absolute; top: -10px; left: 24px; line-height: 1; pointer-events: none; }
+.carta p { font-size: 16px; line-height: 1.9; color: var(--text); position: relative; }
+.carta p + p { margin-top: 16px; }
+.carta-sig { margin-top: 32px; padding-top: 22px; border-top: 1px solid var(--border); }
+.carta-sig strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--rose); font-weight: 700; margin-bottom: 3px; }
+.carta-sig span { font-size: 12px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
+
+/* ROI */
+.roi { background: var(--grn-bg); border: 1px solid #B0D9C0; border-radius: 16px; padding: 26px 30px; margin: 20px 0; display: flex; gap: 16px; align-items: flex-start; }
+.roi-icon { font-size: 26px; flex-shrink: 0; line-height: 1.3; }
+.roi-title { font-size: 14px; font-weight: 700; color: var(--green); margin-bottom: 6px; }
+.roi-text { font-size: 14px; color: #2A5A3A; line-height: 1.75; margin: 0; }
+.roi-text strong { color: var(--green); }
 
 /* FOOTER */
-footer{background:var(--rose);padding:52px 32px;text-align:center;}
-.ft{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--champ2);margin-bottom:8px;}
-footer p{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.22);}
+footer { background: var(--rose); padding: 52px 32px; text-align: center; }
+.ft { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-style: italic; color: var(--champ2); margin-bottom: 8px; }
+footer p { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.22); }
 </style>
 </head>
 <body>
 
+<nav class="nav">
+  <a href="#apresentacao">Apresentação</a>
+  <a href="#diagnostico">Diagnóstico</a>
+  <a href="#planos">Os Planos</a>
+  <a href="#duracao">Duração</a>
+  <a href="#diferencial">Diferencial</a>
+  <a href="#proximos">Próximos Passos</a>
+</nav>
+
+<!-- CAPA -->
 <div class="cover">
   <div class="cv">
-    <div class="cv-orn"><div class="cv-line"></div><div class="cv-dia"></div><div class="cv-line"></div></div>
-    <span class="cv-eye">Proposta Financeira · @angelicapires_s</span>
-    <h1>O investimento<br><em>e o que ele inclui</em></h1>
-    <p class="cv-sub">Transparência completa — o que você recebe, o que não está incluso e o retorno esperado.</p>
+    <div class="orn"><div class="orn-line"></div><div class="orn-dia"></div><div class="orn-line"></div></div>
+    <span class="cv-eye">Proposta · @angelicapires_s</span>
+    <h1>Gestão Estratégica<br><em>de Instagram</em></h1>
+    <p class="cv-sub">Uma proposta pensada especialmente para você, Angélica — com intenção, estratégia e cuidado com tudo que você já construiu.</p>
+    <div class="cv-pills">
+      <span class="pill">Plano Estratégico · R$ 1.500</span>
+      <span class="pill">Estratégico + Execução · R$ 2.000</span>
+      <span class="pill">Duração mínima · 3 meses</span>
+    </div>
   </div>
 </div>
 
-<!-- VALOR -->
-<section>
+<!-- APRESENTAÇÃO -->
+<section id="apresentacao">
 <div class="wrap">
-  <div class="eye">O Investimento</div>
-  <h2>Um valor justo para<br>um <span class="g"><em>trabalho completo</em></span></h2>
-  <p class="lead">Depois de analisar os dois perfis, estruturar toda a estratégia e produzir o material do primeiro mês, chegamos a um valor que reflete o escopo real do trabalho — e o retorno que ele gera.</p>
+  <div class="eye">Apresentação</div>
+  <h2>O que é esse trabalho<br><em>na <span class="g">prática</span></em></h2>
 
-  <div class="price-hero">
-    <span class="ph-tag">Investimento mensal</span>
-    <div class="ph-orn"><div class="ph-line"></div><div class="ph-dia"></div><div class="ph-line"></div></div>
-    <div class="ph-price"><sup>R$</sup>2.000</div>
-    <div class="ph-period">por mês</div>
-    <p class="ph-desc">Estratégia de conteúdo, produção completa, identidade visual e gestão do perfil — tudo incluso, tudo alinhado com a sua missão.</p>
-    <span class="ph-contract">Contrato mínimo · 3 meses</span>
-  </div>
+  <p class="lead">Esta proposta tem como objetivo estruturar e conduzir o seu Instagram de forma estratégica, alinhando posicionamento, comunicação e conteúdo para gerar conexão real com o público, fortalecer sua autoridade e criar oportunidades de crescimento e vendas.</p>
 
-  <div class="roi">
-    <div class="roi-icon">💰</div>
-    <div class="roi-body">
-      <div class="roi-title">Retorno sobre o investimento</div>
-      <p class="roi-text">Se a sua mentoria for vendida a R$&nbsp;1.000 por aluna, <strong>2 inscrições</strong> cobrem o mês inteiro de trabalho. Uma turma de 10 a 20 alunas — meta conservadora para os primeiros 90 dias — representa retorno de 5 a 10 vezes o valor investido no período. O perfil deixa de ser vitrine vazia e passa a ser <strong>o seu melhor vendedor.</strong></p>
+  <p>O trabalho vai além da simples gestão de redes sociais. Trata-se de uma <strong>construção intencional de presença digital</strong>, baseada em storytelling, consistência e direcionamento estratégico.</p>
+
+  <div class="anchor-grid">
+    <div class="anchor-card">
+      <span class="ac-icon">🎯</span>
+      <div class="ac-title">Comunicar com clareza</div>
+      <p class="ac-text">Quem chega ao seu perfil entende em segundos quem você é, para quem serve e o que fazer a seguir.</p>
+    </div>
+    <div class="anchor-card">
+      <span class="ac-icon">🤝</span>
+      <div class="ac-title">Gerar conexão real</div>
+      <p class="ac-text">Pessoas se conectam com pessoas antes de comprar. O conteúdo fala com a dor real de quem você quer alcançar.</p>
+    </div>
+    <div class="anchor-card">
+      <span class="ac-icon">✦</span>
+      <div class="ac-title">Estruturar autoridade</div>
+      <p class="ac-text">Quase 4 décadas formando líderes — em educação, em fé, no ser humano. Essa trajetória traduzida em conteúdo que posiciona e diferencia.</p>
+    </div>
+    <div class="anchor-card">
+      <span class="ac-icon">📈</span>
+      <div class="ac-title">Criar base de conversão</div>
+      <p class="ac-text">Um funil natural que conduz o seguidor — do primeiro contato com seu conteúdo até a decisão de ser formado por você, seja pela mentoria ou por outros caminhos que vamos estruturar.</p>
     </div>
   </div>
 </div>
 </section>
 
-<!-- ENTREGÁVEIS -->
+<!-- DIAGNÓSTICO PERSONALIZADO -->
+<section id="diagnostico">
+<div class="wrap">
+  <div class="eye">O que eu vi no seu perfil</div>
+  <h2>Um diagnóstico feito<br><em>especialmente <span class="g">para você</span></em></h2>
+
+  <p class="lead">Antes de chegar aqui, dediquei tempo real analisando os seus dois perfis — <strong>@angelicapires_s</strong> e <strong>@diretoranotamil</strong>. Não é uma proposta genérica. É baseada no que encontrei.</p>
+
+  <div class="diag">
+    <span class="diag-tag">O que o diagnóstico revelou</span>
+    <p class="diag-text">Você tem <em>quase 4 décadas de autoridade real, três escolas, mais de mil alunos e uma mentoria que já existe na prática</em> — mas um Instagram que não conta nada disso. O problema não é falta de conteúdo. É falta de tradução estratégica. E isso tem solução clara.</p>
+  </div>
+
+  <div class="anchor-grid">
+    <div class="anchor-card">
+      <span class="ac-icon">📋</span>
+      <div class="ac-title">Bio que lista títulos</div>
+      <p class="ac-text">Hoje a bio fala o que você é — mas não comunica para quem serve, o que transforma ou qual é o próximo passo.</p>
+    </div>
+    <div class="anchor-card">
+      <span class="ac-icon">📱</span>
+      <div class="ac-title">Dois perfis dividindo energia</div>
+      <p class="ac-text">O @diretoranotamil compete com o @angelicapires_s em vez de somar. Dois perfis fracos não fazem um forte.</p>
+    </div>
+    <div class="anchor-card">
+      <span class="ac-icon">📖</span>
+      <div class="ac-title">Sua história invisível</div>
+      <p class="ac-text">Os bastidores de quase 4 décadas, os filhos na escola, a fé que orienta cada decisão — tudo isso praticamente não aparece no conteúdo.</p>
+    </div>
+    <div class="anchor-card">
+      <span class="ac-icon">🎓</span>
+      <div class="ac-title">Mentoria sem funil</div>
+      <p class="ac-text">Quem segue você hoje não sabe que a mentoria existe — nem como entrar. Isso é o que mais precisamos resolver.</p>
+    </div>
+  </div>
+
+    <div class="callout rose">
+    <div class="ci">💡</div>
+    <p class="ct"><strong>O que isso significa na prática:</strong> Uma parte dos seus seguidores atuais já é público qualificado — coordenadoras, educadoras e líderes que te conhecem e confiam em você. Esses precisam ser aquecidos e conduzidos até a mentoria. Mas o trabalho vai além disso: a estratégia de conteúdo precisa atrair, ao mesmo tempo, um público novo — pessoas que ainda não te conhecem mas que são exatamente quem você quer formar. Crescimento qualificado é parte central do que vamos construir juntas.</p>
+  </div>
+</div>
+</section>
+
+<!-- OS PLANOS -->
+<section id="planos">
+<div class="wrap">
+  <div class="eye">Os Planos</div>
+  <h2>Duas opções claras —<br><em>você escolhe <span class="g">o que faz sentido</span></em></h2>
+  <p class="lead">Os dois planos incluem toda a estratégia e o planejamento. A diferença está em quem executa — e no quanto o trabalho exige do seu tempo.</p>
+
+  <div class="plans">
+
+    <div class="plan p1">
+      <div class="plan-body">
+        <span class="plan-tag">Plano 1</span>
+        <div class="plan-name">Estratégico</div>
+        <p class="plan-caption">"Você recebe o caminho. Sua equipe executa."</p>
+        <div class="plan-price"><sup>R$</sup>1.500</div>
+        <div class="plan-period">por mês · mínimo 3 meses</div>
+        <hr class="plan-div">
+        <ul class="plan-list">
+          <li>Diagnóstico completo dos dois perfis</li>
+          <li>Definição de posicionamento estratégico</li>
+          <li>Estruturação da linha editorial</li>
+          <li>Planejamento mensal de conteúdo completo</li>
+          <li>Roteiros estratégicos para posts e Reels</li>
+          <li>Legendas prontas alinhadas à sua voz</li>
+          <li>Templates de identidade visual no Canva</li>
+          <li>Estrutura semanal de Stories</li>
+          <li>Banco de ganchos e frases autorais</li>
+          <li>Estratégia de conteúdo para seus eventos</li>
+          <li>Reunião mensal + check-ins quinzenais</li>
+          <li>Relatório mensal de crescimento</li>
+        </ul>
+        <div class="plan-obs">
+          A criação das artes, edição de vídeos e publicação dos posts ficam com você ou sua equipe — usando os templates e o calendário que entrego prontos e detalhados.
+        </div>
+      </div>
+    </div>
+
+    <div class="plan p2">
+      <div class="plan-rec">Recomendado</div>
+      <div class="plan-body">
+        <span class="plan-tag">Plano 2</span>
+        <div class="plan-name">Estratégico<br>+ Execução</div>
+        <p class="plan-caption">"Você aprova. Eu cuido do resto."</p>
+        <div class="plan-price"><sup>R$</sup>2.000</div>
+        <div class="plan-period">por mês · mínimo 3 meses</div>
+        <hr class="plan-div">
+        <ul class="plan-list">
+          <li>Tudo do Plano Estratégico, mais:</li>
+          <li>Criação de todas as artes no Canva — carrosséis, Reels, Stories e posts</li>
+          <li>Desenvolvimento e padronização visual completa do perfil</li>
+          <li>Identidade visual aplicada em todas as peças</li>
+          <li>Organização do cronograma de publicações</li>
+          <li>Apoio integral na execução dos conteúdos</li>
+          <li>Canva Pro e ferramentas de produção já inclusos</li>
+        </ul>
+        <div class="plan-obs">
+          Este plano garante alinhamento total entre estratégia e execução — sem depender de terceiros, sem perda de identidade visual e com muito menos tempo exigido de você.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- TEMPO EXIGIDO -->
+  <h3 style="font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ink);margin:36px 0 16px;">Quanto tempo isso exige <em style="font-weight:300;color:var(--rose);">de você</em></h3>
+
+  <div class="tempo-grid">
+    <div class="tempo-card">
+      <div class="tc-val">1×</div>
+      <div class="tc-label">Reunião mensal</div>
+      <p class="tc-desc">60 a 90 min por mês para planejar tudo junto</p>
+    </div>
+    <div class="tempo-card">
+      <div class="tc-val">2×</div>
+      <div class="tc-label">Check-ins rápidos</div>
+      <p class="tc-desc">30 min a cada 15 dias para acompanhar resultados</p>
+    </div>
+    <div class="tempo-card">
+      <div class="tc-val">~20min</div>
+      <div class="tc-label">Por semana</div>
+      <p class="tc-desc">Aprovar conteúdos e enviar fotos ou vídeos para a pasta</p>
+    </div>
+  </div>
+
+  <div class="callout sage">
+    <div class="ci">🕐</div>
+    <p class="ct"><strong>Importante:</strong> Sei que sua agenda é cheia — três escolas, eventos, equipes e família. Por isso o trabalho foi pensado para exigir o mínimo de você sem abrir mão da qualidade. Você nunca vai publicar algo que não aprovou antes.</p>
+  </div>
+
+  <!-- ROI -->
+  <div class="roi">
+    <div class="roi-icon">💰</div>
+    <div>
+      <div class="roi-title">O retorno esperado</div>
+      <p class="roi-text">Se a sua mentoria for vendida a R$ 1.000 por aluna, <strong>2 inscrições cobrem o investimento mensal inteiro</strong>. Uma turma de 10 alunas — meta conservadora para os primeiros 90 dias — representa mais de 5× o valor investido no período. O perfil deixa de custar e passa a gerar.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- DURAÇÃO MÍNIMA -->
+<section id="duracao">
+<div class="wrap">
+  <div class="eye">Duração Mínima</div>
+  <h2>Por que 3 meses<br><em>são <span class="g">essenciais</span></em></h2>
+
+  <div class="duracao">
+    <span class="dur-tag">⏳ Contrato mínimo de 3 meses</span>
+    <div class="dur-title">Resultado consistente<br><em>não acontece da noite para o dia.</em></div>
+    <ul class="dur-items">
+      <li>Implementação completa da estratégia e do novo posicionamento</li>
+      <li>Ajustes com base na resposta real do público ao longo do tempo</li>
+      <li>Consolidação da identidade visual e da narrativa do perfil</li>
+      <li>Início da construção de resultados consistentes e mensuráveis</li>
+      <li>Tempo suficiente para estruturar e lançar a Mentoria Diretora de Missão</li>
+    </ul>
+  </div>
+</div>
+</section>
+
+<!-- DIFERENCIAL -->
+<section id="diferencial">
+<div class="wrap">
+  <div class="eye">Diferencial do Trabalho</div>
+  <h2>O que torna esse trabalho<br><em><span class="g">diferente</span></em></h2>
+
+  <p class="lead">O foco não está na quantidade de posts ou na estética dos cards. Está na construção de um perfil com direção, intenção e identidade — baseado em quem você realmente é.</p>
+
+  <div class="dif-grid">
+    <div class="dif-card">
+      <span class="dc-icon">📖</span>
+      <div class="dc-title">Feito para você — não para qualquer cliente</div>
+      <p class="dc-text">Já analisei seus dois perfis, mapeei suas dores, produzi o primeiro mês de conteúdo e estruturei a identidade visual. Você não está começando do zero — já está na metade do caminho.</p>
+    </div>
+    <div class="dif-card">
+      <span class="dc-icon">🎯</span>
+      <div class="dc-title">Storytelling com propósito real</div>
+      <div class="dc-text">Sua história de quase 4 décadas formando líderes — em escolas, em comunidades de fé, no ser humano — vira conteúdo que conecta, inspira e atrai o público certo. Não é decoração. É estratégia.</div>
+    </div>
+    <div class="dif-card">
+      <span class="dc-icon">🔒</span>
+      <div class="dc-title">Sigilo e alinhamento antes de tudo</div>
+      <p class="dc-text">Nada vai ao ar sem a sua aprovação. Cada post é revisado por você antes de ser publicado. Sua imagem é tratada com o mesmo cuidado que você trata a sua escola.</p>
+    </div>
+    <div class="dif-card">
+      <span class="dc-icon">✦</span>
+      <div class="dc-title">Conteúdo com direção — não com volume</div>
+      <p class="dc-text">Cada publicação tem uma função no funil. Nada é aleatório. A consistência aqui não é sobre postar todo dia — é sobre postar com intenção toda vez.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- PRÓXIMOS PASSOS -->
+<section id="proximos">
+<div class="wrap">
+  <div class="eye">Próximos Passos</div>
+  <h2>Se fizer sentido para você —<br><em>o começo é <span class="g">simples</span></em></h2>
+
+  <p class="lead">Caso esta proposta ressoe com o que você quer para o seu Instagram, o caminho é direto e sem complicação.</p>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num"><span>1</span></div>
+      <div class="step-body">
+        <div class="step-title">Você me diz qual plano escolheu</div>
+        <p class="step-desc">Plano Estratégico (R$ 1.500) ou Estratégico + Execução (R$ 2.000). Uma mensagem já basta.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"><span>2</span></div>
+      <div class="step-body">
+        <div class="step-title">Assinamos o contrato e acertamos o início</div>
+        <p class="step-desc">Um documento simples com escopo, prazo e condições — para proteger as duas partes e garantir clareza desde o começo.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"><span>3</span></div>
+      <div class="step-body">
+        <div class="step-title">Você responde o briefing de início</div>
+        <p class="step-desc">Um formulário com tudo que preciso saber sobre você, suas escolas, a mentoria e seus eventos. Pode ser respondido por escrito ou por áudio — no seu tempo.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num"><span>4</span></div>
+      <div class="step-body">
+        <div class="step-title">Agendamos a primeira reunião de planejamento</div>
+        <p class="step-desc">60 a 90 minutos por videochamada. Planejamos o primeiro mês juntas e você sai sabendo exatamente o que vem a seguir. <strong>O trabalho começa de verdade aqui.</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout green">
+    <div class="ci">⚡</div>
+    <p class="ct"><strong>Disponibilidade:</strong> Tenho abertura para iniciar o trabalho assim que você confirmar. Quanto antes começarmos, mais cedo o lançamento da mentoria acontece dentro dos 90 dias.</p>
+  </div>
+</div>
+</section>
+
+<!-- CONSIDERAÇÕES FINAIS -->
 <section>
 <div class="wrap">
-  <div class="eye">O que está incluso</div>
-  <h2>Tudo que você <span class="g"><em>recebe</em></span><br>todo mês</h2>
-  <p class="lead">Cada entregável foi pensado para funcionar em conjunto — não são peças soltas, são partes de um sistema que cresce mês a mês.</p>
+  <div class="eye">Considerações Finais</div>
+  <h2>Uma última palavra<br><em>pra <span class="g">você, Angélica</span></em></h2>
 
-  <div class="del-block">
-    <div class="db-header">
-      <div class="db-icon">⚡</div>
-      <div>
-        <div class="db-title">Mês 01 — Estruturação completa do perfil</div>
-        <div class="db-sub">Feito uma vez. Fica para sempre.</div>
-      </div>
-    </div>
-    <div class="db-body">
-      <ul class="db-list">
-        <li>Reformulação completa da bio com posicionamento, autoridade e CTA</li>
-        <li>Nome de exibição estratégico e indexável no buscador do Instagram</li>
-        <li>Orientação para nova foto de perfil (instruções de produção)</li>
-        <li>3 posts fixados prontos: apresentação · autoridade · mentoria</li>
-        <li>6 destaques estruturados com roteiros completos de stories</li>
-        <li>Link na bio organizado com até 3 destinos estratégicos</li>
-        <li>Identidade visual completa: paleta, fontes e templates no Canva</li>
-        <li>Guia de como usar os templates (para você ou sua equipe)</li>
-        <li>Redirecionamento estratégico do @diretoranotamil</li>
-      </ul>
+  <div class="carta">
+    <p>Este trabalho é um processo de construção. Quando bem estruturado, o Instagram deixa de ser apenas uma vitrine e passa a se tornar um <strong>canal real de influência, conexão e oportunidades.</strong></p>
+    <p>Você já tem tudo que uma referência precisa ter — quase 4 décadas de resultado real, escolas vivas, filhos criados dentro do que acredita, fé que sustenta cada decisão. O que vamos fazer juntas é colocar isso na frente das pessoas certas, da forma certa, no momento certo.</p>
+    <p>Caso faça sentido para você neste momento, <strong>será um prazer conduzir esse processo com intencionalidade, cuidado e estratégia.</strong></p>
+
+    <div class="carta-sig">
+      <strong>Maria Loyola</strong>
+      <span>Estrategista de Conteúdo &amp; Storytelling</span>
     </div>
   </div>
-
-  <div class="del-block">
-    <div class="db-header">
-      <div class="db-icon">📅</div>
-      <div>
-        <div class="db-title">Todo mês — Conteúdo estratégico completo</div>
-        <div class="db-sub">16 a 20 posts + roteiros + stories + relatório</div>
-      </div>
-    </div>
-    <div class="db-body">
-      <ul class="db-list">
-        <li>Calendário editorial mensal — pauta completa com formato, tema e objetivo de cada post</li>
-        <li>16 a 20 posts por mês: carrosséis completos slide a slide, fotos com legendas, posts de citação</li>
-        <li>4 a 6 roteiros de Reels por mês — gancho, desenvolvimento, CTA e instruções de gravação</li>
-        <li>Estrutura semanal de Stories com sequência estratégica diária</li>
-        <li>Banco de ganchos e frases autorais personalizadas para a voz da Angélica</li>
-        <li>Estratégia de conteúdo para eventos — sequência antes, durante e depois</li>
-        <li>1 sequência de Stories de venda por mês (funil da mentoria)</li>
-        <li>Hashtags estratégicas por tipo de post</li>
-        <li>Relatório mensal de crescimento, alcance e engajamento</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="del-block">
-    <div class="db-header">
-      <div class="db-icon">🎓</div>
-      <div>
-        <div class="db-title">Mês 03 — Lançamento da mentoria</div>
-        <div class="db-sub">Sequência completa de abertura de vagas</div>
-      </div>
-    </div>
-    <div class="db-body">
-      <ul class="db-list">
-        <li>Sequência de lançamento de 3 semanas: aquecimento → vagas abertas → urgência → fechamento</li>
-        <li>Posts diários de lançamento com copy completo</li>
-        <li>Stories de contagem regressiva e depoimentos</li>
-        <li>Live de apresentação da mentoria — roteiro completo</li>
-        <li>Copy de vendas para bio, posts e stories do lançamento</li>
-        <li>Acompanhamento semanal durante o período de lançamento</li>
-      </ul>
-    </div>
-  </div>
-
-  <h3>O que não está incluso neste valor</h3>
-  <ul class="not-list">
-    <li>Edição de vídeo dos Reels (entrego o roteiro e as instruções; a edição fica com você, sua equipe ou um editor indicado)</li>
-    <li>Criação das artes finais no Canva (entrego os templates prontos; a execução das artes é sua ou da sua equipe com os templates)</li>
-    <li>Publicação e agendamento dos posts (entrego o conteúdo aprovado; a publicação é sua)</li>
-    <li>Tráfego pago ou anúncios (trabalho orgânico — impulsionamento é opcional e separado)</li>
-    <li>Produção de fotos ou vídeos (oriento o que produzir; a produção é com você)</li>
-  </ul>
-
-  <div class="callout rose">
-    <div class="ci">💬</div>
-    <p class="ct"><strong>Por que é assim:</strong> Esse modelo existe para que você tenha controle total sobre o que vai ao ar e para que o investimento seja focado no que mais gera resultado — estratégia, escrita e planejamento. A execução operacional (publicar, editar vídeo, fazer arte) pode ser feita por você ou delegada para alguém da sua equipe com muito menos tempo e esforço quando a estratégia está clara.</p>
-  </div>
-
-  <div class="insight">
-    <p class="insight-text">Angélica, <em>uma aluna a mais na mentoria por mês</em> já cobre parte do investimento. Em 90 dias, com o perfil estruturado e o lançamento executado, a meta conservadora é uma turma de 10 a 20 alunas. <em>O trabalho se paga — com folga.</em></p>
-    <div class="insight-src">Proposta Financeira · Maria Loyola</div>
-  </div>
-
 </div>
 </section>
 
 <footer>
-  <div class="ft">Proposta Financeira · Angélica Pires</div>
+  <div class="ft">Gestão Estratégica de Instagram · Angélica Pires</div>
   <p>Elaborado por Maria Loyola · Estrategista de Conteúdo &amp; Storytelling</p>
 </footer>
 

@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel do Projeto · Angélica Pires · Maria Loyola</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --rose:   #7C3E52;
+  --rose2:  #6A3346;
+  --champ:  #D4B896;
+  --champ2: #EAD5BF;
+  --blush:  #F2E8EC;
+  --ivory:  #FAF7F2;
+  --ink:    #2A1F24;
+  --text:   #4A3840;
+  --muted:  #8A7278;
+  --border: #E8DADE;
+  --navy:   #0D1B2A;
+  --gold:   #C4973B;
+  --green:  #1A6B45;
+  --grn-bg: #EEF8F3;
+  --blue:   #1A3A6B;
+  --blue-bg:#EEF2FB;
+  --purple: #4A2C6B;
+  --pur-bg: #F0EBF8;
+  --orange: #8B4A1A;
+  --ora-bg: #FDF0E8;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#111;color:#fff;font-size:14px;line-height:1.7;}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:99;
+  background:rgba(10,10,10,.95);
+  backdrop-filter:blur(12px);
+  padding:12px 24px;
+  display:flex;align-items:center;gap:6px;
+  overflow-x:auto;
+  border-bottom:1px solid rgba(212,184,150,.15);
+  scrollbar-width:none;
+}
+.nav::-webkit-scrollbar{display:none;}
+.nav-brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:15px;font-style:italic;color:var(--champ);
+  white-space:nowrap;margin-right:12px;flex-shrink:0;
+}
+.nav-sep{width:1px;height:16px;background:rgba(255,255,255,.1);flex-shrink:0;}
+.nav a{
+  white-space:nowrap;font-size:10px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  color:rgba(255,255,255,.35);text-decoration:none;
+  padding:5px 12px;border-radius:100px;transition:all .2s;
+  flex-shrink:0;
+}
+.nav a:hover{background:rgba(212,184,150,.15);color:var(--champ);}
+
+/* ── COVER ── */
+.cover{
+  background:var(--rose);
+  padding:72px 32px 60px;
+  text-align:center;
+  position:relative;overflow:hidden;
+}
+.cover::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;border:1px solid rgba(212,184,150,.07);top:-200px;right:-180px;pointer-events:none;}
+.cover::after{content:'';position:absolute;width:350px;height:350px;border-radius:50%;border:1px solid rgba(212,184,150,.05);bottom:-100px;left:-80px;pointer-events:none;}
+.cv{position:relative;max-width:700px;margin:0 auto;}
+.cv-orn{display:flex;align-items:center;gap:12px;justify-content:center;margin-bottom:18px;}
+.cv-line{width:44px;height:1px;background:var(--champ);opacity:.4;}
+.cv-dia{width:6px;height:6px;background:var(--champ);transform:rotate(45deg);}
+.cv-eye{font-size:10px;font-weight:600;letter-spacing:5px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:14px;display:block;}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:700;color:#fff;line-height:1.05;margin-bottom:10px;}
+.cover h1 em{font-style:italic;color:var(--champ2);}
+.cv-sub{font-size:14px;color:rgba(255,255,255,.4);margin-bottom:28px;font-weight:300;line-height:1.7;}
+.cv-stats{display:flex;gap:32px;justify-content:center;flex-wrap:wrap;margin-top:28px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1);}
+.cv-stat{}
+.cs-val{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:700;color:var(--champ2);line-height:1;}
+.cs-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-top:4px;}
+
+/* ── LAYOUT ── */
+.wrap{max-width:1000px;margin:0 auto;padding:0 28px;}
+.section{padding:56px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.section:last-of-type{border-bottom:none;}
+
+.sec-header{margin-bottom:28px;}
+.sec-eye{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:9px;font-weight:700;letter-spacing:5px;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.sec-eye::before{content:'';width:18px;height:1px;}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.5vw,34px);font-weight:700;color:#fff;line-height:1.15;margin-bottom:6px;}
+h2 em{font-style:italic;}
+.sec-desc{font-size:13px;color:rgba(255,255,255,.35);font-weight:300;max-width:560px;}
+
+/* ── COLOR THEMES PER SECTION ── */
+.theme-rose .sec-eye{color:var(--champ);} .theme-rose .sec-eye::before{background:var(--champ);}
+.theme-navy .sec-eye{color:#7EAADC;} .theme-navy .sec-eye::before{background:#7EAADC;}
+.theme-green .sec-eye{color:#6DC99A;} .theme-green .sec-eye::before{background:#6DC99A;}
+.theme-gold .sec-eye{color:var(--gold);} .theme-gold .sec-eye::before{background:var(--gold);}
+.theme-purple .sec-eye{color:#B08FD8;} .theme-purple .sec-eye::before{background:#B08FD8;}
+.theme-orange .sec-eye{color:#E8A86C;} .theme-orange .sec-eye::before{background:#E8A86C;}
+.theme-blue .sec-eye{color:#7EAADC;} .theme-blue .sec-eye::before{background:#7EAADC;}
+
+/* ── FILE CARDS ── */
+.files-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:20px 0;}
+.file-card{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:14px;padding:20px;
+  transition:all .2s;cursor:default;
+  position:relative;overflow:hidden;
+}
+.file-card::before{
+  content:'';position:absolute;inset:0;
+  opacity:0;transition:opacity .2s;
+  border-radius:14px;
+}
+.file-card:hover{border-color:rgba(212,184,150,.3);transform:translateY(-2px);}
+.file-card:hover::before{opacity:1;}
+.fc-icon{font-size:22px;margin-bottom:10px;display:block;}
+.fc-num{
+  font-family:'DM Mono',monospace;
+  font-size:9px;color:rgba(255,255,255,.25);
+  letter-spacing:2px;margin-bottom:6px;display:block;
+}
+.fc-name{font-size:14px;font-weight:600;color:#fff;margin-bottom:4px;line-height:1.3;}
+.fc-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5;}
+.fc-link{
+  display:inline-flex;align-items:center;gap:6px;
+  margin-top:12px;font-size:11px;font-weight:600;
+  letter-spacing:2px;text-transform:uppercase;
+  color:var(--champ);text-decoration:none;
+  padding:5px 12px;border-radius:100px;
+  border:1px solid rgba(212,184,150,.25);
+  transition:all .2s;
+}
+.fc-link:hover{background:rgba(212,184,150,.12);}
+.fc-tag{
+  position:absolute;top:12px;right:12px;
+  font-size:9px;font-weight:700;letter-spacing:2px;
+  text-transform:uppercase;padding:3px 8px;border-radius:100px;
+}
+
+/* ── INFO CARDS ── */
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:20px 0;}
+.info-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:14px;padding:22px;
+}
+.ic-icon{font-size:20px;margin-bottom:10px;display:block;}
+.ic-title{font-size:13px;font-weight:700;color:#fff;margin-bottom:8px;}
+.ic-body{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;}
+.ic-body strong{color:rgba(255,255,255,.8);}
+.ic-body em{color:var(--champ);font-style:normal;}
+
+/* ── INSIGHT PILLS ── */
+.insights{display:flex;flex-direction:column;gap:10px;margin:16px 0;}
+.insight-item{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(255,255,255,.04);
+  border-radius:10px;padding:14px 16px;
+  border-left:2px solid;
+}
+.ii-icon{font-size:15px;flex-shrink:0;line-height:1.5;}
+.ii-text{font-size:13px;color:rgba(255,255,255,.6);line-height:1.6;}
+.ii-text strong{color:#fff;}
+
+/* ── TOOL CARDS ── */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:20px 0;}
+.tool{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.07);
+  border-radius:12px;padding:18px;
+  display:flex;flex-direction:column;gap:8px;
+}
+.tool-icon{font-size:22px;}
+.tool-name{font-size:13px;font-weight:700;color:#fff;}
+.tool-desc{font-size:12px;color:rgba(255,255,255,.4);line-height:1.5;flex:1;}
+.tool-link{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;
+  color:var(--champ);text-decoration:none;margin-top:4px;
+  transition:opacity .2s;
+}
+.tool-link:hover{opacity:.7;}
+.tool-link::after{content:'↗';font-size:11px;}
+.tool-free{
+  font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--green);background:rgba(26,107,69,.15);
+  padding:2px 8px;border-radius:100px;display:inline-block;width:fit-content;
+}
+.tool-paid{
+  font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--champ);background:rgba(212,184,150,.1);
+  padding:2px 8px;border-radius:100px;display:inline-block;width:fit-content;
+}
+
+/* ── CHECKLIST ── */
+.checklist{list-style:none;display:flex;flex-direction:column;gap:8px;margin:16px 0;}
+.checklist li{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:13px;color:rgba(255,255,255,.55);line-height:1.55;margin:0;
+}
+.ck{
+  width:20px;height:20px;border-radius:50%;
+  background:var(--rose);color:var(--champ2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:9px;font-weight:700;flex-shrink:0;margin-top:1px;
+}
+.checklist li strong{color:rgba(255,255,255,.85);}
+
+/* ── PALETTE DISPLAY ── */
+.palette{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0;}
+.swatch{
+  border-radius:10px;padding:14px 16px;
+  min-width:100px;
+}
+.sw-color{font-family:'DM Mono',monospace;font-size:12px;font-weight:500;margin-bottom:3px;}
+.sw-name{font-size:11px;opacity:.65;}
+
+/* ── CODE BLOCK ── */
+.code-block{
+  background:rgba(0,0,0,.4);border:1px solid rgba(255,255,255,.08);
+  border-radius:10px;padding:16px 20px;margin:12px 0;
+  font-family:'DM Mono',monospace;font-size:13px;
+  color:var(--champ2);line-height:1.8;
+  overflow-x:auto;
+}
+
+/* ── WEEK GRID ── */
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin:16px 0;}
+@media(max-width:600px){.week{grid-template-columns:repeat(3,1fr);}}
+.wday{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);
+  border-radius:10px;padding:12px 8px;text-align:center;
+}
+.wd-name{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--champ);margin-bottom:6px;}
+.wd-fmt{font-size:11px;font-weight:600;color:#fff;margin-bottom:4px;}
+.wd-theme{font-size:10px;color:rgba(255,255,255,.35);line-height:1.4;}
+
+/* ── DIVIDER ── */
+hr{border:none;border-top:1px solid rgba(255,255,255,.06);margin:28px 0;}
+
+/* ── CALLOUT ── */
+.note{
+  border-radius:12px;padding:16px 20px;margin:16px 0;
+  display:flex;gap:10px;align-items:flex-start;
+}
+.note.gold{background:rgba(196,151,59,.1);border-left:2px solid var(--gold);}
+.note.rose{background:rgba(124,62,82,.3);border-left:2px solid var(--champ);}
+.note.green{background:rgba(26,107,69,.15);border-left:2px solid var(--green);}
+.ni{font-size:16px;flex-shrink:0;line-height:1.5;}
+.nt{font-size:13px;color:rgba(255,255,255,.6);line-height:1.65;}
+.nt strong{color:#fff;}
+
+/* ── FOOTER ── */
+footer{
+  background:var(--rose);padding:48px 28px;text-align:center;
+}
+.ft{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--champ2);margin-bottom:6px;}
+footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.22);}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-brand">Projeto Angélica Pires</div>
+  <div class="nav-sep"></div>
+  <a href="#arquivos">Arquivos</a>
+  <a href="#perfil">Perfil</a>
+  <a href="#identidade">Identidade Visual</a>
+  <a href="#conteudo">Conteúdo</a>
+  <a href="#mentoria">Mentoria</a>
+  <a href="#eventos">Eventos</a>
+  <a href="#operacional">Operacional</a>
+  <a href="#ferramentas">Ferramentas</a>
+  <a href="#insights">Insights</a>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cv">
+    <div class="cv-orn"><div class="cv-line"></div><div class="cv-dia"></div><div class="cv-line"></div></div>
+    <span class="cv-eye">Maria Loyola · Estrategista de Conteúdo</span>
+    <h1>Painel do Projeto<br><em>Angélica Pires</em></h1>
+    <p class="cv-sub">Tudo que foi definido, organizado por categoria para acesso rápido e prático.</p>
+    <div class="cv-stats">
+      <div class="cv-stat"><div class="cs-val">10</div><div class="cs-label">Arquivos produzidos</div></div>
+      <div class="cv-stat"><div class="cs-val">6</div><div class="cs-label">Destaques estruturados</div></div>
+      <div class="cv-stat"><div class="cs-val">3</div><div class="cs-label">Posts fixados</div></div>
+      <div class="cv-stat"><div class="cs-val">30</div><div class="cs-label">Stories roteirizados</div></div>
+      <div class="cv-stat"><div class="cs-val">90</div><div class="cs-label">Dias planejados</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ ARQUIVOS ══════════ -->
+<div class="section theme-rose" id="arquivos">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">01 · Arquivos do Projeto</div>
+    <h2>Todos os arquivos <em>produzidos</em></h2>
+    <p class="sec-desc">Links diretos para cada documento — suba todos no GitHub para acesso via link ou baixe conforme precisar.</p>
+  </div>
+
+  <div class="files-grid">
+
+    <div class="file-card">
+      <span class="fc-icon">💌</span>
+      <span class="fc-num">ARQUIVO 01</span>
+      <div class="fc-name">Carta de Apresentação</div>
+      <p class="fc-desc">Mensagem pessoal para enviar à Angélica antes de tudo. Tom intimista e direto.</p>
+      <span class="fc-tag" style="background:rgba(212,184,150,.15);color:var(--champ);">WhatsApp</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">🔍</span>
+      <span class="fc-num">ARQUIVO 02</span>
+      <div class="fc-name">Diagnóstico & Estratégia</div>
+      <p class="fc-desc">Análise dos dois perfis, problemas, soluções, pilares de conteúdo, calendário e plano de elevação.</p>
+      <span class="fc-tag" style="background:rgba(124,62,82,.3);color:var(--champ2);">Proposta</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">💰</span>
+      <span class="fc-num">ARQUIVO 03</span>
+      <div class="fc-name">Proposta Financeira</div>
+      <p class="fc-desc">Plano Essencial R$1.500 · Plano Completo R$1.700 · Progressão para R$2.000 no mês 4.</p>
+      <span class="fc-tag" style="background:rgba(26,107,69,.2);color:#6DC99A;">Venda</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">⚙️</span>
+      <span class="fc-num">ARQUIVO 04</span>
+      <div class="fc-name">Como Faremos Tudo Isso</div>
+      <p class="fc-desc">Processo, reuniões, aprovações, Drive, frequência de calls e fluxo mensal completo.</p>
+      <span class="fc-tag" style="background:rgba(212,184,150,.15);color:var(--champ);">Processo</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">📅</span>
+      <span class="fc-num">ARQUIVO 05</span>
+      <div class="fc-name">Mês 01 — Conteúdo Completo</div>
+      <p class="fc-desc">4 semanas completas: 16 posts, 8 roteiros de Reels, 28 Stories e checklist semanal.</p>
+      <span class="fc-tag" style="background:rgba(74,44,107,.3);color:#B08FD8;">Conteúdo</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">📌</span>
+      <span class="fc-num">ARQUIVO 06</span>
+      <div class="fc-name">Posts Fixados (3 Pins)</div>
+      <p class="fc-desc">Pin 01 Apresentação · Pin 02 Autoridade · Pin 03 Mentoria. Slides, legendas e instruções.</p>
+      <span class="fc-tag" style="background:rgba(74,44,107,.3);color:#B08FD8;">Conteúdo</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">📱</span>
+      <span class="fc-num">ARQUIVO 07</span>
+      <div class="fc-name">Stories dos Destaques</div>
+      <p class="fc-desc">30 frames roteirizados para os 6 destaques. Dia de lançamento completo.</p>
+      <span class="fc-tag" style="background:rgba(74,44,107,.3);color:#B08FD8;">Conteúdo</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">🎨</span>
+      <span class="fc-num">ARQUIVO 08</span>
+      <div class="fc-name">Identidade Visual — Opção 1</div>
+      <p class="fc-desc">Azul-marinho + Dourado. Guia Canva completo: cores, fontes, templates, passo a passo.</p>
+      <span class="fc-tag" style="background:rgba(13,27,42,.6);color:#7EAADC;">Visual</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">🌸</span>
+      <span class="fc-num">ARQUIVO 09</span>
+      <div class="fc-name">Identidade Visual — Opção 2</div>
+      <p class="fc-desc">Rosa Vinho + Champagne. Guia Canva completo: cores, fontes, templates, passo a passo.</p>
+      <span class="fc-tag" style="background:rgba(124,62,82,.4);color:var(--champ2);">Visual</span>
+    </div>
+
+    <div class="file-card">
+      <span class="fc-icon">⚖️</span>
+      <span class="fc-num">ARQUIVO 10</span>
+      <div class="fc-name">Comparativo das Identidades</div>
+      <p class="fc-desc">As duas identidades aplicadas nos mesmos posts. Interativo com abas e botão de votação.</p>
+      <span class="fc-tag" style="background:rgba(139,74,26,.2);color:#E8A86C;">Decisão</span>
+    </div>
+
+  </div>
+
+  <div class="note gold">
+    <div class="ni">🔗</div>
+    <p class="nt"><strong>Links GitHub:</strong> Substitua <em>mariapinheiroloyola</em> pelo seu usuário e acesse:<br>
+    <code style="font-family:'DM Mono',monospace;font-size:12px;color:var(--champ2);">mariapinheiroloyola.github.io/angelica-pires/[nome-do-arquivo].html</code></p>
+  </div>
+
+  <div class="note green">
+    <div class="ni">📋</div>
+    <p class="nt"><strong>Briefing:</strong> O formulário do Google Forms foi criado via Google Apps Script. O arquivo <em>briefing-google-forms-script.js</em> gera o formulário automaticamente em script.google.com — basta colar e executar.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ PERFIL ══════════ -->
+<div class="section theme-navy" id="perfil">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">02 · Perfil & Posicionamento</div>
+    <h2>Decisões <em>definidas</em><br>sobre o perfil</h2>
+  </div>
+
+  <div class="info-grid">
+
+    <div class="info-card">
+      <span class="ic-icon">📛</span>
+      <div class="ic-title">@ e nome de exibição</div>
+      <p class="ic-body">Manter <em>@angelicapires_s</em>. Nome de exibição: <strong>"Angélica Pires | Mentora de Diretoras"</strong> — indexável no buscador interno do Instagram.</p>
+    </div>
+
+    <div class="info-card">
+      <span class="ic-icon">🚫</span>
+      <div class="ic-title">@diretoranotamil</div>
+      <p class="ic-body">Encerrar o perfil com <strong>post de redirecionamento</strong> para o @angelicapires_s. Não alimentar mais. Um perfil forte vale mais que dois fracos.</p>
+    </div>
+
+    <div class="info-card">
+      <span class="ic-icon">📝</span>
+      <div class="ic-title">Bio estratégica</div>
+      <p class="ic-body"><strong>Linha 1:</strong> Mentora de Diretoras de Escola<br><strong>Linha 2:</strong> 35 anos · 3 escolas · +1.000 alunos<br><strong>Linha 3:</strong> Fé, método e propósito<br><strong>Linha 4:</strong> Mãe de 4 — todos estudaram aqui<br><strong>Linha 5:</strong> CTA → Mentoria</p>
+    </div>
+
+    <div class="info-card">
+      <span class="ic-icon">📌</span>
+      <div class="ic-title">3 Posts fixados — ordem</div>
+      <p class="ic-body">Publicar na ordem inversa: Pin 3 → Pin 2 → Pin 1. O último fixado vai para a esquerda.<br><strong>Esquerda:</strong> Apresentação<br><strong>Centro:</strong> Autoridade<br><strong>Direita:</strong> Mentoria</p>
+    </div>
+
+    <div class="info-card">
+      <span class="ic-icon">⭐</span>
+      <div class="ic-title">6 Destaques — ordem e nomes</div>
+      <p class="ic-body">🎓 MENTORIA · 🏫 HISTÓRIA · ✝️ FÉ & GESTÃO · 💡 DICAS · ⭐ RESULTADOS · 🗓️ EVENTOS</p>
+    </div>
+
+    <div class="info-card">
+      <span class="ic-icon">🔗</span>
+      <div class="ic-title">Link na bio</div>
+      <p class="ic-body">Máximo 3 destinos:<br><strong>1)</strong> Conhecer a Mentoria<br><strong>2)</strong> Falar no WhatsApp<br><strong>3)</strong> Material gratuito<br>Usar Linktree ou Stan.store.</p>
+    </div>
+
+  </div>
+
+  <div class="insights">
+    <div class="insight-item" style="border-color:rgba(126,170,220,.3);">
+      <span class="ii-icon">💡</span>
+      <p class="ii-text"><strong>Regra de ouro da bio:</strong> cada linha cumpre uma função. Não é currículo — é pitch de 5 segundos. A visitante precisa entender quem é, para quem serve e o que fazer em menos de 10 segundos.</p>
+    </div>
+    <div class="insight-item" style="border-color:rgba(126,170,220,.3);">
+      <span class="ii-icon">💡</span>
+      <p class="ii-text"><strong>Conta profissional:</strong> verificar se o @angelicapires_s já é Creator ou Business. Se não for, converter — libera métricas, link nos Stories e botão de contato.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ IDENTIDADE VISUAL ══════════ -->
+<div class="section theme-rose" id="identidade">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">03 · Identidade Visual</div>
+    <h2>A identidade <em>escolhida</em><br>e como aplicar</h2>
+    <p class="sec-desc">Identidade 2 definida como a mais alinhada com a Angélica — autoridade feminina, fé e acolhimento.</p>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="ic-icon">🎨</span>
+      <div class="ic-title">Paleta — Identidade 2 (escolhida)</div>
+      <div class="palette">
+        <div class="swatch" style="background:#7C3E52;color:#fff;"><div class="sw-color">#7C3E52</div><div class="sw-name">Rosa Vinho · base</div></div>
+        <div class="swatch" style="background:#F2E8EC;color:#4A3840;"><div class="sw-color">#F2E8EC</div><div class="sw-name">Bege Rosado</div></div>
+        <div class="swatch" style="background:#D4B896;color:#2A1F24;"><div class="sw-color">#D4B896</div><div class="sw-name">Champagne</div></div>
+        <div class="swatch" style="background:#6B7C6A;color:#fff;"><div class="sw-color">#6B7C6A</div><div class="sw-name">Sálvia</div></div>
+        <div class="swatch" style="background:#FAF7F2;color:#4A3840;border:1px solid #E8DADE;"><div class="sw-color">#FAF7F2</div><div class="sw-name">Marfim</div></div>
+      </div>
+    </div>
+
+    <div class="info-card">
+      <span class="ic-icon">🔤</span>
+      <div class="ic-title">Tipografia</div>
+      <p class="ic-body">
+        <strong>Títulos e ganchos:</strong> Cormorant Garamond Bold / Italic<br>
+        <strong>Corpo e texto:</strong> Jost Light / Regular<br><br>
+        No Canva, buscar exatamente por esses nomes. Ambas gratuitas.
+      </p>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="ic-title" style="color:#fff;margin-bottom:14px;">Estrutura visual dos posts — regra de alternância</div>
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="ic-icon">🌑</span>
+      <div class="ic-title">Slides escuros (Rosa Vinho)</div>
+      <p class="ic-body">Capa do carrossel · Slide de CTA · Capas de Reels · Capas de Destaques · Post de fé/reflexão</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">🌸</span>
+      <div class="ic-title">Slides claros (Bege Rosado)</div>
+      <p class="ic-body">Slides de conteúdo (2 ao penúltimo) · Posts técnicos · Dicas · Storytelling com texto corrido</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">✦</span>
+      <div class="ic-title">Ornamento de marca</div>
+      <p class="ic-body">Linha fina + losango + linha fina em champagne (#D4B896). Presente em toda capa e CTA. É o "selo" visual da identidade 2.</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">📐</span>
+      <div class="ic-title">Tamanhos dos templates</div>
+      <p class="ic-body">
+        <strong>Carrossel e feed:</strong> 1080 × 1080 px<br>
+        <strong>Reels e Stories:</strong> 1080 × 1920 px<br>
+        <strong>Destaques:</strong> 1080 × 1080 px (recortado em círculo)
+      </p>
+    </div>
+  </div>
+
+  <div class="note rose">
+    <div class="ni">🗂️</div>
+    <p class="nt"><strong>Organização no Canva:</strong> Criar pasta <em>"AP — Templates"</em> com os 6 designs base: Capa Carrossel · Slide Conteúdo · Slide CTA · Capa Reels · Story · Capa Destaque. Para cada post novo: abrir o template → duplicar → substituir texto.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ CONTEÚDO ══════════ -->
+<div class="section theme-purple" id="conteudo">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">04 · Estratégia de Conteúdo</div>
+    <h2>Pilares, calendário<br><em>e ganchos</em></h2>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="ic-icon">🏛️</span>
+      <div class="ic-title">Os 5 pilares de conteúdo</div>
+      <p class="ic-body">
+        <strong>30%</strong> Autoridade Técnica — gestão, liderança, equipes<br>
+        <strong>25%</strong> Liderança com Fé — propósito confessional<br>
+        <strong>20%</strong> Mentoria & Eventos — conversão<br>
+        <strong>15%</strong> Humanização — família, trajetória<br>
+        <strong>10%</strong> Atualização — cursos, leituras
+      </p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">🎯</span>
+      <div class="ic-title">Estrutura de Stories diários</div>
+      <p class="ic-body">
+        <strong>Frame 1:</strong> Bastidor real do dia<br>
+        <strong>Frame 2:</strong> Conteúdo ou reflexão rápida<br>
+        <strong>Frame 3:</strong> Enquete ou caixa de perguntas<br>
+        <strong>Frame 4:</strong> Apontar para o post do feed<br>
+        <strong>Frame 5:</strong> CTA → link da bio (3×/semana)
+      </p>
+    </div>
+  </div>
+
+  <div class="ic-title" style="color:#fff;margin:20px 0 12px;">Calendário editorial semanal</div>
+  <div class="week">
+    <div class="wday"><div class="wd-name">Seg</div><div class="wd-fmt">Carrossel</div><div class="wd-theme">Gestão técnica</div></div>
+    <div class="wday"><div class="wd-name">Ter</div><div class="wd-fmt">Stories</div><div class="wd-theme">Bastidor real</div></div>
+    <div class="wday"><div class="wd-name">Qua</div><div class="wd-fmt">Reels</div><div class="wd-theme">Fé + gestão</div></div>
+    <div class="wday"><div class="wd-name">Qui</div><div class="wd-fmt">Post</div><div class="wd-theme">Mentoria ou evento</div></div>
+    <div class="wday"><div class="wd-name">Sex</div><div class="wd-fmt">Carrossel</div><div class="wd-theme">Storytelling</div></div>
+    <div class="wday"><div class="wd-name">Sáb</div><div class="wd-fmt">Stories</div><div class="wd-theme">Humanização</div></div>
+    <div class="wday"><div class="wd-name">Dom</div><div class="wd-fmt">Reels</div><div class="wd-theme">Missão e propósito</div></div>
+  </div>
+
+  <div class="ic-title" style="color:#fff;margin:20px 0 12px;">Mês 01 — estrutura das 4 semanas</div>
+  <div class="info-grid">
+    <div class="info-card"><span class="ic-icon">1️⃣</span><div class="ic-title">Semana 1 — Apresentação</div><p class="ic-body">Carrossel dos 35 anos · Reel de fé · Post dos filhos na escola</p></div>
+    <div class="info-card"><span class="ic-icon">2️⃣</span><div class="ic-title">Semana 2 — Autoridade</div><p class="ic-body">Carrossel dos 5 erros · Reel sobre delegação · Post de atualização</p></div>
+    <div class="info-card"><span class="ic-icon">3️⃣</span><div class="ic-title">Semana 3 — Evento + Story</div><p class="ic-body">Post do evento como missão · Reel da trajetória pessoal · Post de fé</p></div>
+    <div class="info-card"><span class="ic-icon">4️⃣</span><div class="ic-title">Semana 4 — Mentoria</div><p class="ic-body">Apresentação da Diretora de Missão · Reel do conselho · Encerramento humanizado</p></div>
+  </div>
+
+  <div class="ic-title" style="color:#fff;margin:20px 0 12px;">Ganchos mais poderosos definidos</div>
+  <div class="insights">
+    <div class="insight-item" style="border-color:rgba(176,143,216,.3);">
+      <span class="ii-icon">🎯</span>
+      <p class="ii-text"><strong>Dor + empatia:</strong> "Se você está sobrecarregada na direção, não é fraqueza. Nunca te ensinaram a liderar de verdade."</p>
+    </div>
+    <div class="insight-item" style="border-color:rgba(176,143,216,.3);">
+      <span class="ii-icon">🎯</span>
+      <p class="ii-text"><strong>Autoridade + tempo:</strong> "Em 35 anos dirigindo escolas, identifiquei o padrão que destrói toda diretora iniciante."</p>
+    </div>
+    <div class="insight-item" style="border-color:rgba(176,143,216,.3);">
+      <span class="ii-icon">🎯</span>
+      <p class="ii-text"><strong>Prova pessoal (mais poderoso):</strong> "Meus 4 filhos estudaram nas escolas que eu dirijo. Isso não é vaidade. É a prova mais honesta do que acredito."</p>
+    </div>
+    <div class="insight-item" style="border-color:rgba(176,143,216,.3);">
+      <span class="ii-icon">🎯</span>
+      <p class="ii-text"><strong>Fé + gestão:</strong> "As pessoas perguntam o que a fé tem a ver com dirigir uma escola. A resposta é: tudo."</p>
+    </div>
+    <div class="insight-item" style="border-color:rgba(176,143,216,.3);">
+      <span class="ii-icon">🎯</span>
+      <p class="ii-text"><strong>Contra-intuitivo:</strong> "A diretora mais eficiente não é a que mais trabalha. É a que melhor aprendeu a soltar."</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ MENTORIA ══════════ -->
+<div class="section theme-green" id="mentoria">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">05 · Mentoria</div>
+    <h2>Diretora de Missão —<br><em>tudo definido</em></h2>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="ic-icon">🎓</span>
+      <div class="ic-title">Nome e posicionamento</div>
+      <p class="ic-body"><strong>Nome:</strong> Mentoria Diretora de Missão<br><strong>Para quem:</strong> Coordenadoras que querem ser diretoras · Diretoras iniciantes · Diretoras de escola confessional<br><strong>Promessa:</strong> Liderar com método, fé e propósito real</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">📚</span>
+      <div class="ic-title">Módulos sugeridos</div>
+      <p class="ic-body">1. Identidade e propósito da diretora<br>2. Gestão de equipes escolares<br>3. Gestão pedagógica e indicadores<br>4. Gestão financeira básica<br>5. Liderança com fé e valores<br>6. Comunicação e presença digital</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">🚀</span>
+      <div class="ic-title">Funil de entrada via Instagram</div>
+      <p class="ic-body">Seguir → Engajar com conteúdo → Responder stories → Baixar material gratuito → Participar de live → Inscrição na mentoria</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">📅</span>
+      <div class="ic-title">Lançamento — Mês 03</div>
+      <p class="ic-body"><strong>Semana 1:</strong> Aquecimento e curiosidade<br><strong>Semana 2:</strong> Abertura de vagas + posts diários<br><strong>Semana 3:</strong> Urgência + fechamento<br><strong>Meta:</strong> 10 a 20 inscrições na 1ª turma</p>
+    </div>
+  </div>
+
+  <div class="note green">
+    <div class="ni">💰</div>
+    <p class="nt"><strong>ROI para a Angélica:</strong> Se a mentoria for vendida a R$1.000/aluna, 2 inscrições cobrem o investimento mensal. Uma turma de 10 alunas = mais de 5× o valor investido em 3 meses.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ EVENTOS ══════════ -->
+<div class="section theme-orange" id="eventos">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">06 · Eventos</div>
+    <h2>Eventos como <em>vitrine<br>de missão</em></h2>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="ic-icon">🕊️</span>
+      <div class="ic-title">Tipos de eventos mapeados</div>
+      <p class="ic-body">Encontros para mulheres · Eventos para mães · Formação de equipe escolar · Eventos de fé e valores · Palestras · Retiros · Formaturas</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">📸</span>
+      <div class="ic-title">Sequência de conteúdo por evento</div>
+      <p class="ic-body"><strong>Antes:</strong> curiosidade e propósito (expectativa)<br><strong>Durante:</strong> bastidores e emoção (engajamento)<br><strong>Depois:</strong> reflexões e depoimentos (prova social)</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">🎤</span>
+      <div class="ic-title">Gancho para eventos</div>
+      <p class="ic-body">"Ontem vi uma sala cheia de mulheres percebendo que liderar com fé não é ingenuidade. É força." — transforma qualquer evento em conteúdo emocional poderoso.</p>
+    </div>
+  </div>
+
+  <div class="insights">
+    <div class="insight-item" style="border-color:rgba(232,168,108,.3);">
+      <span class="ii-icon">💡</span>
+      <p class="ii-text"><strong>Regra dos eventos:</strong> Cada evento vira semanas de conteúdo. Pedir à Angélica com 15 dias de antecedência: data, tema, público esperado e se haverá registro fotográfico.</p>
+    </div>
+    <div class="insight-item" style="border-color:rgba(232,168,108,.3);">
+      <span class="ii-icon">💡</span>
+      <p class="ii-text"><strong>Destaque EVENTOS:</strong> Alimentado automaticamente a cada evento. Toda sequência de stories de evento vai direto para esse destaque — fica um portfólio vivo da missão.</p>
+    </div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ OPERACIONAL ══════════ -->
+<div class="section theme-blue" id="operacional">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">07 · Operacional</div>
+    <h2>Como o trabalho<br><em>acontece na prática</em></h2>
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <span class="ic-icon">📅</span>
+      <div class="ic-title">Reunião mensal de planejamento</div>
+      <p class="ic-body">60 a 90 minutos · Início de cada mês · Google Meet ou Zoom · Calendário do mês + eventos + prioridades</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">✅</span>
+      <div class="ic-title">Check-in quinzenal</div>
+      <p class="ic-body">30 minutos · 2× por mês · Avaliar resultados · Ajustar estratégia · Alinhar próximas 2 semanas</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">💬</span>
+      <div class="ic-title">Aprovação de conteúdo</div>
+      <p class="ic-body">Por WhatsApp · 5 dias de antecedência · Média de 10 a 15 minutos por semana da Angélica · Sem reunião necessária</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">📁</span>
+      <div class="ic-title">Pastas no Google Drive</div>
+      <p class="ic-body"><strong>📸 Fotos — Escola e Eventos</strong><br><strong>🎬 Vídeos — Brutos para Reels</strong><br><strong>📋 Conteúdo Aprovado</strong><br><strong>📊 Relatórios Mensais</strong></p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">⏱️</span>
+      <div class="ic-title">Tempo exigido da Angélica</div>
+      <p class="ic-body">Média de <strong>20 a 30 minutos por semana</strong> — revisar e aprovar conteúdo + enviar fotos/vídeos para a pasta + responder mensagens pontuais</p>
+    </div>
+    <div class="info-card">
+      <span class="ic-icon">🗓️</span>
+      <div class="ic-title">Cronograma dos 90 dias</div>
+      <p class="ic-body"><strong>Semana 1:</strong> Estruturar o perfil do zero<br><strong>Mês 1:</strong> Apresentação e autoridade<br><strong>Mês 2:</strong> Funil e aquecimento<br><strong>Mês 3:</strong> Lançamento da mentoria</p>
+    </div>
+  </div>
+
+  <div class="note gold">
+    <div class="ni">📋</div>
+    <p class="nt"><strong>Briefing pendente:</strong> Antes de começar, a Angélica precisa responder o briefing completo (60 perguntas em 10 blocos). Pode ser via formulário Google Forms, por áudio no WhatsApp (bloco por bloco) ou na primeira reunião. Pedir: momento difícil dos 35 anos · nome de curso recente · fotos de evento · depoimento de alguém formado.</p>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════ FERRAMENTAS ══════════ -->
+<div class="section theme-gold" id="ferramentas">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">08 · Ferramentas</div>
+    <h2>Apps e plataformas<br><em>essenciais</em></h2>
+  </div>
+
+  <div class="tools-grid">
+
+    <div class="tool">
+      <div class="tool-icon">🎨</div>
+      <div class="tool-name">Canva</div>
+      <div class="tool-desc">Criação de todas as artes — carrosséis, Reels, Stories, destaques. Templates, paleta e fontes configurados aqui.</div>
+      <span class="tool-paid">Pro recomendado</span>
+      <a class="tool-link" href="https://canva.com" target="_blank">canva.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">📁</div>
+      <div class="tool-name">Google Drive</div>
+      <div class="tool-desc">Pasta compartilhada para envio de fotos, vídeos e entrega do conteúdo aprovado. Acesso das duas partes.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://drive.google.com" target="_blank">drive.google.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">📋</div>
+      <div class="tool-name">Google Forms</div>
+      <div class="tool-desc">Briefing da Angélica. Formulário criado via Apps Script com 63 perguntas em 10 blocos.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://forms.google.com" target="_blank">forms.google.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🖥️</div>
+      <div class="tool-name">Google Meet</div>
+      <div class="tool-desc">Reuniões mensais e check-ins quinzenais. Alternativa ao Zoom, gratuito e sem instalação.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://meet.google.com" target="_blank">meet.google.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🌐</div>
+      <div class="tool-name">GitHub Pages</div>
+      <div class="tool-desc">Hospedagem dos arquivos HTML da proposta. Links permanentes e gratuitos para enviar à Angélica.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://github.com" target="_blank">github.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🔗</div>
+      <div class="tool-name">Linktree</div>
+      <div class="tool-desc">Agregador de links para a bio do Instagram. Até 3 destinos: mentoria, WhatsApp e material gratuito.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://linktr.ee" target="_blank">linktr.ee</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">📱</div>
+      <div class="tool-name">Later</div>
+      <div class="tool-desc">Agendamento de posts do Instagram. Programar a semana toda de uma vez, com visualização do grid.</div>
+      <span class="tool-free">Plano grátis disponível</span>
+      <a class="tool-link" href="https://later.com" target="_blank">later.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">📊</div>
+      <div class="tool-name">Notion</div>
+      <div class="tool-desc">Calendário editorial mensal documentado. Status de aprovação, data de publicação e tema de cada post.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://notion.so" target="_blank">notion.so</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🎬</div>
+      <div class="tool-name">CapCut</div>
+      <div class="tool-desc">Edição de Reels no celular. Gratuito, fácil e com legendas automáticas. Indicar à Angélica para editar os vídeos.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://capcut.com" target="_blank">capcut.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">📈</div>
+      <div class="tool-name">Instagram Insights</div>
+      <div class="tool-desc">Métricas nativas do Instagram. Alcance, impressões, engajamento e crescimento de seguidores por post.</div>
+      <span class="tool-free">Nativo — gratuito</span>
+      <a class="tool-link" href="https://instagram.com" target="_blank">instagram.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">📝</div>
+      <div class="tool-name">Google Apps Script</div>
+      <div class="tool-desc">Usado para criar o formulário do briefing automaticamente. Acessar em script.google.com e executar o código JS salvo.</div>
+      <span class="tool-free">Gratuito</span>
+      <a class="tool-link" href="https://script.google.com" target="_blank">script.google.com</a>
+    </div>
+
+    <div class="tool">
+      <div class="tool-icon">🌍</div>
+      <div class="tool-name">Tiiny.host</div>
+      <div class="tool-desc">Hospedagem rápida de arquivos HTML. Plano gratuito permite 1 arquivo ativo por vez. Alternativa ao GitHub.</div>
+      <span class="tool-free">1 link gratuito</span>
+      <a class="tool-link" href="https://tiiny.host" target="_blank">tiiny.host</a>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- ══════════ INSIGHTS ══════════ -->
+<div class="section theme-rose" id="insights">
+<div class="wrap">
+  <div class="sec-header">
+    <div class="sec-eye">09 · Insights Estratégicos</div>
+    <h2>O que não pode<br><em>ser esquecido</em></h2>
+    <p class="sec-desc">Os insights mais importantes definidos ao longo do projeto — para retomar sempre que necessário.</p>
+  </div>
+
+  <div class="insights">
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>O maior ativo da Angélica:</strong> Os 4 filhos que estudaram nas próprias escolas. Nenhum outro mentor do nicho tem isso. Usar com frequência — é irrefutável como prova de autoridade e coerência.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>O diferencial único no nicho:</strong> Fé como pilar de gestão em uma escola confessional com 35 anos. Nenhum concorrente ocupa esse espaço com autoridade real. A Identidade 2 foi escolhida justamente por comunicar isso visualmente.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>Conteúdo técnico não basta:</strong> Posts que só informam não convertem. A sequência certa é: criar tensão emocional (dor) → oferecer perspectiva → apresentar solução → CTA. O gancho emocional vem antes da técnica.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>2.242 seguidores são suficientes para começar:</strong> Não precisamos de mais seguidores para vender a mentoria. Precisamos que os que já existem entendam o que ela oferece. Volume vem depois de estrutura.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>Stories é onde a venda acontece:</strong> O feed constrói autoridade. Os Stories constroem relacionamento. É nos Stories que a decisão de comprar a mentoria é tomada. Stories diários são inegociáveis.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>Eventos = semanas de conteúdo:</strong> Cada evento da Angélica gera conteúdo antes, durante e depois. Pedir antecipação de 15 dias para planejar a cobertura. O destaque EVENTOS é um portfólio vivo da missão.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>Sobre a proposta financeira:</strong> R$1.500 (sem artes) · R$1.700 (com artes — Canva Pro incluso) por 3 meses. A partir do 4º mês: R$2.000. Justificativa: o R$200 extra cobre as ferramentas — ela não precisa pagar Canva Pro ou contratar designer.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>Sequência de envio da proposta:</strong> Carta → Diagnóstico → Como faremos → Proposta financeira. Essa ordem faz o valor parecer justo porque o trabalho já foi apresentado antes do preço.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>Como hospedar os arquivos:</strong> GitHub Pages (mariapinheiroloyola.github.io/angelica-pires/) é a solução definitiva — gratuito, ilimitado e permanente. O arquivo README.md pode ficar junto sem problema.</p>
+    </div>
+
+    <div class="insight-item" style="border-color:rgba(212,184,150,.4);">
+      <span class="ii-icon">✦</span>
+      <p class="ii-text"><strong>Para ela decidir entre as duas identidades:</strong> A pergunta certa é "qual Angélica você quer projetar — a que dirige ou a que forma?" A Identidade 2 ocupa um espaço vazio no nicho que nenhum concorrente tem.</p>
+    </div>
+
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <div class="ft">Painel do Projeto · Angélica Pires</div>
+  <p>Maria Loyola · Estrategista de Conteúdo &amp; Storytelling</p>
+</footer>
+
+</body>
+</html>
