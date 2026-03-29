@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identidade Visual Completa · Angélica Pires</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --r1:#7C3E52;--r2:#6A3346;--r3:#5A2A3A;
+  --ch:#D4B896;--ch2:#EAD5BF;
+  --bl:#F2E8EC;--bl2:#E8D5DD;
+  --iv:#FAF7F2;--sg:#6B7C6A;--sg2:#EDF0EC;
+  --ink:#2A1F24;--tx:#4A3840;--mt:#8A7278;--bd:#E8DADE;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Jost',sans-serif;background:#0C0608;color:#fff;font-size:14px;line-height:1.7;}
+
+/* NAV */
+.nav{position:sticky;top:0;z-index:100;background:rgba(8,4,6,.96);backdrop-filter:blur(16px);border-bottom:1px solid rgba(212,184,150,.1);padding:0 24px;display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;}
+.nav::-webkit-scrollbar{display:none;}
+.nb{font-family:'Cormorant Garamond',serif;font-size:14px;font-style:italic;color:var(--ch);white-space:nowrap;padding:13px 0;margin-right:14px;flex-shrink:0;}
+.nav a{white-space:nowrap;font-size:9px;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.28);text-decoration:none;padding:15px 10px;border-bottom:2px solid transparent;transition:all .2s;flex-shrink:0;}
+.nav a:hover{color:var(--ch);border-bottom-color:var(--ch);}
+
+/* GRAIN SVG inline */
+.grain{position:absolute;inset:0;pointer-events:none;z-index:2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E");mix-blend-mode:overlay;}
+.grain-m{position:absolute;inset:0;pointer-events:none;z-index:2;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");mix-blend-mode:multiply;}
+
+/* COVER */
+.cover{min-height:100vh;background:var(--r3);display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 32px;position:relative;overflow:hidden;}
+.cover::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 25% 65%,rgba(212,184,150,.07) 0%,transparent 50%),radial-gradient(ellipse at 78% 20%,rgba(124,62,82,.25) 0%,transparent 55%);pointer-events:none;}
+.cv{position:relative;z-index:1;max-width:680px;}
+.orn{display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:22px;}
+.ol{width:52px;height:1px;background:var(--ch);opacity:.4;}
+.od{width:7px;height:7px;background:var(--ch);transform:rotate(45deg);}
+.ce{font-size:10px;font-weight:600;letter-spacing:6px;text-transform:uppercase;color:rgba(255,255,255,.28);margin-bottom:16px;display:block;}
+.cover h1{font-family:'Cormorant Garamond',serif;font-size:clamp(46px,8vw,86px);font-weight:700;color:#fff;line-height:1.02;margin-bottom:10px;}
+.cover h1 em{font-style:italic;color:var(--ch2);}
+.csub{font-size:15px;color:rgba(255,255,255,.35);font-weight:300;margin-bottom:32px;max-width:460px;margin-left:auto;margin-right:auto;}
+.csw{display:flex;gap:10px;justify-content:center;}
+.csw div{width:44px;height:44px;border-radius:50%;box-shadow:0 4px 16px rgba(0,0,0,.35);}
+
+/* LAYOUT */
+.wrap{max-width:1020px;margin:0 auto;padding:0 28px;}
+.sec{padding:68px 0;border-bottom:1px solid rgba(255,255,255,.06);}
+.sec:last-of-type{border-bottom:none;}
+.eye{display:inline-flex;align-items:center;gap:10px;font-size:9px;font-weight:700;letter-spacing:5px;text-transform:uppercase;color:var(--ch);margin-bottom:14px;}
+.eye::before{content:'';width:18px;height:1px;background:var(--ch);opacity:.5;}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4.5vw,48px);font-weight:700;color:#fff;line-height:1.1;margin-bottom:10px;}
+h2 em{font-style:italic;color:var(--ch2);font-weight:300;}
+.sdesc{font-size:14px;color:rgba(255,255,255,.32);font-weight:300;max-width:540px;margin-bottom:36px;}
+h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--ch2);margin:32px 0 14px;}
+
+/* ── PALETA ── */
+.pal{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin:28px 0;}
+@media(max-width:600px){.pal{grid-template-columns:repeat(3,1fr);}}
+.sw{border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.3);transition:transform .2s;}
+.sw:hover{transform:translateY(-4px);}
+.sw-c{height:88px;position:relative;}
+.sw-c::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E");mix-blend-mode:overlay;}
+.sw-i{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-top:none;padding:12px 14px;}
+.sw-n{font-size:11px;font-weight:700;color:#fff;margin-bottom:3px;}
+.sw-h{font-family:'DM Mono',monospace;font-size:10px;color:var(--ch);opacity:.7;margin-bottom:3px;}
+.sw-r{font-size:9px;color:rgba(255,255,255,.28);letter-spacing:.5px;line-height:1.4;}
+
+/* ── TIPOGRAFIA ── */
+.tflex{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0;}
+@media(max-width:640px){.tflex{grid-template-columns:1fr;}}
+.tc{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:16px;padding:26px 22px;}
+.tc-role{font-size:9px;font-weight:700;letter-spacing:4px;text-transform:uppercase;color:var(--ch);margin-bottom:12px;display:block;}
+.tc-sample{margin-bottom:14px;line-height:1.2;}
+.tc-info{font-size:12px;color:rgba(255,255,255,.38);line-height:1.65;}
+.tc-info strong{color:rgba(255,255,255,.7);}
+.trules{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0;}
+@media(max-width:520px){.trules{grid-template-columns:1fr;}}
+.tr{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:12px;padding:16px 18px;}
+.tr-l{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--ch);margin-bottom:8px;display:block;}
+.tr-t{font-size:13px;color:rgba(255,255,255,.45);line-height:1.6;}
+.tr-t strong{color:rgba(255,255,255,.75);}
+
+/* ── TEXTURA ── */
+.texg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:28px 0;}
+@media(max-width:560px){.texg{grid-template-columns:1fr;}}
+.texc{border-radius:14px;overflow:hidden;box-shadow:0 12px 36px rgba(0,0,0,.3);}
+.texp{aspect-ratio:1/1;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:16px;}
+.texlb{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-top:none;padding:12px 14px;}
+.tex-n{font-size:12px;font-weight:700;color:#fff;margin-bottom:3px;}
+.tex-w{font-size:11px;color:rgba(255,255,255,.38);line-height:1.5;}
+.pho{position:absolute;inset:0;background:linear-gradient(to top,rgba(42,31,36,.88) 0%,rgba(42,31,36,.15) 55%,transparent 100%);z-index:1;}
+
+/* ── PHONE ── */
+.phone{width:272px;background:#1A1212;border-radius:38px;padding:11px;box-shadow:0 28px 72px rgba(0,0,0,.65),inset 0 0 0 1px rgba(255,255,255,.07);margin:0 auto;}
+.pscreen{background:#fff;border-radius:30px;overflow:hidden;}
+.pstatus{background:#fff;padding:8px 18px 3px;display:flex;justify-content:space-between;font-size:9px;color:#333;font-weight:700;}
+.phdr{background:#fff;padding:11px 13px 6px;}
+.phdr-top{display:flex;align-items:center;gap:10px;margin-bottom:7px;}
+.av{width:54px;height:54px;border-radius:50%;background:var(--r1);border:2.5px solid var(--ch);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;position:relative;overflow:hidden;}
+.pstats{display:flex;gap:10px;flex:1;}
+.ps{text-align:center;}
+.psv{font-size:11px;font-weight:800;color:#1a1a1a;display:block;}
+.psl{font-size:8px;color:#888;}
+.pname{font-size:10.5px;font-weight:800;color:#1a1a1a;margin-bottom:1px;}
+.pbio{font-size:8.5px;color:#333;line-height:1.4;margin-bottom:5px;}
+.pfol{background:var(--r1);color:#fff;text-align:center;border-radius:6px;font-size:9px;font-weight:700;padding:5px;margin-bottom:7px;}
+.hlrow{display:flex;gap:7px;overflow-x:auto;padding:3px 13px 9px;background:#fff;scrollbar-width:none;}
+.hlrow::-webkit-scrollbar{display:none;}
+.hl{display:flex;flex-direction:column;align-items:center;gap:3px;flex-shrink:0;}
+.hlr{width:40px;height:40px;border-radius:50%;border:2px solid var(--ch);padding:2px;}
+.hli{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:14px;position:relative;overflow:hidden;}
+.hll{font-size:7px;color:#333;font-weight:600;text-align:center;max-width:42px;line-height:1.2;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:#ddd;}
+.pcell{aspect-ratio:1/1;position:relative;overflow:hidden;}
+.pd{background:var(--r1);}
+.pd2{background:var(--r2);}
+.pd3{background:var(--r3);}
+.pl{background:var(--bl);border-left:2.5px solid var(--r1);}
+.pl2{background:var(--bl2);border-left:2.5px solid var(--r1);}
+.psg{background:var(--sg2);border-left:2.5px solid var(--sg);}
+.pci{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:6px 5px;}
+.po{display:flex;align-items:center;gap:2px;margin-bottom:3px;}
+.pol{width:9px;height:.5px;background:var(--ch);opacity:.5;}
+.pod{width:3px;height:3px;background:var(--ch);transform:rotate(45deg);}
+.pt{font-family:'Cormorant Garamond',serif;font-size:7px;font-weight:700;color:#fff;line-height:1.25;}
+.pt em{font-style:italic;color:var(--ch2);}
+.ph{font-size:5px;color:rgba(255,255,255,.28);font-family:'Jost',sans-serif;margin-top:2px;letter-spacing:.3px;}
+.pcil{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:6px 5px;}
+.ptag{font-size:5px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--r1);margin-bottom:3px;}
+.ptl{font-family:'Cormorant Garamond',serif;font-size:7px;font-weight:700;color:var(--ink);line-height:1.25;}
+.ptl em{font-style:italic;color:var(--r1);}
+.phl{font-size:4.5px;color:var(--mt);margin-top:2px;}
+.pb{position:absolute;top:4px;right:4px;background:rgba(0,0,0,.22);border-radius:2px;padding:1px 3px;font-size:4.5px;color:var(--ch);font-weight:700;letter-spacing:.5px;text-transform:uppercase;}
+.dc{position:absolute;border-radius:50%;border:.5px solid rgba(212,184,150,.1);pointer-events:none;}
+
+/* ── HIGHLIGHTS SHOWCASE ── */
+.hlshow{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin:28px 0;}
+.hls{display:flex;flex-direction:column;align-items:center;gap:9px;width:80px;}
+.hlsr{width:72px;height:72px;border-radius:50%;padding:3px;background:linear-gradient(135deg,var(--ch),var(--r1));}
+.hlsi{width:100%;height:100%;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;position:relative;overflow:hidden;border:2px solid #0C0608;}
+.hlsl{font-size:10px;font-weight:600;color:rgba(255,255,255,.65);text-align:center;line-height:1.3;letter-spacing:.3px;}
+
+/* ── PINS ── */
+.pins{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:28px 0;}
+@media(max-width:560px){.pins{grid-template-columns:1fr;}}
+.pin{border-radius:16px;overflow:hidden;box-shadow:0 16px 48px rgba(0,0,0,.4);}
+.pf{aspect-ratio:1/1;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;padding:20px 18px;}
+.pbf{position:absolute;top:13px;right:13px;background:rgba(0,0,0,.2);border:.5px solid rgba(212,184,150,.22);border-radius:100px;padding:3px 9px;font-size:8px;color:var(--ch2);font-family:'Jost',sans-serif;font-weight:600;letter-spacing:2px;text-transform:uppercase;}
+.po2{display:flex;align-items:center;gap:7px;margin-bottom:10px;}
+.pol2{width:18px;height:.5px;background:var(--ch);opacity:.38;}
+.pod2{width:5px;height:5px;background:var(--ch);transform:rotate(45deg);}
+.ptf{font-family:'Cormorant Garamond',serif;font-size:clamp(13px,2vw,17px);font-weight:700;color:#fff;line-height:1.25;margin-bottom:6px;}
+.ptf em{font-style:italic;color:var(--ch2);font-weight:300;}
+.phf{font-family:'Jost',sans-serif;font-size:10px;color:rgba(255,255,255,.28);letter-spacing:.8px;}
+.plb{font-size:8px;font-weight:700;color:var(--ch);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:3px;display:block;}
+.pin-info{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-top:none;padding:13px 15px;}
+.pi-t{font-size:10px;font-weight:700;color:var(--ch);margin-bottom:4px;}
+.pi-d{font-size:11px;color:rgba(255,255,255,.42);line-height:1.55;}
+
+/* ── TUTORIAL ── */
+.tsteps{display:flex;flex-direction:column;gap:0;margin:22px 0;}
+.ts{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);display:flex;gap:0;overflow:hidden;margin-top:-1px;}
+.ts:first-child{border-radius:14px 14px 0 0;}
+.ts:last-child{border-radius:0 0 14px 14px;}
+.tsn{min-width:52px;background:var(--r1);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.tsn span{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:700;color:var(--ch2);}
+.tsb{padding:16px 20px;flex:1;}
+.tst{font-size:13px;font-weight:700;color:#fff;margin-bottom:4px;}
+.tsd{font-size:13px;color:rgba(255,255,255,.45);line-height:1.65;}
+.tsd strong{color:rgba(255,255,255,.8);}
+.code{display:inline-block;font-family:'DM Mono',monospace;font-size:11px;color:var(--ch);background:rgba(212,184,150,.08);padding:2px 7px;border-radius:4px;margin:1px;}
+
+/* ── RULES ── */
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:24px 0;}
+@media(max-width:520px){.rg{grid-template-columns:1fr;}}
+.rl{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:18px;}
+.rl-icon{font-size:20px;margin-bottom:8px;display:block;}
+.rl-t{font-size:13px;font-weight:700;color:#fff;margin-bottom:5px;}
+.rl-d{font-size:13px;color:rgba(255,255,255,.42);line-height:1.6;}
+.rl-d strong{color:rgba(255,255,255,.72);}
+
+/* ── CALLOUT ── */
+.co{border-radius:12px;padding:16px 20px;margin:20px 0;display:flex;gap:12px;}
+.co.ch{background:rgba(212,184,150,.07);border-left:2px solid var(--ch);}
+.co.ro{background:rgba(124,62,82,.18);border-left:2px solid var(--r1);}
+.co.sg{background:rgba(107,124,106,.12);border-left:2px solid var(--sg);}
+.coi{font-size:17px;flex-shrink:0;line-height:1.5;}
+.cot{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;}
+.cot strong{color:rgba(255,255,255,.82);}
+
+/* FOOTER */
+footer{background:var(--r3);padding:48px 24px;text-align:center;position:relative;overflow:hidden;}
+footer::before{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");pointer-events:none;}
+.ft{font-family:'Cormorant Garamond',serif;font-size:21px;font-style:italic;color:var(--ch2);margin-bottom:6px;position:relative;}
+footer p{font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.18);position:relative;}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nb">Angélica Pires · Visual</div>
+  <a href="#paleta">Paleta</a>
+  <a href="#tipo">Tipografia</a>
+  <a href="#textura">Textura</a>
+  <a href="#grid">Grid</a>
+  <a href="#destaques">Destaques</a>
+  <a href="#pins">Pins</a>
+  <a href="#canva">Canva</a>
+  <a href="#regras">Regras</a>
+</nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="grain"></div>
+  <div class="cv">
+    <div class="orn"><div class="ol"></div><div class="od"></div><div class="ol"></div></div>
+    <span class="ce">Manual de Identidade Visual · @angelicapires_s</span>
+    <h1>A marca que<br><em>conta quem você é</em></h1>
+    <p class="csub">Paleta · Tipografia · Textura · Grid · Destaques · Pins · Tutorial Canva</p>
+    <div class="csw">
+      <div style="background:#7C3E52;"></div>
+      <div style="background:#D4B896;"></div>
+      <div style="background:#F2E8EC;border:1px solid rgba(255,255,255,.1);"></div>
+      <div style="background:#6B7C6A;"></div>
+      <div style="background:#FAF7F2;border:1px solid rgba(255,255,255,.1);"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PALETA -->
+<div class="sec" id="paleta">
+<div class="wrap">
+  <div class="eye">01 · Paleta de Cores</div>
+  <h2>Dez cores.<br><em>Uma presença inconfundível.</em></h2>
+  <p class="sdesc">Cada cor tem uma função específica. Usá-las com consistência é o que cria reconhecimento visual imediato.</p>
+  <div class="pal">
+    <div class="sw"><div class="sw-c" style="background:#7C3E52;"></div><div class="sw-i"><div class="sw-n">Rosa Vinho</div><div class="sw-h">#7C3E52</div><div class="sw-r">Cor principal · capas · destaques</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#6A3346;"></div><div class="sw-i"><div class="sw-n">Rosa Vinho Escuro</div><div class="sw-h">#6A3346</div><div class="sw-r">Sombra · contraste · profundidade</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#5A2A3A;"></div><div class="sw-i"><div class="sw-n">Rosa Vinho Deep</div><div class="sw-h">#5A2A3A</div><div class="sw-r">Gradientes · overlay em fotos</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#D4B896;"></div><div class="sw-i"><div class="sw-n">Champagne</div><div class="sw-h">#D4B896</div><div class="sw-r">Ornamentos · handles · destaque</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#EAD5BF;"></div><div class="sw-i"><div class="sw-n">Champagne Claro</div><div class="sw-h">#EAD5BF</div><div class="sw-r">Itálicos em fundo escuro</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#F2E8EC;"></div><div class="sw-i"><div class="sw-n">Bege Rosado</div><div class="sw-h">#F2E8EC</div><div class="sw-r">Fundo dos slides de conteúdo</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#E8D5DD;"></div><div class="sw-i"><div class="sw-n">Blush Médio</div><div class="sw-h">#E8D5DD</div><div class="sw-r">Fundo alternativo · callouts</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#6B7C6A;"></div><div class="sw-i"><div class="sw-n">Sálvia</div><div class="sw-h">#6B7C6A</div><div class="sw-r">Fé · natureza · equilíbrio</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#FAF7F2;"></div><div class="sw-i"><div class="sw-n">Marfim</div><div class="sw-h">#FAF7F2</div><div class="sw-r">Fundo branco quente</div></div></div>
+    <div class="sw"><div class="sw-c" style="background:#2A1F24;"></div><div class="sw-i"><div class="sw-n">Tinta</div><div class="sw-h">#2A1F24</div><div class="sw-r">Texto principal em fundos claros</div></div></div>
+  </div>
+</div>
+</div>
+
+<!-- TIPOGRAFIA -->
+<div class="sec" id="tipo">
+<div class="wrap">
+  <div class="eye">02 · Tipografia</div>
+  <h2>Três fontes.<br><em>Cada uma com sua função.</em></h2>
+  <p class="sdesc">Nunca misture mais de duas fontes em um mesmo post. A hierarquia tipográfica é o que dá ordem e elegância.</p>
+  <div class="tflex">
+    <div class="tc">
+      <span class="tc-role">Fonte 01 · Títulos & Ganchos</span>
+      <div class="tc-sample">
+        <div style="font-family:'Cormorant Garamond',serif;font-size:30px;color:#fff;font-weight:700;line-height:1.1;">Quase 4<br>décadas</div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--ch2);font-style:italic;line-height:1.1;">de escola</div>
+      </div>
+      <div class="tc-info"><strong>Cormorant Garamond</strong><br>Bold 700 para títulos<br>Light Italic 300 para subtítulos<br>28–48px em posts<br>Uso: capas, ganchos, citações</div>
+    </div>
+    <div class="tc">
+      <span class="tc-role">Fonte 02 · Corpo & Conteúdo</span>
+      <div class="tc-sample">
+        <div style="font-family:'Jost',sans-serif;font-size:14px;color:rgba(255,255,255,.72);font-weight:300;line-height:1.7;margin-bottom:7px;">Autoridade real não<br>se declara.</div>
+        <div style="font-family:'Jost',sans-serif;font-size:12px;color:rgba(255,255,255,.4);font-weight:600;letter-spacing:1px;">SE PROVA.</div>
+      </div>
+      <div class="tc-info"><strong>Jost</strong><br>Light 300 para texto corrido<br>SemiBold 600 para destaques<br>12–16px em posts<br>Uso: legendas, slides de conteúdo</div>
+    </div>
+    <div class="tc">
+      <span class="tc-role">Fonte 03 · Handles & Dados</span>
+      <div class="tc-sample">
+        <div style="font-family:'DM Mono',monospace;font-size:13px;color:var(--ch);letter-spacing:1.5px;margin-bottom:7px;">@angelicapires_s</div>
+        <div style="font-family:'DM Mono',monospace;font-size:10px;color:rgba(255,255,255,.28);letter-spacing:2px;">SLIDE 01 / 07</div>
+      </div>
+      <div class="tc-info"><strong>DM Mono</strong><br>Regular 400 para handles<br>Medium 500 para numeração<br>10–14px<br>Uso: @handle, numeração de slides</div>
+    </div>
+  </div>
+  <div class="trules">
+    <div class="tr"><span class="tr-l">✓ Combinações certas</span><p class="tr-t"><strong>Cormorant + Jost</strong> — capa + slide<br><strong>Cormorant + DM Mono</strong> — gancho + handle<br><strong>Jost + DM Mono</strong> — texto + numeração</p></div>
+    <div class="tr"><span class="tr-l">✕ Nunca faça</span><p class="tr-t"><strong>3 fontes</strong> no mesmo post<br><strong>Cormorant Bold</strong> em texto corrido<br><strong>Fontes do sistema</strong> (Arial, Helvetica)<br>Tamanho abaixo de <strong>10px</strong></p></div>
+  </div>
+</div>
+</div>
+
+<!-- TEXTURA -->
+<div class="sec" id="textura">
+<div class="wrap">
+  <div class="eye">03 · Textura & Humanização</div>
+  <h2>O que tira o post<br><em>da cara de catálogo.</em></h2>
+  <p class="sdesc">Textura é o que faz um post parecer feito por uma pessoa, não gerado por uma máquina. Aplicada com sutileza, ela adiciona profundidade e calor sem chamar atenção para si mesma.</p>
+  <div class="co ch"><div class="coi">✦</div><p class="cot"><strong>Regra da textura:</strong> o grain nunca deve ser visível como "efeito". Se der para perceber, está forte demais. A função é subconsciente — o olho sente, não vê. Opacidade ideal: 4–6%.</p></div>
+  <div class="texg">
+    <div class="texc">
+      <div class="texp" style="background:var(--r1);">
+        <div class="grain"></div>
+        <div style="position:relative;z-index:3;"><div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#fff;font-weight:700;line-height:1.3;margin-bottom:3px;">Fé não é enfeite<br><em style="color:var(--ch2)">na gestão.</em></div><div style="font-family:'DM Mono',monospace;font-size:8px;color:rgba(255,255,255,.28);">@angelicapires_s</div></div>
+      </div>
+      <div class="texlb"><div class="tex-n">Grain em fundo sólido</div><div class="tex-w">Opacidade 5% · Overlay · Posts de fé e reflexão</div></div>
+    </div>
+    <div class="texc">
+      <div class="texp" style="background:linear-gradient(160deg,#3A2830 0%,var(--r2) 50%,#1E1018 100%);">
+        <div class="grain"></div>
+        <div class="pho"></div>
+        <div style="position:relative;z-index:3;"><div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#fff;font-weight:700;line-height:1.3;margin-bottom:3px;">Quase 4 décadas<br><em style="color:var(--ch2)">de história viva.</em></div><div style="font-family:'DM Mono',monospace;font-size:8px;color:rgba(255,255,255,.28);">@angelicapires_s</div></div>
+      </div>
+      <div class="texlb"><div class="tex-n">Grain sobre foto</div><div class="tex-w">Opacidade 4% · Overlay · Humaniza fotos reais — menos estúdio, mais vida</div></div>
+    </div>
+    <div class="texc">
+      <div class="texp" style="background:var(--bl);">
+        <div class="grain-m"></div>
+        <div style="position:relative;z-index:3;"><div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--r1);margin-bottom:5px;">GESTÃO</div><div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:var(--ink);font-weight:700;line-height:1.3;">5 erros que toda<br>diretora comete</div></div>
+      </div>
+      <div class="texlb"><div class="tex-n">Grain em fundo claro</div><div class="tex-w">Opacidade 3% · Multiply · Tira o aspecto plástico dos slides de conteúdo</div></div>
+    </div>
+    <div class="texc">
+      <div class="texp" style="background:linear-gradient(160deg,var(--r3) 0%,var(--r2) 60%,#2A1022 100%);">
+        <div class="grain"></div>
+        <div style="position:relative;z-index:3;"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><div style="width:14px;height:.5px;background:var(--ch);opacity:.45;"></div><div style="width:4px;height:4px;background:var(--ch);transform:rotate(45deg);"></div><div style="width:14px;height:.5px;background:var(--ch);opacity:.45;"></div></div><div style="font-family:'Cormorant Garamond',serif;font-size:13px;color:#fff;font-style:italic;line-height:1.3;">"Liderar com fé<br>não é fraqueza.<br><span style="color:var(--ch2)">É estrutura."</span></div></div>
+      </div>
+      <div class="texlb"><div class="tex-n">Grain + gradiente diagonal</div><div class="tex-w">Para citações e posts de impacto emocional — profundidade extra</div></div>
+    </div>
+    <div class="texc">
+      <div class="texp" style="background:var(--sg2);">
+        <div class="grain-m"></div>
+        <div style="position:relative;z-index:3;"><div style="font-size:8px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--sg);margin-bottom:5px;">FÉ & GESTÃO</div><div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#2A4A28;font-weight:700;line-height:1.3;">A missão que<br>sustenta tudo</div></div>
+      </div>
+      <div class="texlb"><div class="tex-n">Sálvia + grain suave</div><div class="tex-w">Para posts sobre fé, propósito e missão — paleta alternativa</div></div>
+    </div>
+    <div class="texc">
+      <div class="texp" style="background:linear-gradient(160deg,rgba(42,31,36,.94) 0%,rgba(90,42,58,.82) 100%);">
+        <div class="grain"></div>
+        <div style="position:relative;z-index:3;"><div style="font-size:20px;margin-bottom:7px;">✝️</div><div style="font-family:'Cormorant Garamond',serif;font-size:14px;color:#fff;font-weight:700;line-height:1.3;">Meus filhos<br><em style="color:var(--ch2)">cresceram aqui.</em></div></div>
+      </div>
+      <div class="texlb"><div class="tex-n">Overlay escuro + grain</div><div class="tex-w">Para storytelling pessoal — cria atmosfera íntima e emocional</div></div>
+    </div>
+  </div>
+  <div class="co ro"><div class="coi">🎨</div><p class="cot"><strong>Como aplicar grain no Canva:</strong> Baixe uma imagem de textura grain PNG com fundo transparente. No Canva, adicione como elemento acima de tudo, ajuste a transparência para 5–8% e mude o modo de mesclagem para <strong>Multiplicar</strong> (fundos claros) ou <strong>Sobrepor</strong> (fundos escuros). Busque "grain texture transparent PNG" no Google Images.</p></div>
+</div>
+</div>
+
+<!-- GRID -->
+<div class="sec" id="grid">
+<div class="wrap">
+  <div class="eye">04 · Grid do Perfil</div>
+  <h2>O ritmo visual<br><em>que cria reconhecimento.</em></h2>
+  <p class="sdesc">O grid não é uma grade rígida — é um ritmo. Escuro, claro, escuro. Quem visita o perfil sente a consistência antes de ler uma palavra.</p>
+  <div class="co ch"><div class="coi">📐</div><p class="cot"><strong>Padrão do grid:</strong> A cada 9 posts, o ciclo se repete em blocos de 3×3 coesos. Nunca 2 claros seguidos. Nunca 3 escuros sem 1 claro entre eles. O ritmo correto: <strong>escuro · claro · escuro / escuro · escuro · claro / claro · escuro · escuro</strong>.</p></div>
+
+  <div style="display:flex;justify-content:center;margin:40px 0;">
+    <div class="phone">
+      <div class="pscreen">
+        <div class="pstatus"><span>9:41</span><span>●●● 5G ■</span></div>
+        <div class="phdr">
+          <div class="phdr-top">
+            <div class="av"><div class="grain"></div>👩</div>
+            <div class="pstats">
+              <div class="ps"><span class="psv">+2.245</span><span class="psl">seguidores</span></div>
+              <div class="ps"><span class="psv">3</span><span class="psl">escolas</span></div>
+              <div class="ps"><span class="psv">38</span><span class="psl">posts</span></div>
+            </div>
+          </div>
+          <div class="pname">Angélica Pires | Mentora de Diretoras</div>
+          <div class="pbio">Mais de 35 anos formando líderes ✝️<br>3 escolas · +1.000 alunos · Mãe de 4</div>
+          <div class="pfol">Seguir</div>
+        </div>
+        <div class="hlrow">
+          <div class="hl"><div class="hlr"><div class="hli" style="background:var(--r1);"><div class="grain"></div>🎓</div></div><div class="hll">MENTORIA</div></div>
+          <div class="hl"><div class="hlr"><div class="hli" style="background:var(--r2);"><div class="grain"></div>🏫</div></div><div class="hll">HISTÓRIA</div></div>
+          <div class="hl"><div class="hlr"><div class="hli" style="background:var(--r3);"><div class="grain"></div>✝️</div></div><div class="hll">FÉ & GESTÃO</div></div>
+          <div class="hl"><div class="hlr"><div class="hli" style="background:var(--sg);"><div class="grain"></div>💡</div></div><div class="hll">DICAS</div></div>
+          <div class="hl"><div class="hlr"><div class="hli" style="background:var(--r1);"><div class="grain"></div>⭐</div></div><div class="hll">RESULTADOS</div></div>
+          <div class="hl"><div class="hlr"><div class="hli" style="background:var(--r2);"><div class="grain"></div>🗓️</div></div><div class="hll">EVENTOS</div></div>
+        </div>
+        <div class="pgrid">
+          <!-- Linha 1 — pins -->
+          <div class="pcell pd"><div class="grain"></div><div class="dc" style="width:70px;height:70px;top:-18px;right:-18px;"></div><div class="pb">PIN</div><div class="pci"><div class="po"><div class="pol"></div><div class="pod"></div><div class="pol"></div></div><div class="pt">Quase 4<br>décadas<br><em>de escola</em></div><div class="ph">@angelicapires_s</div></div></div>
+          <div class="pcell pl"><div class="grain-m"></div><div class="pb" style="background:rgba(124,62,82,.1);color:var(--r1);">PIN</div><div class="pcil"><div class="ptag">AUTORIDADE</div><div class="ptl">Autoridade<br>real não<br><em>se declara.</em></div></div></div>
+          <div class="pcell pd2"><div class="grain"></div><div class="pb">PIN</div><div class="pci"><div class="po"><div class="pol"></div><div class="pod"></div><div class="pol"></div></div><div class="pt">Não é fraca.<br>Nunca<br><em>a ensinaram</em></div><div class="ph">@angelicapires_s</div></div></div>
+          <!-- Linha 2 -->
+          <div class="pcell pl"><div class="grain-m"></div><div class="pcil"><div class="ptag">GESTÃO</div><div class="ptl">5 erros que<br>toda diretora<br><em>comete</em></div></div></div>
+          <div class="pcell pd3"><div class="grain"></div><div class="pci"><div style="font-size:14px;margin-bottom:3px;position:relative;z-index:1;">✝️</div><div class="pt" style="position:relative;z-index:1;">Fé não é<br>enfeite.<br><em>É estrutura.</em></div></div></div>
+          <div class="pcell pl2"><div class="grain-m"></div><div class="pcil"><div class="ptag">HISTÓRIA</div><div class="ptl">Meus filhos<br>estudaram<br><em>aqui.</em></div></div></div>
+          <!-- Linha 3 -->
+          <div class="pcell pd"><div class="grain"></div><div class="pci"><div class="po"><div class="pol"></div><div class="pod"></div><div class="pol"></div></div><div class="pt">Delegar não<br>é fraqueza.<br><em>É liderança.</em></div></div></div>
+          <div class="pcell psg"><div class="grain-m"></div><div class="pcil"><div class="ptag" style="color:var(--sg);">FÉ & MISSÃO</div><div class="ptl" style="color:#2A4A28;">A missão<br>que sustenta<br><em style="color:var(--sg)">tudo.</em></div></div></div>
+          <div class="pcell pd2"><div class="grain"></div><div class="pci"><div style="font-size:12px;margin-bottom:3px;position:relative;z-index:1;">🎓</div><div class="pt" style="position:relative;z-index:1;">Mentoria<br><em>Diretora de<br>Missão</em></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="max-width:460px;margin:0 auto;">
+    <div class="co ch"><div class="coi">🔄</div><p class="cot"><strong>Regra do ritmo por linha:</strong> Linha 1 · escuro-claro-escuro. Linha 2 · claro-escuro-claro. Linha 3 · escuro-sálvia-escuro. Repita o ciclo a cada 3 linhas. Use sálvia com moderação — máximo 1 por bloco de 9.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- DESTAQUES -->
+<div class="sec" id="destaques">
+<div class="wrap">
+  <div class="eye">05 · Destaques</div>
+  <h2>Os 6 destaques<br><em>e como devem ficar.</em></h2>
+  <p class="sdesc">Os destaques são a segunda coisa que a visitante olha depois da bio. Identidade coesa e nomes que comunicam o território.</p>
+  <div class="hlshow">
+    <div class="hls"><div class="hlsr"><div class="hlsi" style="background:var(--r1);"><div class="grain"></div>🎓</div></div><div class="hlsl">MENTORIA</div></div>
+    <div class="hls"><div class="hlsr"><div class="hlsi" style="background:var(--r2);"><div class="grain"></div>🏫</div></div><div class="hlsl">HISTÓRIA</div></div>
+    <div class="hls"><div class="hlsr"><div class="hlsi" style="background:var(--r3);"><div class="grain"></div>✝️</div></div><div class="hlsl">FÉ & GESTÃO</div></div>
+    <div class="hls"><div class="hlsr"><div class="hlsi" style="background:var(--sg);"><div class="grain"></div>💡</div></div><div class="hlsl">DICAS</div></div>
+    <div class="hls"><div class="hlsr"><div class="hlsi" style="background:linear-gradient(135deg,var(--r1),var(--r2));"><div class="grain"></div>⭐</div></div><div class="hlsl">RESULTADOS</div></div>
+    <div class="hls"><div class="hlsr"><div class="hlsi" style="background:linear-gradient(135deg,var(--r2),var(--r3));"><div class="grain"></div>🗓️</div></div><div class="hlsl">EVENTOS</div></div>
+  </div>
+  <div class="rg">
+    <div class="rl"><span class="rl-icon">🎨</span><div class="rl-t">Capas dos destaques</div><p class="rl-d">Fundo rosa vinho + ícone centralizado + nome em <strong>Jost SemiBold</strong> all caps em champagne. Tamanho: <strong>1080×1080px</strong>.</p></div>
+    <div class="rl"><span class="rl-icon">📐</span><div class="rl-t">Zona segura</div><p class="rl-d">O Instagram recorta em círculo. Mantenha o ícone centralizado e nada importante nos cantos. Margem segura: <strong>180px de cada lado</strong>.</p></div>
+    <div class="rl"><span class="rl-icon">🔢</span><div class="rl-t">Ordem dos destaques</div><p class="rl-d"><strong>1. MENTORIA</strong> · 2. HISTÓRIA · 3. FÉ & GESTÃO · 4. DICAS · 5. RESULTADOS · 6. EVENTOS. O que converte fica primeiro.</p></div>
+    <div class="rl"><span class="rl-icon">✨</span><div class="rl-t">Textura nas capas</div><p class="rl-d">Grain <strong>5% overlay</strong> sobre o fundo rosa vinho. Profundidade artesanal — menos digital, mais humano.</p></div>
+  </div>
+</div>
+</div>
+
+<!-- PINS -->
+<div class="sec" id="pins">
+<div class="wrap">
+  <div class="eye">06 · Posts Fixados</div>
+  <h2>Os 3 pins —<br><em>a primeira impressão do feed.</em></h2>
+  <p class="sdesc">Quem chega vê esses 3 primeiro. Cada um cumpre uma função específica: apresentação → autoridade → conversão.</p>
+  <div class="pins">
+    <div class="pin">
+      <div class="pf" style="background:var(--r1);">
+        <div class="grain"></div>
+        <div class="dc" style="width:150px;height:150px;top:-45px;right:-45px;"></div>
+        <div class="dc" style="width:70px;height:70px;bottom:-18px;left:-18px;"></div>
+        <div class="pbf">PIN 01</div>
+        <div style="position:relative;z-index:3;"><div class="po2"><div class="pol2"></div><div class="pod2"></div><div class="pol2"></div></div><span class="plb">Apresentação</span><div class="ptf">Quase 4 décadas<br>de escola me<br>ensinaram uma<br>coisa que<br><em>nenhuma faculdade<br>ensina.</em></div><div class="phf">@angelicapires_s</div></div>
+      </div>
+      <div class="pin-info"><div class="pi-t">Função: Apresentação</div><div class="pi-d">Âncora da trajetória. Primeiro post que a visitante vê — autoridade histórica de quase 4 décadas.</div></div>
+    </div>
+    <div class="pin">
+      <div class="pf" style="background:var(--bl);">
+        <div class="grain-m"></div>
+        <div style="position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--r1);"></div>
+        <div class="pbf" style="background:rgba(124,62,82,.1);color:var(--r1);border:.5px solid rgba(124,62,82,.18);">PIN 02</div>
+        <div style="position:relative;z-index:3;"><span class="plb" style="color:var(--r1);">Autoridade</span><div class="ptf" style="color:var(--ink);">Autoridade real<br>não se declara.<br><em style="color:var(--r1);">Se prova.</em></div><div class="phf" style="color:var(--mt);">@angelicapires_s</div></div>
+      </div>
+      <div class="pin-info"><div class="pi-t">Função: Diferenciação</div><div class="pi-d">4 provas de autoridade: os números, os filhos, a formação e a fé. Elimina dúvida sobre credibilidade.</div></div>
+    </div>
+    <div class="pin">
+      <div class="pf" style="background:var(--r2);">
+        <div class="grain"></div>
+        <div class="dc" style="width:130px;height:130px;top:-38px;right:-38px;"></div>
+        <div class="pbf">PIN 03</div>
+        <div style="position:relative;z-index:3;"><div class="po2"><div class="pol2"></div><div class="pod2"></div><div class="pol2"></div></div><span class="plb">Mentoria</span><div class="ptf">Você não está<br>sobrecarregada<br>porque é fraca.<br><em>Está porque nunca<br>te ensinaram<br>a liderar.</em></div><div class="phf">@angelicapires_s</div></div>
+      </div>
+      <div class="pin-info"><div class="pi-t">Função: Conversão</div><div class="pi-d">Fala direto com a dor da diretora sobrecarregada e apresenta a mentoria como solução. CTA no último slide.</div></div>
+    </div>
+  </div>
+  <div class="co ro"><div class="coi">📌</div><p class="cot"><strong>Ordem de publicação:</strong> Publique na ordem <strong>inversa</strong> — Pin 03 primeiro, Pin 01 por último. O Instagram coloca o mais recente à esquerda, então a sequência de leitura fica: Apresentação → Autoridade → Mentoria.</p></div>
+</div>
+</div>
+
+<!-- CANVA TUTORIAL -->
+<div class="sec" id="canva">
+<div class="wrap">
+  <div class="eye">07 · Tutorial Canva</div>
+  <h2>Como montar<br><em>cada template do zero.</em></h2>
+  <p class="sdesc">Passo a passo para criar os templates base e replicar com consistência em todos os posts.</p>
+
+  <h3>Configuração inicial — fazer uma vez só</h3>
+  <div class="tsteps">
+    <div class="ts"><div class="tsn"><span>1</span></div><div class="tsb"><div class="tst">Criar o Kit de Marca no Canva Pro</div><p class="tsd">Canva → <strong>Marca → Criar Kit de Marca</strong>. Adicione as cores: <span class="code">#7C3E52</span> <span class="code">#6A3346</span> <span class="code">#5A2A3A</span> <span class="code">#D4B896</span> <span class="code">#EAD5BF</span> <span class="code">#F2E8EC</span> <span class="code">#E8D5DD</span> <span class="code">#6B7C6A</span> <span class="code">#FAF7F2</span> <span class="code">#2A1F24</span>. Nomeie cada uma conforme a paleta.</p></div></div>
+    <div class="ts"><div class="tsn"><span>2</span></div><div class="tsb"><div class="tst">Adicionar as 3 fontes ao Kit</div><p class="tsd">No Kit de Marca, adicione: <strong>Cormorant Garamond</strong> (título), <strong>Jost</strong> (corpo) e <strong>DM Mono</strong> (handles). Todas gratuitas no Canva. Configure: título Cormorant Bold 36px · subtítulo Cormorant Light Italic 28px · corpo Jost Light 14px.</p></div></div>
+    <div class="ts"><div class="tsn"><span>3</span></div><div class="tsb"><div class="tst">Criar a pasta "AP — Templates"</div><p class="tsd">No Canva, crie uma pasta com esse nome. Todos os templates base ficam aqui. Para cada post novo: abra o template → clique em <strong>"Duplicar design"</strong> → edite a cópia. <strong>Nunca edite o original.</strong></p></div></div>
+  </div>
+
+  <h3>Criando a capa de carrossel escura (template base)</h3>
+  <div class="tsteps">
+    <div class="ts"><div class="tsn"><span>1</span></div><div class="tsb"><div class="tst">Novo design 1080×1080px</div><p class="tsd">Canva → <strong>Criar design → Tamanho personalizado → 1080 × 1080 px</strong>. Nomeie "Template — Capa Escura".</p></div></div>
+    <div class="ts"><div class="tsn"><span>2</span></div><div class="tsb"><div class="tst">Fundo rosa vinho com textura</div><p class="tsd">Fundo: <span class="code">#7C3E52</span>. Adicione o PNG de grain acima do fundo, transparência <strong>5%</strong>, modo de mesclagem <strong>Sobrepor</strong>. Isso dá profundidade imediata.</p></div></div>
+    <div class="ts"><div class="tsn"><span>3</span></div><div class="tsb"><div class="tst">Ornamento linha-losango-linha</div><p class="tsd">Linha horizontal <strong>2px</strong>, cor <span class="code">#D4B896</span>, opacidade 50%. Quadrado girado 45° (<strong>8×8px</strong>, mesma cor) no centro. Agrupe os 3 elementos. Posicione a <strong>140px da base</strong> à esquerda.</p></div></div>
+    <div class="ts"><div class="tsn"><span>4</span></div><div class="tsb"><div class="tst">Título principal</div><p class="tsd">Fonte: <strong>Cormorant Garamond Bold, 72px, branco</strong>. Alinhado à esquerda, margem esquerda 64px. Itálicos em <strong>Cormorant Light Italic, cor <span class="code">#EAD5BF</span></strong>.</p></div></div>
+    <div class="ts"><div class="tsn"><span>5</span></div><div class="tsb"><div class="tst">Handle e numeração</div><p class="tsd">Handle: <strong>DM Mono Regular, 20px, <span class="code">#D4B896</span>, opacidade 50%</strong>. Posicione na base esquerda. Numeração (01/07): <strong>DM Mono 18px, mesma cor, opacidade 40%</strong>. Canto superior direito.</p></div></div>
+    <div class="ts"><div class="tsn"><span>6</span></div><div class="tsb"><div class="tst">Círculos decorativos (opcional)</div><p class="tsd">Círculos vazados, borda <strong>1px, <span class="code">#D4B896</span>, opacidade 12%</strong>. Posicione parcialmente fora do canvas nos cantos — criam profundidade sem poluir.</p></div></div>
+    <div class="ts"><div class="tsn"><span>7</span></div><div class="tsb"><div class="tst">Salvar como template base</div><p class="tsd">Salve na pasta "AP — Templates". Para cada post: <strong>Arquivo → Fazer uma cópia</strong>. Edite apenas o texto — nunca altere cores ou fontes.</p></div></div>
+  </div>
+
+  <div class="co sg"><div class="coi">💡</div><p class="cot"><strong>Para o slide claro (bege rosado):</strong> fundo <span class="code">#F2E8EC</span>, grain em modo <strong>Multiplicar 3%</strong>, borda esquerda 3px em <span class="code">#7C3E52</span>, título Cormorant Garamond Bold cor <span class="code">#2A1F24</span>, tag em Jost SemiBold 12px all caps cor <span class="code">#7C3E52</span>.</p></div>
+</div>
+</div>
+
+<!-- REGRAS -->
+<div class="sec" id="regras">
+<div class="wrap">
+  <div class="eye">08 · Regras de Uso</div>
+  <h2>O que sempre fazer.<br><em>O que nunca fazer.</em></h2>
+  <div class="rg">
+    <div class="rl"><span class="rl-icon">✅</span><div class="rl-t">Sempre use as cores da paleta</div><p class="rl-d">Nenhuma cor fora da paleta entra no feed. Para variações, use opacidades das cores existentes.</p></div>
+    <div class="rl"><span class="rl-icon">✅</span><div class="rl-t">Mantenha o ritmo escuro/claro</div><p class="rl-d">A cada 3 posts: no mínimo <strong>1 claro</strong> e <strong>1 escuro</strong>. O ritmo é o que cria identidade visual no grid.</p></div>
+    <div class="rl"><span class="rl-icon">✅</span><div class="rl-t">Grain em todos os posts</div><p class="rl-d">Mesmo sutil, aplique sempre. É o elemento que unifica todos os posts e tira a aparência de template genérico.</p></div>
+    <div class="rl"><span class="rl-icon">✅</span><div class="rl-t">Ornamento em toda capa escura</div><p class="rl-d">A sequência linha-losango-linha em champagne é o "selo" visual. Toda capa escura tem esse ornamento.</p></div>
+    <div class="rl"><span class="rl-icon">❌</span><div class="rl-t">Nunca misture mais de 2 fontes</div><p class="rl-d">Três fontes em um mesmo post destroem a hierarquia visual e o post perde elegância.</p></div>
+    <div class="rl"><span class="rl-icon">❌</span><div class="rl-t">Nunca use fundo branco puro</div><p class="rl-d">O branco <span class="code">#FFFFFF</span> não existe na identidade. Use marfim <span class="code">#FAF7F2</span> ou bege rosado <span class="code">#F2E8EC</span>.</p></div>
+    <div class="rl"><span class="rl-icon">❌</span><div class="rl-t">Nunca poste 2 claros seguidos</div><p class="rl-d">No grid, dois posts claros lado a lado quebram o ritmo e apagam a identidade visual.</p></div>
+    <div class="rl"><span class="rl-icon">❌</span><div class="rl-t">Nunca reduza o handle abaixo de 10px</div><p class="rl-d">O @angelicapires_s precisa ser legível mesmo em miniatura. Tamanho mínimo no Canva: <strong>20px</strong>.</p></div>
+  </div>
+  <div class="co ch" style="margin-top:28px;"><div class="coi">💛</div><p class="cot"><strong>Resumo em uma frase:</strong> Rosa vinho + grain + Cormorant Garamond + ornamento = Angélica Pires. Toda vez que esses 4 elementos aparecem juntos, o post é imediatamente reconhecível — mesmo sem ler o handle.</p></div>
+</div>
+</div>
+
+<footer>
+  <div class="ft">Manual de Identidade Visual · Angélica Pires</div>
+  <p>Maria Loyola · Estrategista de Conteúdo &amp; Storytelling</p>
+</footer>
+
+</body>
+</html>
