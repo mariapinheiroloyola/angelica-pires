@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiros Completos · Mulheres que Edificam Destinos · 7 Módulos</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cedar:  #5C3D2E;
+  --cedar2: #4A2E1F;
+  --cedar3: #3A2018;
+  --amber:  #C4965A;
+  --amber2: #E0BB8E;
+  --linen:  #F5EDE0;
+  --linen2: #EDE0CC;
+  --cream:  #FAF6F0;
+  --ink:    #2A1F18;
+  --text:   #4A3828;
+  --muted:  #8A7868;
+  --border: #DDD0BC;
+  --olive:  #6B7A58;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--text); font-size: 15px; line-height: 1.8; }
+
+.grain { position: absolute; inset: 0; pointer-events: none; z-index: 2; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); mix-blend-mode: overlay; }
+
+/* NAV */
+.nav { position: sticky; top: 0; z-index: 100; background: rgba(250,246,240,.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 24px; display: flex; align-items: center; gap: 3px; overflow-x: auto; scrollbar-width: none; }
+.nav::-webkit-scrollbar { display: none; }
+.nb { font-family: 'Cormorant Garamond', serif; font-size: 13px; font-style: italic; color: var(--cedar); white-space: nowrap; padding: 12px 0; margin-right: 14px; flex-shrink: 0; }
+.nav a { white-space: nowrap; font-size: 9px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 14px 9px; border-bottom: 2px solid transparent; transition: all .2s; flex-shrink: 0; }
+.nav a:hover { color: var(--cedar); border-bottom-color: var(--amber); }
+
+/* HERO */
+.hero { background: var(--cedar3); min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; padding: 72px 32px; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 25% 70%, rgba(196,150,90,.08) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(92,61,46,.3) 0%, transparent 55%); pointer-events: none; }
+.hv { position: relative; z-index: 1; max-width: 680px; }
+.h-orn { display: flex; align-items: center; gap: 14px; justify-content: center; margin-bottom: 22px; }
+.h-line { width: 52px; height: 1px; background: var(--amber); opacity: .4; }
+.h-dia { width: 6px; height: 6px; background: var(--amber); transform: rotate(45deg); }
+.h-eye { font-size: 10px; font-weight: 600; letter-spacing: 6px; text-transform: uppercase; color: rgba(255,255,255,.25); margin-bottom: 14px; display: block; }
+.hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 6vw, 64px); font-weight: 700; color: #fff; line-height: 1.05; margin-bottom: 10px; }
+.hero h1 em { font-style: italic; color: var(--amber2); font-weight: 300; }
+.h-sub { font-size: 15px; color: rgba(255,255,255,.35); font-weight: 300; max-width: 500px; margin: 0 auto 28px; line-height: 1.8; }
+.h-pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.h-pill { background: rgba(196,150,90,.1); border: 1px solid rgba(196,150,90,.2); border-radius: 100px; padding: 5px 16px; font-size: 11px; color: var(--amber2); font-weight: 600; letter-spacing: 1px; }
+
+/* LAYOUT */
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 32px; }
+.module-section { padding: 72px 0; border-bottom: 2px solid var(--linen2); }
+.module-section:last-of-type { border-bottom: none; }
+
+/* MODULE HEADER */
+.mod-hero { background: var(--cedar); border-radius: 20px; padding: 44px 48px; margin-bottom: 40px; position: relative; overflow: hidden; }
+.mod-hero::before { content: ''; position: absolute; width: 400px; height: 400px; border-radius: 50%; border: 1px solid rgba(196,150,90,.08); right: -100px; top: -100px; pointer-events: none; }
+.mod-hero.m2 { background: var(--cedar2); }
+.mod-hero.m3 { background: var(--cedar3); }
+.mod-hero.m4 { background: linear-gradient(135deg, var(--cedar2), var(--cedar3)); }
+.mod-hero.m5 { background: var(--cedar); }
+.mod-hero.m6 { background: var(--cedar2); }
+.mod-hero.m7 { background: linear-gradient(135deg, var(--cedar3), #2A1610); }
+.mod-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--amber); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 10px; display: block; position: relative; }
+.mod-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(26px, 4vw, 40px); font-weight: 700; color: #fff; line-height: 1.1; margin-bottom: 8px; position: relative; }
+.mod-archetype { font-size: 13px; color: rgba(255,255,255,.38); font-style: italic; margin-bottom: 16px; position: relative; }
+.mod-transform { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--amber2); font-weight: 600; position: relative; line-height: 1.5; }
+.mod-transform::before { content: '→'; color: var(--amber); flex-shrink: 0; }
+.mod-duration { position: absolute; top: 28px; right: 32px; font-family: 'DM Mono', monospace; font-size: 11px; color: rgba(255,255,255,.28); letter-spacing: 2px; }
+
+/* BLOCOS */
+.bloco { margin-bottom: 32px; }
+.bloco-label { font-size: 9px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--amber); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+.bloco-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+/* FALA */
+.fala { font-size: 15px; color: var(--text); line-height: 1.9; font-style: italic; background: var(--linen); border-radius: 12px; padding: 22px 26px; border-left: 3px solid var(--amber); margin-bottom: 10px; }
+.fala strong { color: var(--cedar); font-style: normal; }
+.fala em { color: var(--cedar2); }
+
+/* NOTA */
+.nota { font-size: 12px; color: var(--muted); background: rgba(196,150,90,.06); border-radius: 8px; padding: 10px 14px; margin-top: 8px; display: flex; gap: 8px; }
+.nota::before { content: '📌'; flex-shrink: 0; }
+
+/* APLICACAO */
+.aplicacao { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; margin-top: 16px; }
+.ap-title { font-size: 12px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--cedar); margin-bottom: 12px; }
+.ap-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.ap-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; color: var(--text); line-height: 1.65; margin: 0; }
+.ap-list li::before { content: '✦'; color: var(--amber); font-size: 9px; flex-shrink: 0; margin-top: 4px; }
+
+/* IMPACTO */
+.impacto { background: var(--cedar); border-radius: 14px; padding: 22px 28px; margin-top: 24px; position: relative; overflow: hidden; }
+.impacto::before { content: '"'; font-family: 'Cormorant Garamond', serif; font-size: 120px; color: rgba(196,150,90,.07); position: absolute; top: -15px; left: 14px; line-height: 1; pointer-events: none; }
+.imp-label { font-size: 9px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--amber); margin-bottom: 8px; position: relative; }
+.imp-text { font-family: 'Cormorant Garamond', serif; font-size: clamp(17px, 2.3vw, 22px); color: #fff; line-height: 1.55; font-style: italic; position: relative; }
+.imp-text em { color: var(--amber2); font-style: normal; }
+
+/* CALLOUT */
+.co { border-radius: 12px; padding: 14px 18px; margin: 14px 0; display: flex; gap: 10px; }
+.co.amber { background: rgba(196,150,90,.07); border-left: 2px solid var(--amber); }
+.co.cedar { background: rgba(92,61,46,.06); border-left: 2px solid var(--cedar); }
+.coi { font-size: 16px; flex-shrink: 0; line-height: 1.5; }
+.cot { font-size: 13px; color: var(--muted); line-height: 1.7; }
+.cot strong { color: var(--ink); }
+
+/* FOOTER */
+footer { background: var(--cedar3); padding: 48px 28px; text-align: center; position: relative; overflow: hidden; }
+footer::before { content: ''; position: absolute; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E"); pointer-events: none; }
+.ft { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-style: italic; color: var(--amber2); margin-bottom: 6px; position: relative; }
+footer p { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.18); position: relative; }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nb">Roteiros · 7 Módulos</div>
+  <a href="#m1">Módulo 1</a>
+  <a href="#m2">Módulo 2</a>
+  <a href="#m3">Módulo 3</a>
+  <a href="#m4">Módulo 4</a>
+  <a href="#m5">Módulo 5</a>
+  <a href="#m6">Módulo 6</a>
+  <a href="#m7">Módulo 7</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="grain"></div>
+  <div class="hv">
+    <div class="h-orn"><div class="h-line"></div><div class="h-dia"></div><div class="h-line"></div></div>
+    <span class="h-eye">Mulheres que Edificam Destinos · Angélica Pires</span>
+    <h1>Roteiros<br><em>Completos</em></h1>
+    <p class="h-sub">Abertura emocional · Desenvolvimento · Aplicação prática · Frase de impacto — para cada um dos 7 módulos.</p>
+    <div class="h-pills">
+      <span class="h-pill">7 módulos</span>
+      <span class="h-pill">90 min cada</span>
+      <span class="h-pill">Fala palavra por palavra</span>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- MÓDULO 1 -->
+<!-- ══════════════════════════════ -->
+<div class="module-section" id="m1">
+<div class="wrap">
+
+  <div class="mod-hero">
+    <div class="grain"></div>
+    <div class="mod-duration">90 min</div>
+    <span class="mod-num">Módulo 01</span>
+    <div class="mod-title">Antes de Edificar,<br>Conhece-te</div>
+    <div class="mod-archetype">Arquétipo: Rute · Fidelidade ao processo antes do resultado</div>
+    <div class="mod-transform">De mulher que age por impulso para mulher que age por convicção</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Abertura Emocional — 10 minutos</div>
+    <div class="fala">
+      "Quero começar te fazendo uma pergunta que talvez você nunca tenha respondido com honestidade.<br><br>
+      <strong>Quando foi a última vez que você parou — não dormiu, não desmaiou de cansaço — mas parou de verdade, olhou para dentro e se perguntou: como eu estou?</strong><br><br>
+      Não como mãe. Não como esposa. Não como profissional. Você. Como você está?<br><br>
+      Se essa pergunta te incomoda, você está no lugar certo. Se você não sabe a resposta — você está no lugar certo. Se você sente que não tem tempo para se fazer essa pergunta — você está urgentemente no lugar certo.<br><br>
+      Porque nós vamos passar os próximos encontros edificando algo. E antes de qualquer construção, a primeira pergunta não é 'o que vou construir' — é 'sobre que terra estou construindo?'"
+    </div>
+    <div class="nota">Pausa de 2 minutos. Peça que elas escrevam em silêncio: "Honestamente, como eu estou?" — sem mostrar para ninguém.</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Desenvolvimento — 35 minutos</div>
+    <div class="fala">
+      "Rute poderia ter voltado para sua terra depois que o marido morreu. Era o caminho lógico. Era o que Orpá escolheu — e não havia nada de errado nisso.<br><br>
+      Mas Rute ficou. <strong>Não por dependência emocional. Não por falta de opção.</strong> Ela ficou por lealdade a algo que ela não saberia explicar completamente — um chamado que estava além da conveniência.<br><br>
+      Essa lealdade custou. Ela foi para um campo colher espiga por espiga enquanto outras tinham o que comer. Sem garantias. Sem mapa. Apenas a convicção de que estava no lugar certo.<br><br>
+      E justamente nessa fidelidade silenciosa ela cruzou com Boaz.<br><br>
+      Eu quero te perguntar: a quê você tem sido leal silenciosamente? Não o que você declara nas redes. Não o que você conta para as amigas. O que você escolhe, dia após dia, mesmo quando ninguém vê?<br><br>
+      Esse é o autoconhecimento que nos interessa aqui. Não o autoconhecimento de livro de autoajuda — o de saber o que você realmente valoriza quando o custo aparece.<br><br>
+      <strong>Porque a maioria das mulheres sabe o que deveria valorizar. Muito poucas sabem o que de fato valorizam — quando fica difícil, quando o entusiasmo passa, quando a lealdade custa.</strong><br><br>
+      É a diferença entre a mulher que parte — como Orpá — e a mulher que fica — como Rute. As duas fizeram escolhas legítimas. Mas só uma delas estava sendo leal ao chamado."
+    </div>
+    <div class="co cedar">
+      <div class="coi">↳</div>
+      <p class="cot"><strong>Pausa reflexiva aqui:</strong> pergunte em voz alta — sem resposta obrigatória — "Você é mais Rute ou mais Orpá nessa temporada da sua vida?" Deixe o silêncio trabalhar por 30 segundos antes de continuar.</p>
+    </div>
+    <div class="fala">
+      "Existe uma segunda parte nessa história de Rute que quase ninguém menciona. Quando Noemi tenta convencê-la a partir, ela diz algo muito revelador: <em>'Até onde tu fordes, irei eu.'</em><br><br>
+      Ela não disse isso depois de ver o resultado. Disse antes. Sem saber o que viria.<br><br>
+      <strong>Convicção é a lealdade que antecede a evidência.</strong> Você não espera ver para crer — você crê e então vê. E o autoconhecimento profundo é exatamente isso: saber o que você crê antes que as circunstâncias te testem."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Aplicação Prática — 30 minutos</div>
+    <div class="aplicacao">
+      <div class="ap-title">Três perguntas · resposta individual em silêncio</div>
+      <ul class="ap-list">
+        <li><strong>Pergunta 1:</strong> O que você tem carregado que não é seu — mas que você ainda não devolveu?</li>
+        <li><strong>Pergunta 2:</strong> A quê você é leal quando ninguém está olhando — ao chamado ou ao hábito?</li>
+        <li><strong>Pergunta 3:</strong> Se você soubesse que Deus já garantiu o que vem a seguir, o que você teria coragem de largar hoje?</li>
+      </ul>
+    </div>
+    <div class="nota">15 minutos para resposta individual. Depois, 2 voluntárias compartilham com o grupo — nunca force. O compartilhamento voluntário tem mais poder.</div>
+  </div>
+
+  <div class="impacto">
+    <div class="imp-label">Frase de Impacto Final</div>
+    <div class="imp-text">"Você não precisa se conhecer completamente para começar. Mas precisa ser honesta o suficiente para <em>parar de se esconder de si mesma.</em>"</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- MÓDULO 2 -->
+<!-- ══════════════════════════════ -->
+<div class="module-section" id="m2">
+<div class="wrap">
+
+  <div class="mod-hero m2">
+    <div class="grain"></div>
+    <div class="mod-duration">90 min</div>
+    <span class="mod-num">Módulo 02</span>
+    <div class="mod-title">Para um Tempo<br>Como Este</div>
+    <div class="mod-archetype">Arquétipo: Ester · A mulher que foi formada para um momento específico</div>
+    <div class="mod-transform">De mulher que espera ser vista para mulher que ocupa o espaço que lhe pertence</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Abertura Emocional — 10 minutos</div>
+    <div class="fala">
+      "Eu quero te perguntar uma coisa que talvez pareça simples mas não é.<br><br>
+      <strong>Você já viveu um momento em que sabia exatamente o que deveria fazer — e não fez? Não porque não sabia. Porque teve medo de quanto custaria.</strong><br><br>
+      Guarda essa resposta por dentro. Não precisa falar agora.<br><br>
+      Ester conhecia esse sentimento. Ela vivia num palácio. Tinha chegado ao lugar mais poderoso que uma mulher da época poderia alcançar. E justamente quando chegou lá, foi confrontada com uma escolha que poderia custar tudo que ela havia conquistado.<br><br>
+      Não era a hora errada. Era a hora exata. E era exatamente isso que assustava."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Desenvolvimento — 35 minutos</div>
+    <div class="fala">
+      "Mordecai disse a Ester algo que ficou gravado na história: <em>'Quem sabe se não foi para um momento como este que você chegou ao reino?'</em><br><br>
+      Essa frase carrega uma teologia inteira. Ela diz que o posicionamento não é acidente — é propósito. Que o caminho que você percorreu, as portas que se abriram, os lugares onde você foi colocada — não foram aleatórios.<br><br>
+      <strong>Você foi formada para um momento específico. A questão não é se você está pronta — é se você vai responder.</strong><br><br>
+      Ester não estava pronta. Ela pediu três dias de jejum antes de agir. Ela tremia. Mas foi.<br><br>
+      E aqui está o que eu precisava que você entendesse: <strong>autoridade não é a ausência de medo — é a decisão de agir apesar dele.</strong> A mulher que espera se sentir completamente preparada nunca age. Porque preparação completa não existe — existe convicção suficiente para dar o próximo passo.<br><br>
+      Ester tinha convicção de duas coisas. Primeira: havia um propósito maior do que a sua segurança. Segunda: se ela não agisse, o custo para outros seria maior do que o custo para ela.<br><br>
+      <strong>Isso é o que distingue a liderança do protagonismo.</strong> Protagonismo pensa em si. Liderança pensa em quem depende da sua ação."
+    </div>
+    <div class="co cedar">
+      <div class="coi">↳</div>
+      <p class="cot"><strong>Pergunta para reflexão interna:</strong> "Em que área da sua vida você está esperando sentir menos medo para agir — e essa espera já está custando algo para quem está ao seu redor?" 45 segundos de silêncio.</p>
+    </div>
+    <div class="fala">
+      "Existe um detalhe na história de Ester que passa despercebido. Antes de ir ao rei, ela disse às mulheres ao seu redor: <em>'Jeiunem por mim.'</em><br><br>
+      Ela não foi sozinha na coragem. Ela foi sustentada pela comunidade enquanto agia.<br><br>
+      Uma das maiores armadilhas da mulher que tem chamado é achar que precisa chegar sozinha. Que pedir suporte é fraqueza. Que precisar de outras pessoas diminui sua autoridade.<br><br>
+      <strong>Ester foi rainha — e pediu jejum. Não havia fraqueza nisso. Havia sabedoria.</strong>"
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Aplicação Prática — 30 minutos</div>
+    <div class="aplicacao">
+      <div class="ap-title">Mapeamento de chamado e recuo</div>
+      <ul class="ap-list">
+        <li><strong>Espaços onde você foi colocada:</strong> listar os lugares — família, trabalho, comunidade, relacionamentos — onde você claramente tem influência mas ainda não ocupou com intenção.</li>
+        <li><strong>O que você recua:</strong> identificar o padrão de recuo. Quando você fica pequena? O que dispara isso?</li>
+        <li><strong>O custo do recuo:</strong> quem está esperando que você avance — e o que está perdendo enquanto você espera?</li>
+        <li><strong>A ação do próximo passo:</strong> uma ação concreta, pequena e possível para esta semana — não o plano completo. O próximo passo.</li>
+      </ul>
+    </div>
+    <div class="nota">20 minutos para escrita individual. Compartilhamento: cada mulher diz apenas a ação do próximo passo — não o contexto todo. Brevidade cria responsabilidade.</div>
+  </div>
+
+  <div class="impacto">
+    <div class="imp-label">Frase de Impacto Final</div>
+    <div class="imp-text">"Você não foi colocada onde está por acidente. A questão não é se você está pronta. É: <em>para quem você está esperando enquanto hesita?</em>"</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- MÓDULO 3 -->
+<!-- ══════════════════════════════ -->
+<div class="module-section" id="m3">
+<div class="wrap">
+
+  <div class="mod-hero m3">
+    <div class="grain"></div>
+    <div class="mod-duration">90 min</div>
+    <span class="mod-num">Módulo 03</span>
+    <div class="mod-title">A Mulher que<br>Julga com Justiça</div>
+    <div class="mod-archetype">Arquétipo: Débora · Liderança que não precisa de permissão</div>
+    <div class="mod-transform">De mulher que espera aprovação para mulher que discerne e age</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Abertura Emocional — 10 minutos</div>
+    <div class="fala">
+      "Quantas vezes você sabia a resposta — e esperou alguém confirmar antes de falar?<br><br>
+      Não porque estava insegura. Porque tinha medo de como a sua certeza seria recebida.<br><br>
+      <strong>Existe uma voz dentro de você que sabe. Que discerne. Que vê o que outros ainda não viram.</strong> E ao longo da vida, você aprendeu a afinar essa voz — a torná-la mais baixa, mais hesitante, mais negociável.<br><br>
+      Débora não tinha esse problema. Não porque nasceu diferente. Mas porque em algum momento ela parou de perguntar se tinha permissão para saber o que sabia."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Desenvolvimento — 35 minutos</div>
+    <div class="fala">
+      "A Bíblia diz que Débora julgava Israel sentada debaixo de uma palmeira. As pessoas vinham até ela para resolver questões — não porque ela havia se candidatado, não porque alguém a elegeu. Porque ela tinha autoridade.<br><br>
+      E aqui é onde precisamos ser muito precisas: <strong>autoridade não é o mesmo que posição.</strong> Posição é algo que alguém te dá. Autoridade é algo que você carrega — que emana do que você é, não do cargo que você ocupa.<br><br>
+      Débora tinha autoridade antes de ter posição. E foi a autoridade que gerou a posição — não o contrário.<br><br>
+      Mas existe um detalhe que eu não quero que você passe por cima. Quando Baraque foi chamado por Débora para liderar o exército, ele disse: <em>'Se você for comigo, irei. Se não for, não irei.'</em><br><br>
+      Um general pedindo a uma mulher que fosse com ele para batalha. Por quê? Porque a presença dela valia mais do que o exército.<br><br>
+      <strong>Isso é autoridade espiritual. Não é sobre quem fala mais alto. É sobre quem, quando entra no ambiente, muda o ambiente.</strong><br><br>
+      E Débora foi. Sem titubear. Ela disse: 'Irei contigo.' E depois disse algo que revela o coração dela: a glória dessa vitória não será tua — será de uma mulher. Ela não disse isso com inveja. Disse com profecia. Ela já sabia o que viria.<br><br>
+      O discernimento de Débora não era dom místico. Era fruto de anos sentada debaixo da palmeira, ouvindo, ponderando, respondendo. A liderança dela era construída no silêncio do cotidiano — não na visibilidade das batalhas."
+    </div>
+    <div class="co amber">
+      <div class="coi">↳</div>
+      <p class="cot"><strong>Pergunta para reflexão:</strong> "Onde você tem discernimento que ainda não usa porque está esperando que alguém valide o que você já sabe?" Silêncio de 45 segundos.</p>
+    </div>
+    <div class="fala">
+      "Existe uma distinção que precisa ficar clara hoje: <strong>a diferença entre opinião e discernimento.</strong><br><br>
+      Opinião é o que você acha. Discernimento é o que você vê.<br><br>
+      Opinião precisa de validação para se firmar. Discernimento não pede permissão — ele simplesmente vê o que é.<br><br>
+      A mulher de discernimento não é a que fala mais. É a que fala no momento certo, com as palavras certas, para as pessoas certas. E o que ela diz tem peso — não porque ela forçou, mas porque é verdade.<br><br>
+      <strong>Você não precisa de permissão para saber o que sabe.</strong> Você precisa da coragem de agir a partir do que sabe."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Aplicação Prática — 30 minutos</div>
+    <div class="aplicacao">
+      <div class="ap-title">Identificando a voz que você silenciou</div>
+      <ul class="ap-list">
+        <li><strong>Onde você tem discernimento não exercido:</strong> em que área da sua vida você vê com clareza mas ainda não age a partir dessa clareza?</li>
+        <li><strong>O que cala sua voz:</strong> medo de errar? De desagradar? De ser grande demais? Nomeie com precisão.</li>
+        <li><strong>Uma decisão que você tem adiado:</strong> escreva a decisão que você já sabe que deve tomar — e identifique o que está esperando para tomá-la.</li>
+        <li><strong>A palmeira de Débora:</strong> onde você cria espaço para ouvir? Para ponderar? Se não tem — o que você precisa criar?</li>
+      </ul>
+    </div>
+    <div class="nota">Esta aplicação é mais íntima. Não force compartilhamento. Pergunte no final: "Alguém quer nomear em uma palavra o que veio enquanto escrevia?" Uma palavra — não uma história.</div>
+  </div>
+
+  <div class="impacto">
+    <div class="imp-label">Frase de Impacto Final</div>
+    <div class="imp-text">"Débora não esperou permissão para saber o que sabia. Ela sentou debaixo da palmeira e <em>o povo veio até ela.</em> Autoridade não se declara. Se constrói no silêncio."</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- MÓDULO 4 -->
+<!-- ══════════════════════════════ -->
+<div class="module-section" id="m4">
+<div class="wrap">
+
+  <div class="mod-hero m4">
+    <div class="grain"></div>
+    <div class="mod-duration">90 min</div>
+    <span class="mod-num">Módulo 04</span>
+    <div class="mod-title">A Arte de Sustentar<br>Processos</div>
+    <div class="mod-archetype">Arquétipo: Rute · A colheita pertence a quem não desistiu no meio</div>
+    <div class="mod-transform">De mulher que começa muito e termina pouco para mulher que sustenta até colher</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Abertura Emocional — 10 minutos</div>
+    <div class="fala">
+      "Me conta uma coisa: quantas vezes você começou algo que acreditava genuinamente — e parou antes de ver o resultado?<br><br>
+      Não estou perguntando por vergonha. Estou perguntando porque a resposta revela algo sobre nós que raramente alguém fala em voz alta.<br><br>
+      <strong>Nós não temos problema com começos. Temos problema com o meio.</strong><br><br>
+      O meio é onde não tem mais o entusiasmo do início. Onde o resultado ainda não chegou. Onde você olha ao redor e parece que nada está acontecendo. E é exatamente aí que a maioria das histórias termina — não com um grande fracasso, mas com um abandono silencioso.<br><br>
+      Um dia você parou. E não voltou. E depois de um tempo, você nem se lembrava mais de ter começado."
+    </div>
+    <div class="nota">Pausa de 60 segundos. Deixa o peso pousar antes de continuar. Não preencha o silêncio.</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Desenvolvimento — 35 minutos</div>
+    <div class="fala">
+      "Rute colhia espiga por espiga. Você sabe o que isso significa na prática?<br><br>
+      Significa que ela se curvava, pegava uma espiga — <strong>uma, não um feixe</strong> — e seguia. Curvava de novo. Pegava mais uma. No calor. Sem garantia de que Boaz a deixaria ficar. Sem saber o que viria depois.<br><br>
+      Não era produtivo no sentido moderno da palavra. Era fiel. E fidelidade ao processo é o que a maioria das mulheres não tem — não porque são fracas, mas porque <strong>ninguém as ensinou que o processo tedioso é onde a formação acontece.</strong><br><br>
+      Nós fomos formadas para o resultado. Não para a espiga. Então quando o processo é lento, quando é repetitivo, quando é invisível — interpretamos como sinal de que estamos no lugar errado. E vamos em busca de outro começo.<br><br>
+      Outro curso. Outra abordagem. Outro relacionamento. Outra cidade.<br><br>
+      Mas não existe atalho entre a espiga e o celeiro. Existe só o trabalho do meio."
+    </div>
+    <div class="co cedar">
+      <div class="coi">↳</div>
+      <p class="cot"><strong>Pergunta reflexiva:</strong> "O que você abandonou no meio que, se tivesse ficado mais um pouco, poderia ter colhido?" 45 segundos de silêncio.</p>
+    </div>
+    <div class="fala">
+      "Existe uma musculatura que se chama permanência. E como toda musculatura, ela se desenvolve com uso — não com teoria.<br><br>
+      A mulher que aprende a sustentar processos não é a que tem mais força. É a que aprendeu a não avaliar o processo no meio do caminho.<br><br>
+      <strong>Avaliação prematura é o maior assassino de chamados.</strong> Você está no meio de algo, olha ao redor, compara com o que outros já alcançaram, e conclui que está indo devagar demais — ou para o lugar errado.<br><br>
+      Mas Rute não olhava para o celeiro de Boaz enquanto catava espigas. Ela olhava para o chão onde estava. Para a espiga que tinha à sua frente.<br><br>
+      Humildade de processo é isso: fazer o que está diante de você, com excelência, sem se distrair com o quanto ainda falta."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Aplicação Prática — 30 minutos</div>
+    <div class="aplicacao">
+      <div class="ap-title">O Compromisso de 90 dias</div>
+      <ul class="ap-list">
+        <li><strong>Uma coisa — só uma:</strong> escolha um processo que você vai sustentar pelos próximos 90 dias independente do resultado visível. Oração diária, um projeto, um relacionamento, um hábito.</li>
+        <li><strong>O ponto de abandono:</strong> identificar em que momento você geralmente para — semana 2? Mês 1? Quando não vê resultado? Nomear o padrão é o primeiro passo para quebrá-lo.</li>
+        <li><strong>A âncora:</strong> o que vai te lembrar de ficar quando a vontade de parar aparecer? Uma frase, uma imagem, uma pessoa?</li>
+      </ul>
+    </div>
+    <div class="nota">Cada participante diz o compromisso em voz alta — uma frase. Isso cria responsabilidade mútua. O grupo ouve e testemunha. Ninguém comenta — só recebe.</div>
+  </div>
+
+  <div class="impacto">
+    <div class="imp-label">Frase de Impacto Final</div>
+    <div class="imp-text">"A colheita pertence à mulher que ainda estava no campo <em>quando as outras já tinham ido embora.</em>"</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- MÓDULO 5 -->
+<!-- ══════════════════════════════ -->
+<div class="module-section" id="m5">
+<div class="wrap">
+
+  <div class="mod-hero m5">
+    <div class="grain"></div>
+    <div class="mod-duration">90 min</div>
+    <span class="mod-num">Módulo 05</span>
+    <div class="mod-title">A Verdade que<br>Liberta e Obriga</div>
+    <div class="mod-archetype">Arquétipo: Mulher Samaritana · O encontro que muda a trajetória</div>
+    <div class="mod-transform">De mulher que se esconde atrás da história para mulher que usa a história como missão</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Abertura Emocional — 10 minutos</div>
+    <div class="fala">
+      "Existe uma coisa na sua história que você ainda não contou para ninguém.<br><br>
+      Não porque é horrível. Mas porque você ainda não sabe como nomear. Ou porque tem medo de como seria recebida. Ou porque, honestamente, ainda te envergonha um pouco.<br><br>
+      <strong>Essa parte — essa exatamente — é a que tem mais potencial de transformar outras pessoas.</strong><br><br>
+      A mulher samaritana foi ao poço no meio do dia. Não de manhã, quando as outras iam. No meio do dia — quando estava sozinha. A Bíblia não diz isso explicitamente, mas o detalhe fala por si: ela estava evitando ser vista.<br><br>
+      E justamente quando estava tentando ser invisível, foi encontrada."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Desenvolvimento — 35 minutos</div>
+    <div class="fala">
+      "Jesus sabia o que ela havia vivido. Cinco maridos. Uma vida que não cabia nas expectativas sociais da época. Uma história que ela carregava como peso, não como testemunho.<br><br>
+      E ele não a confrontou para humilhá-la. Confrontou para libertá-la.<br><br>
+      <strong>Existe uma diferença enorme entre ser exposta e ser vista.</strong> Exposição é quando alguém usa a sua vulnerabilidade contra você. Ser vista é quando alguém enxerga o que você é — com tudo que você carrega — e ainda assim escolhe ficar.<br><br>
+      A samaritana foi vista. E o efeito foi imediato: ela foi à cidade — a mesma cidade que ela estava evitando — e disse às pessoas: <em>'Venham ver um homem que me disse tudo o que fiz.'</em><br><br>
+      Repare. Ela não disse: 'Venham ver um homem que me perdoou.' Ou 'que me curou.' Disse: <em>'que me disse tudo o que fiz.'</em><br><br>
+      O que libertou a samaritana não foi o esquecimento da história. Foi o encontro com alguém que a conhecia completamente e não recuou.<br><br>
+      <strong>E a mulher que foi libertada pela verdade não consegue ficar quieta.</strong> Ela vai à cidade. Ela conta. Não porque é obrigada — porque o que ela recebeu é grande demais para guardar."
+    </div>
+    <div class="co amber">
+      <div class="coi">↳</div>
+      <p class="cot"><strong>Momento delicado:</strong> este módulo pode abrir feridas reais. Esteja presente para o que surgir na sala. Não apresse o ritmo aqui. Se alguém chorar, deixe. O choro é parte do processo.</p>
+    </div>
+    <div class="fala">
+      "Eu quero falar sobre a diferença entre trauma e testemunho — porque são coisas muito diferentes, mas às vezes habitam a mesma história.<br><br>
+      Trauma é a ferida. Testemunho é o que acontece quando a ferida encontra propósito.<br><br>
+      Você não precisa estar completamente curada para usar sua história. Mas precisa ter chegado num ponto onde a história é sua — não onde você é da história.<br><br>
+      <strong>A samaritana não estava curada de tudo quando foi à cidade. Ela estava livre o suficiente para ir.</strong> E às vezes livre o suficiente é tudo que precisamos para começar."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Aplicação Prática — 30 minutos</div>
+    <div class="aplicacao">
+      <div class="ap-title">Da ferida ao fio condutor</div>
+      <ul class="ap-list">
+        <li><strong>A parte da história que você evita contar:</strong> escreva — só para você, não vai ser lida em voz alta — o que você ainda carrega como peso em vez de testemunho.</li>
+        <li><strong>O que aquela experiência te ensinou:</strong> não o que você deveria ter aprendido. O que você de fato aprendeu — mesmo que tenha custado muito.</li>
+        <li><strong>Para quem essa história poderia ser vida:</strong> existe uma mulher — específica ou não — que precisaria ouvir o que você viveu?</li>
+        <li><strong>Uma frase de testemunho:</strong> escreva em uma frase o que sua história diz para outra mulher. Não o capítulo completo — uma frase.</li>
+      </ul>
+    </div>
+    <div class="nota">A última parte — a frase de testemunho — pode ser compartilhada voluntariamente. Este é o momento mais poderoso do módulo. Se houver silêncio depois de alguém falar, não preencha.</div>
+  </div>
+
+  <div class="impacto">
+    <div class="imp-label">Frase de Impacto Final</div>
+    <div class="imp-text">"A mulher que foi libertada pela verdade <em>não consegue ficar quieta.</em> O que você recebeu é grande demais para guardar."</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- MÓDULO 6 -->
+<!-- ══════════════════════════════ -->
+<div class="module-section" id="m6">
+<div class="wrap">
+
+  <div class="mod-hero m6">
+    <div class="grain"></div>
+    <div class="mod-duration">90 min</div>
+    <span class="mod-num">Módulo 06</span>
+    <div class="mod-title">O Fiat da Mulher que<br>Responde ao Chamado</div>
+    <div class="mod-archetype">Arquétipo: Maria · "Faça-se em mim segundo a tua palavra"</div>
+    <div class="mod-transform">De mulher que negocia com o chamado para mulher que responde com inteireza</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Abertura Emocional — 10 minutos</div>
+    <div class="fala">
+      "Existe um chamado que você tem negociado.<br><br>
+      Não rejeitado — negociado. Colocado condições. Esperado o momento certo. Pedido mais clareza. Mais garantias. Um sinal mais óbvio.<br><br>
+      <strong>E enquanto você negocia, a vida que foi feita para você está esperando que você responda.</strong><br><br>
+      Maria tinha dezesseis anos, no máximo, quando o anjo apareceu. Uma menina em uma cidade pequena, noiva de um carpinteiro, sem nenhuma expectativa de que sua vida seria diferente das vidas das mulheres ao seu redor.<br><br>
+      E ela foi confrontada com algo que não cabia em nada que ela conhecia."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Desenvolvimento — 35 minutos</div>
+    <div class="fala">
+      "A primeira palavra de Maria quando o anjo fala não é um sim. É uma pergunta.<br><br>
+      <em>'Como se fará isso, visto que não conheço homem?'</em><br><br>
+      Ela não recusou. Ela não fingiu que entendia. Ela perguntou.<br><br>
+      E o anjo respondeu — não com uma explicação completa, mas com o suficiente: <em>'O Espírito Santo virá sobre ti e o poder do Altíssimo te cobrirá com a sua sombra.'</em><br><br>
+      Em outras palavras: você não vai entender completamente. Mas não vai estar sozinha.<br><br>
+      <strong>E então veio o fiat.</strong><br><br>
+      <em>'Eis aqui a serva do Senhor. Faça-se em mim segundo a tua palavra.'</em><br><br>
+      Seis palavras. A decisão mais consequente da história humana. Dita por uma adolescente em uma cidade que ninguém conhecia.<br><br>
+      Mas eu quero que você entenda o que esse fiat não era. Ele não era resignação. Não era 'que seja feito porque eu não tenho escolha.' <strong>Era soberania.</strong> Era uma mulher que escolheu — com plena consciência do custo — dizer sim ao que Deus estava fazendo.<br><br>
+      Maria sabia que aquilo custaria sua reputação. Provavelmente seu casamento. Possivelmente sua vida, dependendo de como José reagisse. Ela sabia.<br><br>
+      E disse sim."
+    </div>
+    <div class="co cedar">
+      <div class="coi">↳</div>
+      <p class="cot"><strong>Pausa aqui — pergunta em voz alta:</strong> "O que você está esperando para dizer o seu fiat?" Silêncio de 60 segundos. Este é o coração do módulo.</p>
+    </div>
+    <div class="fala">
+      "Existe uma segunda cena com Maria que quase sempre é ignorada. Quando ela foi visitar Isabel, grávida de João Batista, Isabel disse: <em>'Bendita és tu entre as mulheres, e bendito é o fruto do teu ventre.'</em><br><br>
+      E Maria respondeu com o Magnificat — um dos textos mais profundos da Escritura.<br><br>
+      <strong>Uma mulher que havia dito sim ao chamado não se encolheu diante do reconhecimento. Ela declarou.</strong> 'A minha alma engrandece ao Senhor.' 'Grandes coisas me fez o Poderoso.' 'De geração em geração a sua misericórdia.'<br><br>
+      O fiat não a tornou menor. A tornou capaz de ver a grandeza do que estava acontecendo.<br><br>
+      A mulher que diz sim ao chamado não encolhe. Ela se expande — não em vaidade, mas em profundidade. Ela começa a ver o quanto é grande o que foi confiado a ela."
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Aplicação Prática — 30 minutos</div>
+    <div class="aplicacao">
+      <div class="ap-title">O que você tem negociado</div>
+      <ul class="ap-list">
+        <li><strong>O chamado que você conhece mas negocia:</strong> escrever sem filtro o que você sabe que Deus está esperando de você — e o que você tem pedido em troca antes de responder.</li>
+        <li><strong>O custo que você teme:</strong> nomear com precisão o que um sim custaria. Reputação? Segurança? Conforto? A clareza sobre o custo é necessária para uma decisão real.</li>
+        <li><strong>O suficiente que você já tem:</strong> assim como Maria recebeu resposta suficiente — não completa — o que você já sabe que é suficiente para dar o próximo passo?</li>
+        <li><strong>O fiat pessoal:</strong> escrever em uma frase a resposta que você quer dar. Pode ser um sim incompleto, um sim com medo, um sim apesar de tudo. O importante é que seja verdadeiro.</li>
+      </ul>
+    </div>
+    <div class="nota">Quem quiser, lê o próprio fiat em voz alta. Este é o momento mais sagrado da formação. Se o ambiente for de oração, é aqui que ela acontece — sobre os fiats que foram escritos.</div>
+  </div>
+
+  <div class="impacto">
+    <div class="imp-label">Frase de Impacto Final</div>
+    <div class="imp-text">"O fiat de Maria não foi resignação. Foi a decisão mais soberana que uma mulher já tomou. <em>Ela escolheu o que custaria tudo.</em>"</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ══════════════════════════════ -->
+<!-- MÓDULO 7 -->
+<!-- ══════════════════════════════ -->
+<div class="module-section" id="m7">
+<div class="wrap">
+
+  <div class="mod-hero m7">
+    <div class="grain"></div>
+    <div class="mod-duration">90 min</div>
+    <span class="mod-num">Módulo 07</span>
+    <div class="mod-title">Edificar com<br>as Próprias Mãos</div>
+    <div class="mod-archetype">Arquétipo: Priscila · A mulher que forma enquanto vive</div>
+    <div class="mod-transform">De mulher que espera o momento certo para mulher que forma onde está</div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Abertura Emocional — 10 minutos</div>
+    <div class="fala">
+      "Chegamos ao último encontro. E eu quero começar te fazendo a mesma pergunta que fiz no primeiro — mas agora com outro peso.<br><br>
+      <strong>Como você está?</strong><br><br>
+      Não é protocolo. É porque ao longo desses encontros, algo mudou em você. Talvez você não consiga nomear ainda. Mas você está diferente de quando chegou.<br><br>
+      E essa diferença não é para você guardar. É para você multiplicar.<br><br>
+      Priscila não esperou terminar de crescer para começar a formar. Ela formava no caminho. Na casa dela, durante os encontros da igreja, nos ateliês de tendas onde trabalhava com Áquila e Paulo.<br><br>
+      <strong>Ela não precisou de um palco. Precisou de presença.</strong>"
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Desenvolvimento — 35 minutos</div>
+    <div class="fala">
+      "Existe uma cena específica com Priscila e Áquila que revela muito sobre o tipo de formação que eu quero falar hoje.<br><br>
+      Apolo era um pregador brilhante. Eloquente, fervoroso, cheio de conhecimento das Escrituras. Mas incompleto — ele conhecia apenas o batismo de João, não o de Jesus.<br><br>
+      E o que Priscila e Áquila fizeram? Foram corrigi-lo em público? Expô-lo diante da congregação? Não. <em>Tomaram-no consigo e expuseram-lhe mais exatamente o caminho de Deus.</em><br><br>
+      <strong>Em particular. Com cuidado. Com respeito.</strong><br><br>
+      Isso é o que distingue a formadora da crítica. A crítica aponta o erro em público para afirmar a própria superioridade. A formadora chama para perto, em privado, e abre o caminho sem humilhar.<br><br>
+      Priscila formava assim. E Apolo — que poderia ter se ofendido — saiu mais completo do que chegou. E depois foi para a Acaia e, dizia a Escritura, <em>muito ajudou os que haviam crido.</em><br><br>
+      <strong>O impacto de Apolo em Acaia passou pelas mãos de Priscila.</strong> Ela nunca foi a Acaia. Mas seu trabalho foi.<br><br>
+      Isso é legado sem palco. É influência que viaja mais longe do que você consegue ver."
+    </div>
+    <div class="co amber">
+      <div class="coi">↳</div>
+      <p class="cot"><strong>Pergunta reflexiva:</strong> "Qual Apolo está na sua vida? Alguém com potencial que precisa de alguém que se aproxime em particular e abra o caminho?" 45 segundos de silêncio.</p>
+    </div>
+    <div class="fala">
+      "Eu quero falar sobre uma armadilha específica que acomete as mulheres que chegaram até aqui.<br><br>
+      <strong>A armadilha de esperar estar formada completamente antes de começar a formar.</strong><br><br>
+      Priscila não estava no final da sua jornada quando encontrou Apolo. Ela estava no meio. Tentando fazer a casa e a tenda funcionar. Viajando com o marido. Vivendo as contradições do cotidiano como qualquer mulher.<br><br>
+      E mesmo assim, formava.<br><br>
+      A formação não começa depois que você se tornar quem quer ser. Ela começa quando você decide compartilhar o que você já tem com quem ainda não tem.<br><br>
+      <strong>Você não precisa do celeiro cheio para oferecer espigas.</strong> Você precisa de generosidade com o que está na sua mão agora.<br><br>
+      E essa generosidade — esse ato de abrir o que você tem para o crescimento de outra — é o que torna a sua formação real. Porque o que você ensina, você aprende duas vezes."
+    </div>
+    <div class="fala">
+      "Vou terminar com uma última imagem.<br><br>
+      No início dessa formação, eu disse que nós não aprendemos a edificar lendo sobre construção. Aprendemos construindo.<br><br>
+      Você passou esses encontros construindo algo. Colocando tijolos que às vezes custaram. Ficando em campos quando queria ir embora. Dizendo fiats que assustaram. Olhando para histórias que você preferia esquecer.<br><br>
+      <strong>Isso é edificar.</strong><br><br>
+      E o que você construiu — o discernimento, a permanência, a honestidade, a convicção — não é para você guardar. É para você habitar. E para convidar outras a habitarem também.<br><br>
+      <em>'Construiu sua casa sobre a rocha.'</em> Não no instagram. Não no que as pessoas dizem sobre você. Na rocha.<br><br>
+      <strong>Vá edificar.</strong>"
+    </div>
+  </div>
+
+  <div class="bloco">
+    <div class="bloco-label">Aplicação Final — 30 minutos</div>
+    <div class="aplicacao">
+      <div class="ap-title">O plano de ação — o que muda a partir de amanhã</div>
+      <ul class="ap-list">
+        <li><strong>Quem é o seu Apolo:</strong> uma pessoa específica — na família, no trabalho, na comunidade — para quem você vai se aproximar e abrir o caminho. Não em público. Em particular, com cuidado.</li>
+        <li><strong>O espaço que você vai habitar:</strong> identificar um espaço — um relacionamento, uma função, uma comunidade — onde você vai parar de ser menor do que é.</li>
+        <li><strong>O que você carrega para fora daqui:</strong> uma coisa — não uma lista — que mudou nesses encontros e que você leva como compromisso.</li>
+        <li><strong>A mulher que você vai chamar:</strong> uma mulher da sua vida que você vai convidar para dar o próximo passo — seja esse encontro de formação, seja uma conversa, seja simplesmente um gesto de presença.</li>
+      </ul>
+    </div>
+    <div class="nota">Encerre pedindo que cada mulher fale o nome da pessoa que vai chamar — só o nome. Não a história, não o contexto. Só o nome. Quando ela nomeia em voz alta, ela se compromete. E o grupo testemunha.</div>
+  </div>
+
+  <div class="impacto">
+    <div class="imp-label">Frase de Impacto Final — Encerramento da Formação</div>
+    <div class="imp-text">"Priscila não esperou um palco. Esperou uma pessoa. <em>E essa pessoa foi muito longe.</em> O seu legado não precisa de visibilidade. Precisa de fidelidade."</div>
+  </div>
+
+  <div class="co amber" style="margin-top:32px;">
+    <div class="coi">🌿</div>
+    <p class="cot"><strong>Encerramento da formação completa:</strong> termine o último encontro com um momento de oração ou bênção sobre cada mulher — pelo nome do que elas levam, não pelo nome delas. Se possível, distribua algo simbólico: um cartão com a frase de impacto dela, uma semente, um fio. Algo que ela leve nas mãos.</p>
+  </div>
+
+</div>
+</div>
+
+<footer>
+  <div class="ft">Roteiros Completos · 7 Módulos · Mulheres que Edificam Destinos</div>
+  <p>Desenvolvido para Angélica Pires por Maria Loyola · Estrategista de Conteúdo &amp; Storytelling</p>
+</footer>
+
+</body>
+</html>
