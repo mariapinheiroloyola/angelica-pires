@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto @angelicamendespires · Visão Completa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Jost:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --rose:   #7C3E52;
+  --rose2:  #6A3346;
+  --rose3:  #5A2A3A;
+  --champ:  #D4B896;
+  --champ2: #EAD5BF;
+  --blush:  #F2E8EC;
+  --blush2: #E8D5DD;
+  --ivory:  #FAF7F2;
+  --sage:   #6B7C6A;
+  --ink:    #2A1F24;
+  --text:   #4A3840;
+  --muted:  #8A7278;
+  --border: #E8DADE;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--ivory);
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* GRAIN */
+.grain {
+  position: absolute; inset: 0; pointer-events: none; z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* NAV */
+.nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(250,247,242,.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 32px;
+  display: flex; align-items: center; gap: 4px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nb {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 14px; font-style: italic;
+  color: var(--rose); white-space: nowrap;
+  padding: 13px 0; margin-right: 16px; flex-shrink: 0;
+}
+.nav a {
+  white-space: nowrap; font-size: 9px; font-weight: 700;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--muted); text-decoration: none;
+  padding: 15px 10px; border-bottom: 2px solid transparent;
+  transition: all .2s; flex-shrink: 0;
+}
+.nav a:hover { color: var(--rose); border-bottom-color: var(--champ); }
+
+/* HERO */
+.hero {
+  background: var(--rose3);
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  text-align: center; padding: 80px 32px;
+  position: relative; overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 20% 70%, rgba(212,184,150,.09) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 20%, rgba(124,62,82,.3) 0%, transparent 55%);
+  pointer-events: none;
+}
+.hv { position: relative; z-index: 1; max-width: 720px; }
+.h-orn { display: flex; align-items: center; gap: 14px; justify-content: center; margin-bottom: 24px; }
+.h-line { width: 56px; height: 1px; background: var(--champ); opacity: .4; }
+.h-dia { width: 7px; height: 7px; background: var(--champ); transform: rotate(45deg); }
+.h-eye { font-size: 10px; font-weight: 600; letter-spacing: 7px; text-transform: uppercase; color: rgba(255,255,255,.28); margin-bottom: 16px; display: block; }
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(44px, 7.5vw, 82px);
+  font-weight: 700; color: #fff; line-height: 1.02; margin-bottom: 12px;
+}
+.hero h1 em { font-style: italic; color: var(--champ2); font-weight: 300; }
+.h-sub { font-size: 16px; color: rgba(255,255,255,.38); font-weight: 300; max-width: 520px; margin: 0 auto 36px; line-height: 1.85; }
+.h-pills { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+.h-pill {
+  background: rgba(212,184,150,.1);
+  border: 1px solid rgba(212,184,150,.22);
+  border-radius: 100px; padding: 6px 18px;
+  font-size: 11px; color: var(--champ2); font-weight: 600; letter-spacing: 1.5px;
+}
+
+/* LAYOUT */
+.wrap { max-width: 860px; margin: 0 auto; padding: 0 36px; }
+.section { padding: 72px 0; border-bottom: 1px solid var(--border); }
+.section:last-of-type { border-bottom: none; }
+.eye {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-size: 9px; font-weight: 700; letter-spacing: 5px;
+  text-transform: uppercase; color: var(--rose); margin-bottom: 14px;
+}
+.eye::before { content: ''; width: 18px; height: 1px; background: var(--champ); }
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4.5vw, 50px);
+  font-weight: 700; color: var(--ink); line-height: 1.1; margin-bottom: 12px;
+}
+h2 em { font-style: italic; font-weight: 300; color: var(--rose); }
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px; color: var(--ink); font-weight: 700;
+  margin: 32px 0 12px;
+}
+.sdesc { font-size: 16px; color: var(--muted); font-weight: 300; max-width: 620px; margin-bottom: 32px; line-height: 1.9; }
+p { margin-bottom: 14px; color: var(--text); }
+p:last-child { margin-bottom: 0; }
+strong { color: var(--ink); }
+
+/* CARD DARK */
+.card-dark {
+  background: var(--rose);
+  border-radius: 20px; padding: 44px 48px;
+  margin: 28px 0; position: relative; overflow: hidden;
+}
+.card-dark::before {
+  content: '';
+  position: absolute; width: 400px; height: 400px;
+  border-radius: 50%; border: 1px solid rgba(212,184,150,.08);
+  right: -100px; top: -100px; pointer-events: none;
+}
+.card-dark p { color: rgba(255,255,255,.65); margin-bottom: 14px; }
+.card-dark strong { color: #fff; }
+.card-dark em {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15em; font-style: italic; color: var(--champ2);
+}
+
+/* CARD LIGHT */
+.card-light {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 16px; padding: 32px 36px; margin: 20px 0;
+}
+.card-light.blush { background: var(--blush); border-color: transparent; }
+
+/* QUOTE */
+.quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 600; font-style: italic;
+  color: var(--rose); line-height: 1.45;
+  border-left: 3px solid var(--champ);
+  padding-left: 24px; margin: 28px 0;
+}
+
+/* PILLAR GRID */
+.pillars { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
+@media(max-width:640px) { .pillars { grid-template-columns: 1fr; } }
+.pillar {
+  background: #fff; border: 1px solid var(--border);
+  border-top: 3px solid var(--champ);
+  border-radius: 14px; padding: 22px 20px;
+}
+.pi-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--champ); opacity: .7; margin-bottom: 8px; display: block; }
+.pi-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+.pi-desc { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+
+/* TIMELINE */
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: ''; position: absolute; left: 6px; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--champ), rgba(212,184,150,.15));
+}
+.tl { position: relative; margin-bottom: 28px; }
+.tl:last-child { margin-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -25px; top: 5px;
+  width: 11px; height: 11px; border-radius: 50%;
+  background: var(--champ); box-shadow: 0 0 0 3px var(--ivory);
+}
+.tl-time { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--champ); letter-spacing: 2px; margin-bottom: 3px; display: block; }
+.tl-title { font-size: 14px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+.tl-desc { font-size: 13px; color: var(--muted); line-height: 1.65; margin: 0; }
+
+/* READY LIST */
+.ready { display: flex; flex-direction: column; gap: 12px; margin: 24px 0; }
+.ready-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 12px; padding: 16px 20px;
+}
+.ri-check {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: rgba(107,124,106,.12);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; font-size: 13px;
+}
+.ri-body {}
+.ri-title { font-size: 13px; font-weight: 700; color: var(--ink); margin-bottom: 2px; }
+.ri-desc { font-size: 12px; color: var(--muted); line-height: 1.5; margin: 0; }
+
+/* CALENDAR GRID */
+.cal { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin: 24px 0; }
+@media(max-width:580px) { .cal { grid-template-columns: repeat(3, 1fr); } }
+.cal-day {
+  background: #fff; border: 1px solid var(--border);
+  border-radius: 10px; padding: 12px 10px; text-align: center;
+}
+.cal-day.dark { background: var(--rose); border-color: transparent; }
+.cal-day.medium { background: var(--blush); border-color: transparent; }
+.cd-label { font-size: 8px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; display: block; }
+.cal-day.dark .cd-label { color: rgba(255,255,255,.4); }
+.cal-day.medium .cd-label { color: var(--rose); }
+.cd-type { font-size: 11px; font-weight: 700; color: var(--ink); line-height: 1.3; }
+.cal-day.dark .cd-type { color: #fff; }
+.cal-day.medium .cd-type { color: var(--rose2); }
+
+/* FUNIL */
+.funil { display: flex; flex-direction: column; gap: 4px; margin: 24px 0; }
+.fn {
+  padding: 18px 24px; border-radius: 10px;
+  display: flex; align-items: center; gap: 14px;
+}
+.fn-1 { background: var(--rose3); }
+.fn-2 { background: var(--rose2); margin: 0 24px; }
+.fn-3 { background: var(--rose); margin: 0 48px; }
+.fn-icon { font-size: 20px; flex-shrink: 0; }
+.fn-label { font-size: 9px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: var(--champ); margin-bottom: 2px; }
+.fn-title { font-size: 14px; font-weight: 700; color: #fff; }
+.fn-desc { font-size: 12px; color: rgba(255,255,255,.4); }
+.fn-arrow { text-align: center; color: rgba(212,184,150,.3); font-size: 18px; }
+
+/* CTA FINAL */
+.cta-section {
+  background: var(--rose3);
+  border-radius: 24px; padding: 64px 56px;
+  text-align: center; margin: 48px 0;
+  position: relative; overflow: hidden;
+}
+.cta-section::before {
+  content: '';
+  position: absolute; width: 500px; height: 500px;
+  border-radius: 50%; border: 1px solid rgba(212,184,150,.07);
+  right: -100px; top: -150px;
+}
+.cta-orn { display: flex; align-items: center; gap: 14px; justify-content: center; margin-bottom: 24px; }
+.cta-line { width: 52px; height: 1px; background: var(--champ); opacity: .35; }
+.cta-dia { width: 6px; height: 6px; background: var(--champ); transform: rotate(45deg); }
+.cta-h {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(28px, 4.5vw, 50px);
+  font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 16px;
+  position: relative;
+}
+.cta-h em { font-style: italic; color: var(--champ2); font-weight: 300; }
+.cta-body { font-size: 16px; color: rgba(255,255,255,.45); max-width: 520px; margin: 0 auto 32px; line-height: 1.8; position: relative; }
+.cta-btn {
+  display: inline-block;
+  background: var(--champ); color: var(--rose3);
+  font-family: 'Jost', sans-serif;
+  font-size: 13px; font-weight: 700; letter-spacing: 3px;
+  text-transform: uppercase; padding: 18px 48px;
+  border-radius: 100px; text-decoration: none;
+  position: relative; cursor: pointer;
+  transition: opacity .2s;
+}
+.cta-btn:hover { opacity: .88; }
+
+/* CALLOUT */
+.co { border-radius: 12px; padding: 16px 20px; margin: 20px 0; display: flex; gap: 12px; }
+.co.champ { background: rgba(212,184,150,.1); border-left: 2px solid var(--champ); }
+.co.rose { background: rgba(124,62,82,.07); border-left: 2px solid var(--rose); }
+.co.sage { background: rgba(107,124,106,.08); border-left: 2px solid var(--sage); }
+.coi { font-size: 17px; flex-shrink: 0; line-height: 1.5; }
+.cot { font-size: 14px; color: var(--muted); line-height: 1.7; }
+.cot strong { color: var(--ink); }
+
+/* THREAD ORNAMENT */
+.thread {
+  width: 100%; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(212,184,150,.4), transparent);
+  margin: 32px 0;
+}
+
+/* FOOTER */
+footer {
+  background: var(--rose3); padding: 52px 32px;
+  text-align: center; position: relative; overflow: hidden;
+}
+footer::before {
+  content: ''; position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+.ft { font-family: 'Cormorant Garamond', serif; font-size: 21px; font-style: italic; color: var(--champ2); margin-bottom: 6px; position: relative; }
+footer p { font-size: 10px; letter-spacing: 3px; text-transform: uppercase; color: rgba(255,255,255,.18); position: relative; }
+
+@media print {
+  .nav, footer { display: none; }
+  .hero { min-height: auto; padding: 60px 32px; }
+  .section { padding: 48px 0; }
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nb">Angélica Pires · Projeto Completo</div>
+  <a href="#visao">Visão</a>
+  <a href="#identidade">Identidade</a>
+  <a href="#retiro">Retiro</a>
+  <a href="#conteudo">Conteúdo</a>
+  <a href="#mentoria">Mentoria</a>
+  <a href="#pronto">Pronto</a>
+  <a href="#proximo">Próximo passo</a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="grain"></div>
+  <div class="hv">
+    <div class="h-orn"><div class="h-line"></div><div class="h-dia"></div><div class="h-line"></div></div>
+    <span class="h-eye">Projeto Estratégico · @angelicamendespires</span>
+    <h1>Tudo que foi<br>construído para<br><em>você.</em></h1>
+    <p class="h-sub">Uma visão completa do projeto — da identidade à mentoria, do retiro ao conteúdo. Tudo estruturado, tudo pronto para o próximo passo.</p>
+    <div class="h-pills">
+      <span class="h-pill">✦ Identidade visual</span>
+      <span class="h-pill">✦ Retiro Por um Fio</span>
+      <span class="h-pill">✦ Mentoria</span>
+      <span class="h-pill">✦ Calendário editorial</span>
+    </div>
+  </div>
+</div>
+
+<!-- ABERTURA -->
+<div class="section">
+<div class="wrap">
+  <div class="eye">Abertura</div>
+  <h2>Angélica,<br><em>aqui está o todo.</em></h2>
+  <p class="sdesc">Ao longo das últimas semanas, organizei cada peça desse projeto com cuidado. Chegou o momento de você ver o conjunto — não fragmentos, não etapas soltas, mas uma estratégia coesa, com começo, meio e direção clara.</p>
+
+  <div class="card-dark">
+    <div class="grain"></div>
+    <p style="position:relative;z-index:1;">O que você vai encontrar aqui é o projeto completo da sua presença digital — <strong>construído a partir de quem você é, do que você viveu e de para onde você está sendo chamada.</strong></p>
+    <p style="position:relative;z-index:1;">Não é uma proposta de redes sociais.<br>É uma estratégia de formação — com o Instagram como porta de entrada.</p>
+    <p style="position:relative;z-index:1;margin-bottom:0;"><em>"Quase 4 décadas formando pessoas. O que você fez dentro das escolas está pronto para chegar muito além delas."</em></p>
+  </div>
+</div>
+</div>
+
+<!-- VISÃO GERAL -->
+<div class="section" id="visao">
+<div class="wrap">
+  <div class="eye">01 · Visão Geral</div>
+  <h2>Missão, posicionamento<br><em>e direção estratégica.</em></h2>
+
+  <div class="quote">
+    "Formo mulheres que edificam destinos —<br>os seus e os de outras."
+  </div>
+
+  <p>Este é o centro de tudo. Não é um slogan — é o que você já faz, nomeado com precisão. A estratégia inteira foi construída a partir dessa convicção: <strong>a Angélica Pires não é uma diretora que faz conteúdo. É uma formadora de mulheres que usa o Instagram para alcançar quem ainda não a encontrou.</strong></p>
+
+  <h3>Posicionamento definitivo</h3>
+  <div class="card-light blush">
+    <p style="font-size:15px;line-height:1.9;"><strong>Quem você é:</strong> uma mulher que passou quase 4 décadas formando pessoas dentro de escolas — e descobriu que o que sempre fez não era gestão. Era formação humana.</p>
+    <p style="font-size:15px;line-height:1.9;"><strong>Para quem você fala:</strong> mulheres de 25 a 45 anos — de qualquer área — que sentem que foram chamadas para algo maior e ainda não encontraram o caminho de responder a esse chamado.</p>
+    <p style="font-size:15px;line-height:1.9;margin:0;"><strong>O que te diferencia:</strong> você não motiva. Você forma. E essa diferença é o que faz o seu trabalho ser necessário — não opcional.</p>
+  </div>
+
+  <h3>O movimento em 3 camadas</h3>
+  <div class="funil">
+    <div class="fn fn-1">
+      <div class="fn-icon">🧵</div>
+      <div>
+        <div class="fn-label">Camada 1 · Maio</div>
+        <div class="fn-title">Retiro "Por um Fio" · Manhã</div>
+        <div class="fn-desc">50 a 100 mulheres · 4 horas · entrada gratuita ou simbólica</div>
+      </div>
+    </div>
+    <div class="fn-arrow">↓</div>
+    <div class="fn fn-2">
+      <div class="fn-icon">🏡</div>
+      <div>
+        <div class="fn-label">Camada 2 · 2 a 3 meses depois</div>
+        <div class="fn-title">Retiro de 2 Dias · Aprofundamento</div>
+        <div class="fn-desc">20 a 40 mulheres · pago · boca a boca das participantes do primeiro</div>
+      </div>
+    </div>
+    <div class="fn-arrow">↓</div>
+    <div class="fn fn-3">
+      <div class="fn-icon">🏛️</div>
+      <div>
+        <div class="fn-label">Camada 3 · Formação completa</div>
+        <div class="fn-title">Mentoria "Mulheres que Edificam Destinos"</div>
+        <div class="fn-desc">10 a 20 mulheres · turma fechada · 7 módulos</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="co champ">
+    <div class="coi">✦</div>
+    <p class="cot"><strong>A lógica do funil:</strong> cada camada forma e aquece para a próxima. Você não vai lançar a mentoria para estranhas. Vai lançar para mulheres que já foram tocadas por você — que já confiam, que já pediram o próximo passo.</p>
+  </div>
+</div>
+</div>
+
+<!-- IDENTIDADE -->
+<div class="section" id="identidade">
+<div class="wrap">
+  <div class="eye">02 · Identidade e Comunicação</div>
+  <h2>A estética e o tom<br><em>que falam por você.</em></h2>
+  <p class="sdesc">Cada cor, cada fonte e cada palavra do projeto foi escolhida para refletir quem você é — com profundidade, sem superficialidade.</p>
+
+  <h3>Paleta de cores</h3>
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin:16px 0 24px;">
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:#7C3E52;margin:0 auto 6px;box-shadow:0 4px 12px rgba(0,0,0,.15);"></div>
+      <div style="font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;">#7C3E52</div>
+      <div style="font-size:10px;color:var(--ink);font-weight:700;">Rosa Vinho</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:#D4B896;margin:0 auto 6px;box-shadow:0 4px 12px rgba(0,0,0,.1);"></div>
+      <div style="font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;">#D4B896</div>
+      <div style="font-size:10px;color:var(--ink);font-weight:700;">Champagne</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:#F2E8EC;margin:0 auto 6px;box-shadow:0 4px 12px rgba(0,0,0,.08);border:1px solid var(--border);"></div>
+      <div style="font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;">#F2E8EC</div>
+      <div style="font-size:10px;color:var(--ink);font-weight:700;">Bege Rosado</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:#6B7C6A;margin:0 auto 6px;box-shadow:0 4px 12px rgba(0,0,0,.1);"></div>
+      <div style="font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;">#6B7C6A</div>
+      <div style="font-size:10px;color:var(--ink);font-weight:700;">Sálvia</div>
+    </div>
+    <div style="text-align:center;">
+      <div style="width:56px;height:56px;border-radius:50%;background:#FAF7F2;margin:0 auto 6px;box-shadow:0 4px 12px rgba(0,0,0,.08);border:1px solid var(--border);"></div>
+      <div style="font-size:9px;color:var(--muted);font-family:'DM Mono',monospace;">#FAF7F2</div>
+      <div style="font-size:10px;color:var(--ink);font-weight:700;">Marfim</div>
+    </div>
+  </div>
+
+  <h3>Tom de voz</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;">
+    <div class="card-light">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--sage);margin-bottom:10px;">✓ Como você fala</div>
+      <p style="font-size:13px;margin:0;line-height:1.7;color:var(--text);">Profundo · Espiritual · Firme · Acolhedor mas confrontador · Com autoridade · Sobre responsabilidade e processo</p>
+    </div>
+    <div class="card-light" style="background:#FDF3F0;border-color:#F0C8BC;">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#A93226;margin-bottom:10px;">✕ O que nunca entra</div>
+      <p style="font-size:13px;margin:0;line-height:1.7;color:#6B2020;">"Você pode tudo" · "Se ame mais" · "Acredite em você" · Linguagem de empoderamento vazio · Motivação sem substância</p>
+    </div>
+  </div>
+
+  <h3>Os 5 pilares do conteúdo</h3>
+  <div class="pillars">
+    <div class="pillar">
+      <span class="pi-num">01 · 30%</span>
+      <div class="pi-title">Formação de Mulheres</div>
+      <p class="pi-desc">O pilar central. Histórias, reflexões e chamados para qualquer mulher que quer edificar algo real.</p>
+    </div>
+    <div class="pillar">
+      <span class="pi-num">02 · 25%</span>
+      <div class="pi-title">Liderança com Fé</div>
+      <p class="pi-desc">Fé aplicada ao cotidiano — não como enfeite, como estrutura de tudo que você construiu.</p>
+    </div>
+    <div class="pillar">
+      <span class="pi-num">03 · 20%</span>
+      <div class="pi-title">Trajetória & Autoridade</div>
+      <p class="pi-desc">Quase 4 décadas, 3 escolas, 4 filhos — provas vivas de que você acredita no que ensina.</p>
+    </div>
+    <div class="pillar">
+      <span class="pi-num">04 · 15%</span>
+      <div class="pi-title">Humanização</div>
+      <p class="pi-desc">Dia a dia, bastidores, família, fé no cotidiano. O que faz você ser uma pessoa, não uma marca.</p>
+    </div>
+    <div class="pillar">
+      <span class="pi-num">05 · 10%</span>
+      <div class="pi-title">Retiro & Eventos</div>
+      <p class="pi-desc">Divulgação do "Por um Fio", bastidores do processo e os próximos passos da formação.</p>
+    </div>
+  </div>
+
+  <h3>O @ e a bio</h3>
+  <div class="card-light blush">
+    <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;">Novo @ sugerido</div>
+    <div style="font-family:'DM Mono',monospace;font-size:18px;color:var(--rose2);margin-bottom:18px;font-weight:500;">@angelicamendespires</div>
+    <div style="font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:12px;">Nova bio</div>
+    <p style="font-size:14px;line-height:1.85;color:var(--text);margin:0;">Quase 4 décadas formando pessoas.<br>Aprendi que formação não acontece em salas de aula.<br>Acontece em vidas.<br>Formo mulheres que edificam destinos.<br>✝️ · 3 escolas · mãe de 4</p>
+  </div>
+</div>
+</div>
+
+<!-- RETIRO -->
+<div class="section" id="retiro">
+<div class="wrap">
+  <div class="eye">03 · Retiro "Por um Fio"</div>
+  <h2>O encontro de maio.<br><em>Estruturado e pronto.</em></h2>
+  <p class="sdesc">Um encontro de uma manhã que não é evento — é experiência. A primeira camada de formação, desenhada para que a mulher chegue por um fio e saia sabendo que não está sozinha.</p>
+
+  <div class="card-dark">
+    <div class="grain"></div>
+    <p style="position:relative;z-index:1;font-family:'Cormorant Garamond',serif;font-size:clamp(18px,2.5vw,26px);font-style:italic;color:#fff;margin-bottom:8px;">"Por um Fio"</p>
+    <p style="position:relative;z-index:1;font-size:14px;color:rgba(255,255,255,.55);margin:0;">Formação para mulheres que chegaram ao limite — e descobriram que era exatamente aí que Deus esperava.</p>
+  </div>
+
+  <h3>Estrutura da manhã</h3>
+  <div class="timeline">
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">07:30</span>
+      <div class="tl-title">Chegada e acolhida</div>
+      <p class="tl-desc">Música instrumental ao vivo. Mesa com café. Cartão com a pergunta inicial: "Você está por um fio em alguma área da sua vida?" Cada mulher escreve e guarda.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">08:00</span>
+      <div class="tl-title">Abertura — a primeira confrontação</div>
+      <p class="tl-desc">Angélica fala. Não boas-vindas protocolares — uma pergunta que para a sala e abre o espaço para honestidade.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">08:20</span>
+      <div class="tl-title">Música de imersão ao vivo</div>
+      <p class="tl-desc">Músicas de entrega — não de animação. A sala abre antes da Palavra.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">08:45</span>
+      <div class="tl-title">A Mensagem Central — "Por um Fio"</div>
+      <p class="tl-desc">45 minutos. 3 movimentos: o reconhecimento da dor → as mulheres bíblicas que também estiveram por um fio → a virada: o fio de Raabe como sinal de que o limite é onde Deus age.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">09:30</span>
+      <div class="tl-title">Testemunho real</div>
+      <p class="tl-desc">Uma mulher conta sua história — específica, vulnerável, verdadeira. Não a vitória completa. O processo.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">09:55</span>
+      <div class="tl-title">Dinâmica "O Fio na Mão"</div>
+      <p class="tl-desc">Cada participante recebe um fio dourado. 3 perguntas em silêncio. Um gesto de entrega — enrolar no pulso, guardar no bolso, deixar sobre a cadeira. Cada gesto é válido.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">10:30</span>
+      <div class="tl-title">Oração de envio</div>
+      <p class="tl-desc">Músicos voltam suavemente. Angélica ora. A manhã termina em silêncio — não em aplausos.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">11:00</span>
+      <div class="tl-title">Momento livre + próximos passos</div>
+      <p class="tl-desc">Café, música suave. Mesa discreta com QR Code para quem quiser dar o próximo passo. Sem pitch — só presença e disponibilidade.</p>
+    </div>
+  </div>
+
+  <div class="co champ">
+    <div class="coi">📽️</div>
+    <p class="cot"><strong>Apresentação pronta:</strong> foram criados 30 slides interativos para projetar durante o retiro — com todas as falas, perguntas reflexivas, guia do testemunho e momentos de silêncio marcados. Basta abrir no notebook e conectar ao projetor.</p>
+  </div>
+</div>
+</div>
+
+<!-- CONTEÚDO -->
+<div class="section" id="conteudo">
+<div class="wrap">
+  <div class="eye">04 · Conteúdo e Presença Digital</div>
+  <h2>Um mês de conteúdo.<br><em>Cadência, ritmo e intenção.</em></h2>
+  <p class="sdesc">A estratégia de conteúdo foi desenhada para construir autoridade semana a semana — com consistência, sem improvisação.</p>
+
+  <h3>Cadência semanal</h3>
+  <div class="cal">
+    <div class="cal-day dark">
+      <span class="cd-label">Seg</span>
+      <div class="cd-type">Carrossel</div>
+    </div>
+    <div class="cal-day medium">
+      <span class="cd-label">Ter</span>
+      <div class="cd-type">Stories</div>
+    </div>
+    <div class="cal-day dark">
+      <span class="cd-label">Qua</span>
+      <div class="cd-type">Reels</div>
+    </div>
+    <div class="cal-day medium">
+      <span class="cd-label">Qui</span>
+      <div class="cd-type">Post</div>
+    </div>
+    <div class="cal-day dark">
+      <span class="cd-label">Sex</span>
+      <div class="cd-type">Carrossel</div>
+    </div>
+    <div class="cal-day medium">
+      <span class="cd-label">Sáb</span>
+      <div class="cd-type">Stories</div>
+    </div>
+    <div class="cal-day dark">
+      <span class="cd-label">Dom</span>
+      <div class="cd-type">Reels</div>
+    </div>
+  </div>
+
+  <h3>Mês 1 — as 4 semanas</h3>
+  <div style="display:flex;flex-direction:column;gap:12px;margin:16px 0;">
+    <div class="card-light">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:8px;">Semana 1</div>
+      <div style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;">Apresentação</div>
+      <p style="font-size:13px;color:var(--muted);margin:0;">Quem é Angélica Pires — com o novo posicionamento. Os Pins, a bio nova, o primeiro Reel de apresentação. O perfil se apresenta ao mundo com uma voz diferente.</p>
+    </div>
+    <div class="card-light">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:8px;">Semana 2</div>
+      <div style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;">Autoridade & Trajetória</div>
+      <p style="font-size:13px;color:var(--muted);margin:0;">Quase 4 décadas como prova. Os filhos que estudaram nas escolas. A fé como fundação. Conteúdo que gera confiança antes de qualquer convite.</p>
+    </div>
+    <div class="card-light">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:8px;">Semana 3</div>
+      <div style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;">Retiro & Storytelling</div>
+      <p style="font-size:13px;color:var(--muted);margin:0;">Divulgação do retiro "Por um Fio" começa aqui. Reels sobre a dor do público. Carrosséis que fazem a mulher se reconhecer. A inscrição como consequência natural.</p>
+    </div>
+    <div class="card-light">
+      <div style="font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--rose);margin-bottom:8px;">Semana 4</div>
+      <div style="font-size:15px;font-weight:700;color:var(--ink);margin-bottom:6px;">Formação & Chamado</div>
+      <p style="font-size:13px;color:var(--muted);margin:0;">Conteúdo sobre missão, propósito e o que significa ser chamada. Apresentação da mentoria como próximo passo natural para quem já se reconheceu.</p>
+    </div>
+  </div>
+
+  <div class="co rose">
+    <div class="coi">📱</div>
+    <p class="cot"><strong>Agendamento:</strong> todos os posts do calendário aprovado serão agendados via Meta Business Suite. Você mantém autonomia total para postar stories, bastidores e qualquer conteúdo espontâneo — sem precisar de aprovação.</p>
+  </div>
+</div>
+</div>
+
+<!-- MENTORIA -->
+<div class="section" id="mentoria">
+<div class="wrap">
+  <div class="eye">05 · Mentoria "Mulheres que Edificam Destinos"</div>
+  <h2>A formação completa.<br><em>7 módulos. 7 arquétipos.</em></h2>
+  <p class="sdesc">Uma formação estruturada para mulheres que passaram pelo retiro e estão prontas para um compromisso maior. Cada módulo parte de uma mulher bíblica e chega na vida real de quem está na sala.</p>
+
+  <div style="display:flex;flex-direction:column;gap:10px;margin:20px 0;">
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--champ);width:24px;flex-shrink:0;">01</div>
+      <div><strong style="font-size:13px;">Antes de Edificar, Conhece-te</strong> <span style="font-size:12px;color:var(--muted);">· Rute · De mulher que age por impulso a mulher que age por convicção</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--champ);width:24px;flex-shrink:0;">02</div>
+      <div><strong style="font-size:13px;">Para um Tempo Como Este</strong> <span style="font-size:12px;color:var(--muted);">· Ester · De mulher que espera ser vista a mulher que ocupa seu espaço</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--champ);width:24px;flex-shrink:0;">03</div>
+      <div><strong style="font-size:13px;">A Mulher que Julga com Justiça</strong> <span style="font-size:12px;color:var(--muted);">· Débora · De mulher que espera aprovação a mulher que discerne e age</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--champ);width:24px;flex-shrink:0;">04</div>
+      <div><strong style="font-size:13px;">A Arte de Sustentar Processos</strong> <span style="font-size:12px;color:var(--muted);">· Rute · De mulher que começa muito e termina pouco a mulher que sustenta</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--champ);width:24px;flex-shrink:0;">05</div>
+      <div><strong style="font-size:13px;">A Verdade que Liberta e Obriga</strong> <span style="font-size:12px;color:var(--muted);">· Mulher Samaritana · De mulher que se esconde a mulher que usa sua história</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--champ);width:24px;flex-shrink:0;">06</div>
+      <div><strong style="font-size:13px;">O Fiat da Mulher que Responde</strong> <span style="font-size:12px;color:var(--muted);">· Maria · De mulher que negocia com o chamado a mulher que responde</span></div>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px;padding:14px 18px;background:#fff;border:1px solid var(--border);border-radius:12px;">
+      <div style="font-family:'DM Mono',monospace;font-size:11px;color:var(--champ);width:24px;flex-shrink:0;">07</div>
+      <div><strong style="font-size:13px;">Edificar com as Próprias Mãos</strong> <span style="font-size:12px;color:var(--muted);">· Priscila · De mulher que espera o momento certo a mulher que forma onde está</span></div>
+    </div>
+  </div>
+
+  <div class="co sage">
+    <div class="coi">📋</div>
+    <p class="cot"><strong>Roteiros prontos:</strong> cada um dos 7 módulos tem roteiro completo com abertura emocional, fala palavra por palavra, aplicação prática e frase de impacto final. Você abre o arquivo, lê e conduz. Não precisa criar nada do zero.</p>
+  </div>
+</div>
+</div>
+
+<!-- O QUE JÁ ESTÁ PRONTO -->
+<div class="section" id="pronto">
+<div class="wrap">
+  <div class="eye">06 · O que já está pronto</div>
+  <h2>O projeto está<br><em>estruturado e executável.</em></h2>
+  <p class="sdesc">Tudo que foi desenvolvido até aqui está documentado, organizado e pronto para entrar em ação. Não é rascunho — é entrega.</p>
+
+  <div class="ready">
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Identidade visual completa</div>
+        <div class="ri-desc">Paleta com códigos hex · tipografia no Canva · padrão do grid · manual de uso · 9 elementos SVG para importar</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Contrato assinado</div>
+        <div class="ri-desc">R$ 2.000/mês · 3 meses · escopo detalhado · responsabilidades claras de ambos os lados</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Briefing enviado</div>
+        <div class="ri-desc">11 blocos · 65 perguntas · disponível no link para responder no ritmo dela</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Textos dos 3 Pins prontos</div>
+        <div class="ri-desc">Apresentação · Autoridade · Chamado — slide a slide com instruções de tipografia e fundo para o Canva</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Bio do perfil reformulada</div>
+        <div class="ri-desc">Com o novo posicionamento confirmado — pronta para aplicar</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Estrutura completa do retiro "Por um Fio"</div>
+        <div class="ri-desc">Linha do tempo detalhada · guia de cada momento · checklist de produção · orientação do testemunho</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Apresentação interativa para projetar no retiro</div>
+        <div class="ri-desc">30 slides · abertura · mensagem · guia do testemunho · dinâmica · oração · encerramento — tudo na sequência certa</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Projeto completo da mentoria</div>
+        <div class="ri-desc">Identidade visual própria · página de vendas · storytelling · 7 módulos estruturados · frases de impacto · conteúdo de lançamento</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Roteiros completos dos 7 módulos</div>
+        <div class="ri-desc">Fala palavra por palavra para cada encontro · abertura emocional · desenvolvimento · aplicação prática · frase de impacto</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">Calendário editorial do mês 1</div>
+        <div class="ri-desc">4 semanas · cadência definida · pilares de conteúdo · tipos de post por dia</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">20 frases de impacto para posts</div>
+        <div class="ri-desc">Prontas para carrosséis · Reels · stories e legendas</div>
+      </div>
+    </div>
+    <div class="ready-item">
+      <div class="ri-check">✓</div>
+      <div class="ri-body">
+        <div class="ri-title">5 roteiros de Reels + 5 carrosséis + 3 legendas longas</div>
+        <div class="ri-desc">Conteúdo de lançamento do retiro e da mentoria — prontos para gravar e montar</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="thread"></div>
+
+  <div class="quote">
+    Esse projeto não foi construído sobre o que a Angélica ainda vai fazer. Foi construído sobre o que ela já é.
+  </div>
+</div>
+</div>
+
+<!-- PRÓXIMO PASSO -->
+<div class="section" id="proximo">
+<div class="wrap">
+  <div class="eye">07 · Próximo Passo</div>
+  <h2>Simples e<br><em>direto.</em></h2>
+
+  <p class="sdesc">Todo o trabalho está estruturado. O que falta é um sim — e a primeira reunião para darmos início à execução.</p>
+
+  <div class="cta-section">
+    <div class="grain"></div>
+    <div class="cta-orn"><div class="cta-line"></div><div class="cta-dia"></div><div class="cta-line"></div></div>
+    <div class="cta-h">Se fizer sentido<br>para você —<br><em>seguimos.</em></div>
+    <p class="cta-body">O projeto está desenhado. O caminho está claro. Basta confirmar — e na nossa próxima conversa já entramos em execução.</p>
+    <div class="cta-btn">Sim, pode seguir</div>
+  </div>
+
+  <h3>O que acontece depois do sim</h3>
+  <div class="timeline" style="margin-top:20px;">
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">Passo 1</span>
+      <div class="tl-title">Reunião de alinhamento — 60 a 90 min</div>
+      <p class="tl-desc">Revisamos juntas o projeto, você coloca as considerações, alinhamos o calendário de maio e definimos a data de estreia do perfil reformulado.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">Passo 2</span>
+      <div class="tl-title">Perfil reformulado no ar</div>
+      <p class="tl-desc">Bio nova, @ atualizado, Pins publicados na ordem certa. O perfil passa a falar com o posicionamento confirmado.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">Passo 3</span>
+      <div class="tl-title">Calendário editorial do mês 1 em execução</div>
+      <p class="tl-desc">Conteúdo agendado, artes no Canva, posts no ar conforme a cadência semanal definida.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">Passo 4</span>
+      <div class="tl-title">Divulgação do retiro "Por um Fio"</div>
+      <p class="tl-desc">Sequência de conteúdo específica para aquecimento e inscrições — Reels, carrosséis e stories que levam as mulheres certas até o retiro de maio.</p>
+    </div>
+    <div class="tl">
+      <div class="tl-dot"></div>
+      <span class="tl-time">Passo 5</span>
+      <div class="tl-title">O retiro acontece — e o funil começa</div>
+      <p class="tl-desc">As mulheres que passarem pelo retiro tornam-se o público natural do retiro de 2 dias e, depois, da mentoria. O movimento "Por um Fio" entra em funcionamento.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<footer>
+  <div class="ft">Projeto @angelicamendespires · Estratégia Completa</div>
+  <p>Maria Loyola · Estrategista de Conteúdo & Storytelling</p>
+</footer>
+
+</body>
+</html>
