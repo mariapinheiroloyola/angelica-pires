@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Por um Fio · Retiro de Manhã · Documento Completo</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap');
+
+  :root {
+    --cedro: #5C3D2E;
+    --cedro-escuro: #4A2E1F;
+    --ambar: #C4965A;
+    --ambar-claro: #E0BB8E;
+    --linho: #F5EDE0;
+    --linho-escuro: #EDE0CC;
+    --oliveira: #6B7A58;
+    --creme: #FAF6F0;
+    --tinta: #2A1F18;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--tinta); font-weight: 300; }
+
+  .capa {
+    min-height: 100vh; background: var(--cedro-escuro);
+    display: flex; flex-direction: column; align-items: center;
+    justify-content: center; padding: 60px 40px;
+    position: relative; overflow: hidden;
+  }
+  .capa::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 80%, rgba(196,150,90,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(107,122,88,0.08) 0%, transparent 50%);
+  }
+  .capa::after {
+    content: ''; position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .capa-content { position: relative; z-index: 1; text-align: center; max-width: 700px; }
+  .ornamento { display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 48px; }
+  .ornamento-linha { width: 60px; height: 1px; background: var(--ambar); opacity: 0.5; }
+  .ornamento-losango { width: 7px; height: 7px; background: var(--ambar); transform: rotate(45deg); opacity: 0.7; }
+  .capa-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.25em; color: var(--ambar); opacity: 0.7; text-transform: uppercase; margin-bottom: 24px; }
+  .capa h1 { font-family: 'Cormorant', serif; font-size: clamp(72px, 12vw, 120px); font-weight: 300; font-style: italic; color: var(--ambar-claro); line-height: 0.9; letter-spacing: -0.02em; margin-bottom: 8px; }
+  .capa h2 { font-family: 'Cormorant', serif; font-size: clamp(28px, 5vw, 48px); font-weight: 300; color: var(--linho); opacity: 0.7; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 40px; }
+  .capa-subtitulo { font-family: 'Cormorant', serif; font-size: clamp(16px, 2.5vw, 22px); font-style: italic; color: var(--ambar-claro); opacity: 0.8; line-height: 1.6; max-width: 520px; margin: 0 auto 60px; }
+  .capa-badges { display: flex; gap: 32px; justify-content: center; flex-wrap: wrap; }
+  .badge { text-align: center; }
+  .badge-num { font-family: 'Cormorant', serif; font-size: 32px; font-weight: 600; color: var(--ambar); display: block; }
+  .badge-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--linho); opacity: 0.5; text-transform: uppercase; display: block; margin-top: 4px; }
+  .badge-sep { width: 1px; background: var(--ambar); opacity: 0.2; align-self: stretch; }
+  .data-indefinida { margin-top: 48px; display: inline-flex; align-items: center; gap: 10px; background: rgba(196,150,90,0.1); border: 1px solid rgba(196,150,90,0.25); border-radius: 2px; padding: 10px 20px; }
+  .data-indefinida span { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--ambar); opacity: 0.8; text-transform: uppercase; }
+
+  nav { position: sticky; top: 0; z-index: 100; background: var(--cedro); padding: 0 40px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-item { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--ambar-claro); opacity: 0.5; text-transform: uppercase; padding: 16px 20px; text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  .nav-item:hover { opacity: 1; border-bottom-color: var(--ambar); }
+
+  section { padding: 80px 40px; max-width: 900px; margin: 0 auto; }
+  section + section { border-top: 1px solid rgba(92,61,46,0.12); }
+  .secao-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.25em; color: var(--ambar); opacity: 0.7; text-transform: uppercase; margin-bottom: 16px; }
+  .secao-titulo { font-family: 'Cormorant', serif; font-size: clamp(36px, 5vw, 56px); font-weight: 300; color: var(--cedro); line-height: 1.1; margin-bottom: 40px; }
+  .secao-titulo em { font-style: italic; color: var(--ambar); }
+
+  .cronograma { display: flex; flex-direction: column; }
+  .momento { display: grid; grid-template-columns: 100px 1fr; position: relative; }
+  .momento::before { content: ''; position: absolute; left: 99px; top: 28px; bottom: -28px; width: 1px; background: linear-gradient(to bottom, var(--ambar), transparent); opacity: 0.2; }
+  .momento:last-child::before { display: none; }
+  .momento-hora { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--ambar); padding: 28px 20px 28px 0; text-align: right; position: relative; }
+  .momento-hora::after { content: ''; position: absolute; right: -5px; top: 36px; width: 9px; height: 9px; border-radius: 50%; background: var(--ambar); opacity: 0.5; }
+  .momento-conteudo { padding: 20px 0 20px 32px; }
+  .momento-duracao { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--oliveira); opacity: 0.7; text-transform: uppercase; margin-bottom: 6px; }
+  .momento-nome { font-family: 'Cormorant', serif; font-size: 22px; font-weight: 600; color: var(--cedro); margin-bottom: 6px; }
+  .momento-desc { font-size: 14px; color: var(--tinta); opacity: 0.65; line-height: 1.6; }
+  .momento-tag { display: inline-flex; align-items: center; gap: 6px; margin-top: 10px; background: var(--linho-escuro); padding: 4px 10px; border-radius: 2px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; color: var(--cedro); opacity: 0.8; text-transform: uppercase; }
+
+  .regra-ouro { margin-top: 32px; background: var(--cedro); padding: 24px 32px; border-radius: 2px; display: flex; gap: 20px; align-items: flex-start; }
+  .regra-ouro-icone { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+  .regra-ouro-texto { font-family: 'Cormorant', serif; font-size: 18px; font-style: italic; color: var(--ambar-claro); line-height: 1.5; }
+
+  .roteiro-bloco { background: var(--linho); border-left: 3px solid var(--cedro); padding: 32px 36px; margin-bottom: 24px; border-radius: 0 2px 2px 0; }
+  .roteiro-header { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+  .roteiro-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--ambar); opacity: 0.7; flex-shrink: 0; }
+  .roteiro-titulo { font-family: 'Cormorant', serif; font-size: 26px; font-weight: 600; color: var(--cedro); }
+  .roteiro-tempo { margin-left: auto; font-family: 'DM Mono', monospace; font-size: 11px; color: var(--oliveira); opacity: 0.7; flex-shrink: 0; }
+
+  .fala { background: var(--creme); border: 1px solid rgba(92,61,46,0.1); padding: 24px 28px; margin: 16px 0; font-family: 'Cormorant', serif; font-size: 18px; font-style: italic; color: var(--cedro-escuro); line-height: 1.7; border-radius: 1px; position: relative; }
+  .fala::before { content: '"'; font-size: 48px; color: var(--ambar); opacity: 0.3; position: absolute; top: 8px; left: 16px; font-style: normal; line-height: 1; }
+  .fala p { padding-left: 20px; }
+
+  .instrucao { font-size: 13px; color: var(--tinta); opacity: 0.6; line-height: 1.6; padding: 12px 0; border-top: 1px dashed rgba(92,61,46,0.15); margin-top: 16px; }
+  .instrucao strong { color: var(--oliveira); font-weight: 500; opacity: 1; }
+
+  .movimento-header { font-family: 'Cormorant', serif; font-size: 20px; font-weight: 600; color: var(--cedro); margin: 24px 0 8px; display: flex; align-items: center; gap: 10px; }
+  .movimento-header .mov-num { font-family: 'DM Mono', monospace; font-size: 10px; background: var(--ambar); color: white; padding: 2px 7px; border-radius: 2px; font-style: normal; letter-spacing: 0.1em; }
+
+  .perguntas-lista { display: flex; flex-direction: column; gap: 12px; margin: 16px 0; }
+  .pergunta-item { display: flex; gap: 16px; align-items: flex-start; padding: 16px 20px; background: var(--creme); border: 1px solid rgba(92,61,46,0.08); }
+  .pergunta-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--ambar); flex-shrink: 0; margin-top: 2px; }
+  .pergunta-texto { font-family: 'Cormorant', serif; font-size: 17px; font-style: italic; color: var(--cedro-escuro); line-height: 1.5; }
+
+  .frase-impacto { background: var(--cedro-escuro); padding: 40px 48px; margin: 24px 0; position: relative; overflow: hidden; }
+  .frase-impacto::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 50%, rgba(196,150,90,0.08) 0%, transparent 70%); }
+  .frase-impacto blockquote { font-family: 'Cormorant', serif; font-size: clamp(20px, 3vw, 28px); font-style: italic; color: var(--ambar-claro); line-height: 1.5; position: relative; z-index: 1; word-break: keep-all; hyphens: none; }
+
+  .checklist-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 24px; }
+  .checklist-categoria { background: var(--linho); padding: 28px 32px; border-radius: 2px; }
+  .cat-titulo { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--cedro); text-transform: uppercase; margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid rgba(92,61,46,0.15); }
+  .checklist-item { display: flex; gap: 12px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid rgba(92,61,46,0.06); cursor: pointer; user-select: none; }
+  .checklist-item:last-child { border-bottom: none; }
+  .check-box { width: 16px; height: 16px; border: 1.5px solid var(--ambar); flex-shrink: 0; margin-top: 2px; opacity: 0.5; transition: all 0.15s; position: relative; }
+  .checklist-item.checked .check-box { background: var(--oliveira); border-color: var(--oliveira); opacity: 1; }
+  .checklist-item.checked .check-box::after { content: '✓'; position: absolute; color: white; font-size: 10px; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+  .checklist-item.checked .check-texto { opacity: 0.4; text-decoration: line-through; }
+  .check-texto { font-size: 13px; color: var(--tinta); line-height: 1.5; transition: all 0.15s; word-break: keep-all; hyphens: none; }
+
+  .checklist-progress { background: var(--linho); border-radius: 2px; padding: 20px 28px; margin-bottom: 32px; display: flex; align-items: center; gap: 20px; }
+  .progress-bar-wrap { flex: 1; height: 6px; background: rgba(92,61,46,0.1); border-radius: 3px; overflow: hidden; }
+  .progress-bar { height: 100%; background: var(--oliveira); border-radius: 3px; transition: width 0.3s ease; width: 0%; }
+  .progress-text { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--cedro); opacity: 0.7; white-space: nowrap; }
+
+  .dinamica-passos { display: flex; flex-direction: column; gap: 20px; }
+  .passo { display: grid; grid-template-columns: 48px 1fr; gap: 20px; align-items: flex-start; }
+  .passo-num { width: 48px; height: 48px; border: 1px solid var(--ambar); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant', serif; font-size: 22px; font-weight: 300; color: var(--ambar); flex-shrink: 0; }
+  .passo-conteudo { padding-top: 8px; }
+  .passo-titulo { font-family: 'Cormorant', serif; font-size: 20px; font-weight: 600; color: var(--cedro); margin-bottom: 8px; }
+  .passo-desc { font-size: 14px; color: var(--tinta); opacity: 0.65; line-height: 1.6; }
+  .passo-tempo { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--oliveira); margin-top: 8px; opacity: 0.7; }
+
+  .nota-logistica { display: flex; gap: 16px; background: rgba(107,122,88,0.08); border: 1px solid rgba(107,122,88,0.2); padding: 20px 24px; margin-top: 24px; align-items: flex-start; }
+  .nota-icone { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .nota-texto { font-size: 13px; color: var(--tinta); opacity: 0.7; line-height: 1.6; }
+  .nota-texto strong { color: var(--oliveira); font-weight: 500; opacity: 1; }
+
+  .arco-item { display: grid; grid-template-columns: 180px 1fr; gap: 24px; padding: 20px 0; border-bottom: 1px solid rgba(92,61,46,0.08); }
+  .arco-item:last-child { border-bottom: none; }
+  .arco-etapa { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--ambar); opacity: 0.7; text-transform: uppercase; padding-top: 3px; }
+  .arco-conteudo { font-size: 14px; color: var(--tinta); opacity: 0.7; line-height: 1.6; }
+
+  .evitar { background: rgba(92,61,46,0.05); border: 1px solid rgba(92,61,46,0.12); border-left: 3px solid var(--ambar); padding: 20px 24px; margin-top: 24px; }
+  .evitar-titulo { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--ambar); text-transform: uppercase; margin-bottom: 12px; }
+  .evitar-texto { font-size: 14px; color: var(--tinta); opacity: 0.7; line-height: 1.6; }
+
+  .funil { display: flex; flex-direction: column; }
+  .funil-camada { padding: 28px 36px; }
+  .funil-camada:nth-child(1) { background: var(--cedro); }
+  .funil-camada:nth-child(3) { background: var(--cedro-escuro); }
+  .funil-camada:nth-child(5) { background: #3A2315; }
+  .funil-seta { text-align: center; color: var(--ambar); opacity: 0.4; font-size: 20px; padding: 8px 0; background: var(--linho-escuro); }
+  .camada-num { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; color: var(--ambar); opacity: 0.7; text-transform: uppercase; margin-bottom: 8px; }
+  .camada-nome { font-family: 'Cormorant', serif; font-size: 24px; font-weight: 600; color: var(--linho); margin-bottom: 4px; }
+  .camada-atual { display: inline-block; background: var(--ambar); color: var(--cedro-escuro); font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 2px; margin-bottom: 12px; }
+  .camada-details { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 12px; }
+  .camada-detalhe { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ambar-claro); opacity: 0.6; letter-spacing: 0.08em; }
+
+  .aviso { display: flex; gap: 14px; align-items: flex-start; background: rgba(184,149,42,0.07); border: 1px solid rgba(184,149,42,0.2); padding: 16px 20px; margin: 16px 0; }
+  .aviso-icone { font-size: 16px; flex-shrink: 0; }
+  .aviso-texto { font-size: 13px; color: var(--tinta); opacity: 0.7; line-height: 1.5; }
+
+  .separador { display: flex; align-items: center; gap: 16px; margin: 40px 0; }
+  .separador-linha { flex: 1; height: 1px; background: var(--ambar); opacity: 0.15; }
+  .separador-losango { width: 6px; height: 6px; background: var(--ambar); transform: rotate(45deg); opacity: 0.3; flex-shrink: 0; }
+
+  /* CARTA */
+  .carta-wrap { background: var(--linho); border: 1px solid rgba(92,61,46,0.15); padding: 64px 72px; max-width: 720px; margin: 0 auto; position: relative; box-shadow: 0 8px 40px rgba(42,31,24,0.06); }
+  .carta-wrap::before { content: ''; position: absolute; top: 12px; left: 12px; right: 12px; bottom: 12px; border: 1px solid rgba(196,150,90,0.2); pointer-events: none; }
+  .carta-ornamento { display: flex; align-items: center; gap: 10px; justify-content: center; margin-bottom: 48px; }
+  .carta-ornamento-linha { width: 40px; height: 1px; background: var(--ambar); opacity: 0.4; }
+  .carta-ornamento-losango { width: 5px; height: 5px; background: var(--ambar); transform: rotate(45deg); opacity: 0.5; flex-shrink: 0; }
+  .carta-titulo { font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.3em; color: var(--ambar); opacity: 0.7; text-transform: uppercase; text-align: center; margin-bottom: 40px; }
+  .carta-corpo { font-family: 'Cormorant', serif; font-size: 19px; color: var(--cedro-escuro); line-height: 1.9; word-break: keep-all; hyphens: none; }
+  .carta-corpo p { margin-bottom: 24px; }
+  .carta-corpo em { font-style: italic; color: var(--cedro); }
+  .carta-corpo strong { font-weight: 600; }
+  .carta-assinatura { margin-top: 48px; padding-top: 32px; border-top: 1px solid rgba(92,61,46,0.1); }
+  .carta-assinatura-nome { font-family: 'Cormorant', serif; font-size: 22px; font-style: italic; color: var(--cedro); font-weight: 600; }
+  .carta-assinatura-titulo { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; color: var(--ambar); opacity: 0.6; text-transform: uppercase; margin-top: 6px; }
+
+  .confirmacao-wrap { background: var(--cedro); padding: 48px 56px; margin-top: 40px; position: relative; overflow: hidden; }
+  .confirmacao-wrap::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 80% 20%, rgba(196,150,90,0.1) 0%, transparent 60%); }
+  .confirmacao-titulo { font-family: 'Cormorant', serif; font-size: 30px; font-weight: 300; color: var(--ambar-claro); margin-bottom: 16px; position: relative; z-index: 1; }
+  .confirmacao-texto { font-size: 14px; color: var(--linho); opacity: 0.65; line-height: 1.7; margin-bottom: 32px; position: relative; z-index: 1; }
+  .qr-placeholder { display: inline-flex; flex-direction: column; align-items: center; gap: 12px; background: var(--linho); padding: 24px; position: relative; z-index: 1; }
+  .qr-placeholder .qr-box { width: 120px; height: 120px; background: var(--creme); border: 2px dashed rgba(92,61,46,0.25); display: flex; align-items: center; justify-content: center; font-family: 'DM Mono', monospace; font-size: 9px; color: var(--cedro); opacity: 0.5; letter-spacing: 0.1em; text-transform: uppercase; text-align: center; line-height: 1.6; }
+  .qr-placeholder .qr-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.15em; color: var(--cedro); opacity: 0.5; text-transform: uppercase; }
+
+
+  .encerramento { background: var(--cedro-escuro); padding: 80px 40px; text-align: center; position: relative; overflow: hidden; }
+  .encerramento::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(196,150,90,0.08) 0%, transparent 70%); }
+  .encerramento-texto { font-family: 'Cormorant', serif; font-size: clamp(20px, 3vw, 32px); font-style: italic; color: var(--ambar-claro); line-height: 1.7; max-width: 600px; margin: 0 auto 24px; position: relative; z-index: 1; word-break: keep-all; overflow-wrap: break-word; hyphens: none; }
+  .encerramento-assinatura { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--ambar); opacity: 0.4; text-transform: uppercase; position: relative; z-index: 1; }
+
+  @media (max-width: 640px) {
+    section { padding: 60px 24px; }
+    .momento { grid-template-columns: 80px 1fr; }
+    .arco-item { grid-template-columns: 1fr; gap: 4px; }
+    .checklist-grid { grid-template-columns: 1fr; }
+    .capa-badges { gap: 20px; }
+    nav { padding: 0 16px; }
+    .roteiro-bloco { padding: 24px 20px; }
+    .fala { padding: 20px 20px 20px 24px; }
+    .carta-wrap { padding: 40px 28px; }
+    .confirmacao-wrap { padding: 32px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="capa">
+  <div class="capa-content">
+    <div class="ornamento"><div class="ornamento-linha"></div><div class="ornamento-losango"></div><div class="ornamento-linha"></div></div>
+    <div class="capa-label">Retiro de Manhã · Angélica Pires</div>
+    <h1>Por um Fio</h1>
+    <h2>Retiro</h2>
+    <p class="capa-subtitulo">Para mulheres que chegaram ao limite e descobriram que era exatamente aí que Deus esperava.</p>
+    <div class="capa-badges">
+      <div class="badge"><span class="badge-num">4h</span><span class="badge-label">Duração</span></div>
+      <div class="badge-sep"></div>
+      <div class="badge"><span class="badge-num">50–100</span><span class="badge-label">Mulheres</span></div>
+      <div class="badge-sep"></div>
+      <div class="badge"><span class="badge-num">Gratuito</span><span class="badge-label">ou Simbólico</span></div>
+      <div class="badge-sep"></div>
+      <div class="badge"><span class="badge-num">Misto</span><span class="badge-label">Público</span></div>
+    </div>
+    <div class="data-indefinida"><span>📅</span><span>Data a definir · 2026</span></div>
+  </div>
+</div>
+
+<nav>
+  <a href="#cronograma" class="nav-item">Cronograma</a>
+  <a href="#abertura" class="nav-item">Abertura</a>
+  <a href="#mensagem" class="nav-item">Mensagem</a>
+  <a href="#testemunho" class="nav-item">Testemunho</a>
+  <a href="#dinamica" class="nav-item">Dinâmica</a>
+  <a href="#oracao" class="nav-item">Oração</a>
+  <a href="#proximos-passos" class="nav-item">Próximos Passos</a>
+  <a href="#carta" class="nav-item">Carta Convite</a>
+  <a href="#checklist" class="nav-item">Checklist</a>
+</nav>
+
+<section id="cronograma">
+  <div class="secao-label">01 · Visão Geral</div>
+  <h2 class="secao-titulo">Uma manhã que<br><em>não se esquece.</em></h2>
+  <div class="cronograma">
+    <div class="momento">
+      <div class="momento-hora">07:30</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">30 minutos</div>
+        <div class="momento-nome">Chegada e Acolhida</div>
+        <div class="momento-desc">Música instrumental ao vivo, sem letra, sem pressa. Mesa com café, vela e cartão com a pergunta inicial. Cada mulher escreve e dobra. Ninguém lê ainda.</div>
+        <span class="momento-tag">🎵 Músicos ao vivo</span>
+      </div>
+    </div>
+    <div class="momento">
+      <div class="momento-hora">08:00</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">20 minutos</div>
+        <div class="momento-nome">Abertura — A Primeira Confrontação</div>
+        <div class="momento-desc">Angélica abre com uma pergunta que para a sala. Silêncio intencional. O ambiente muda antes de qualquer protocolo.</div>
+        <span class="momento-tag">✦ Angélica fala</span>
+      </div>
+    </div>
+    <div class="momento">
+      <div class="momento-hora">08:20</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">25 minutos</div>
+        <div class="momento-nome">Música de Imersão</div>
+        <div class="momento-desc">Duas ou três músicas escolhidas com cuidado: de cansaço, de entrega, de não conseguir mais sozinha. Músicas que dão permissão para chorar. A sala precisa abrir antes da Palavra.</div>
+        <span class="momento-tag">🎵 Músicos ao vivo</span>
+      </div>
+    </div>
+    <div class="momento">
+      <div class="momento-hora">08:45</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">45 minutos</div>
+        <div class="momento-nome">Mensagem Central — "Por um Fio"</div>
+        <div class="momento-desc">O coração do encontro. Três movimentos: reconhecimento, as mulheres bíblicas, a virada. Com pausas, perguntas internas, espaço para pousar.</div>
+        <span class="momento-tag">✦ Angélica fala</span>
+      </div>
+    </div>
+    <div class="momento">
+      <div class="momento-hora">09:30</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">20 minutos</div>
+        <div class="momento-nome">Testemunho Real</div>
+        <div class="momento-desc">Uma mulher preparada previamente conta sua história de estar por um fio. Autêntica, específica, vulnerável. A prova viva de que o que foi dito é real.</div>
+        <span class="momento-tag">💬 Mulher convidada</span>
+      </div>
+    </div>
+    <div class="momento">
+      <div class="momento-hora">09:55</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">35 minutos</div>
+        <div class="momento-nome">Dinâmica "O Fio na Mão"</div>
+        <div class="momento-desc">A experiência mais poderosa da manhã. Cada mulher recebe um fio dourado e entra num processo de reflexão guiada com silêncio, pergunta, escrita e entrega.</div>
+        <span class="momento-tag">◈ Dinâmica imersiva</span>
+      </div>
+    </div>
+    <div class="momento">
+      <div class="momento-hora">10:30</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">30 minutos</div>
+        <div class="momento-nome">Oração de Envio</div>
+        <div class="momento-desc">Músicos voltam suavemente. Angélica ora pelo que foi nomeado. Palavra de encerramento.</div>
+        <span class="momento-tag">🕊️ Oração</span>
+      </div>
+    </div>
+    <div class="momento">
+      <div class="momento-hora">11:00</div>
+      <div class="momento-conteudo">
+        <div class="momento-duracao">30 minutos</div>
+        <div class="momento-nome">Momento Livre — Próximos Passos</div>
+        <div class="momento-desc">Café, música suave, Angélica disponível para conversar. Mesa discreta com cartão de interesse. A semente do próximo encontro é plantada de forma orgânica.</div>
+        <span class="momento-tag">↗ Pós-encontro</span>
+      </div>
+    </div>
+  </div>
+  <div class="regra-ouro">
+    <div class="regra-ouro-icone">🧵</div>
+    <div class="regra-ouro-texto">A manhã termina em <strong style="color:var(--ambar)">silêncio</strong>. O silêncio é o espaço onde o que foi plantado começa a crescer.</div>
+  </div>
+</section>
+
+<section id="abertura">
+  <div class="secao-label">02 · Roteiro</div>
+  <h2 class="secao-titulo"><em>Abertura</em><br>08:00 — 20 minutos</h2>
+  <div class="roteiro-bloco">
+    <div class="roteiro-header">
+      <span class="roteiro-num">INSTRUÇÃO</span>
+      <span class="roteiro-titulo">Começa com silêncio.</span>
+      <span class="roteiro-tempo">10 seg</span>
+    </div>
+    <div class="instrucao">Deixar a sala pousar por <strong>10 segundos</strong> antes de falar qualquer coisa. Então:</div>
+    <div class="fala">
+      <p>"Eu quero começar com uma pergunta. Não precisa responder em voz alta. Mas precisa responder por dentro, com honestidade.</p>
+      <p><br>Quando foi a última vez que você parou de verdade? Olhou para dentro e se perguntou: como eu estou?</p>
+      <p><br>Não como mãe. Não como esposa. Não como profissional. Você. Como você está?</p>
+      <p><br>Se essa pergunta te incomoda, você está no lugar certo. Se você não sabe a resposta, você está no lugar certo. Se você sente que não tem tempo para se fazer essa pergunta, você está <em>urgentemente</em> no lugar certo."</p>
+    </div>
+    <div class="instrucao"><strong>Pausa de 2 minutos.</strong> Pedir que escrevam em silêncio. Não preencher o silêncio. Então continuar:</div>
+    <div class="fala">
+      <p>"Eu chamei esse encontro de <em>Por um Fio</em>. Não por acidente. Porque eu acredito que muitas de vocês chegaram aqui exatamente assim.</p>
+      <p><br>E esse fio não é fraqueza. É o que ainda te liga ao que você foi chamada a ser."</p>
+    </div>
+  </div>
+</section>
+
+<section id="mensagem">
+  <div class="secao-label">03 · Roteiro</div>
+  <h2 class="secao-titulo">Mensagem Central<br><em>"Por um Fio"</em></h2>
+  <p style="font-size:14px;opacity:0.6;margin-bottom:40px;line-height:1.7;">08:45 — 45 minutos · Três movimentos. Uma conversa com a sala. Angélica fala, para, deixa a palavra pousar, faz perguntas internas, continua. O ritmo é mais lento do que parece confortável e isso é intencional.</p>
+
+  <div class="roteiro-bloco">
+    <div class="roteiro-header"><span class="roteiro-num">MOV 01</span><span class="roteiro-titulo">O Reconhecimento</span><span class="roteiro-tempo">15 min</span></div>
+    <p style="font-size:14px;color:var(--tinta);opacity:0.65;line-height:1.7;">Nomear a dor sem romantizá-la. Linguagem específica, concreta. A mulher precisa pensar <em>"como ela sabe?"</em></p>
+    <div class="instrucao">Usar: cansaço antes de o dia começar · cuidar de todos e sentir que ninguém cuida dela · a voz que diz que deveria ser mais.</div>
+  </div>
+
+  <div class="roteiro-bloco">
+    <div class="roteiro-header"><span class="roteiro-num">MOV 02</span><span class="roteiro-titulo">As Mulheres que Também Estiveram por um Fio</span><span class="roteiro-tempo">20 min</span></div>
+    <div class="movimento-header"><span class="mov-num">RUTE</span> Viúva em terra estranha</div>
+    <p style="font-size:14px;opacity:0.65;line-height:1.7;margin-bottom:16px;">Escolheu ficar quando podia ir. Colhia espiga por espiga. Fidelidade ao processo pequeno.</p>
+    <div class="movimento-header"><span class="mov-num">ESTER</span> Para um momento como este</div>
+    <div class="fala"><p>"Quem sabe se não foi para um momento como este que você chegou ao reino?"</p></div>
+    <p style="font-size:14px;opacity:0.65;line-height:1.7;margin-bottom:16px;">A coragem de Ester não era ausência de medo. Era a decisão de ir apesar dele.</p>
+    <div class="movimento-header"><span class="mov-num">MARIA</span> O fiat</div>
+    <p style="font-size:14px;opacity:0.65;line-height:1.7;">Soberania, e não resignação. O fiat de Maria foi a decisão mais soberana que uma mulher já tomou.</p>
+    <div class="aviso">
+      <span class="aviso-icone">📌</span>
+      <span class="aviso-texto">Em algum momento deste bloco, fazer uma pergunta para a sala sem obrigar resposta em voz alta: <em>"Em que área da sua vida você está por um fio nesta temporada?"</em> Sessenta segundos de silêncio. Isso prepara a dinâmica.</span>
+    </div>
+  </div>
+
+  <div class="roteiro-bloco">
+    <div class="roteiro-header"><span class="roteiro-num">MOV 03</span><span class="roteiro-titulo">A Virada — Raabe e o Fio Vermelho</span><span class="roteiro-tempo">10 min</span></div>
+    <div class="fala">
+      <p>"Raabe amarrou um fio vermelho na janela. A salvação precisava de um sinal para encontrá-la.</p>
+      <p><br>Às vezes o que você tem para oferecer não é sua força. É sua honestidade. É sua disposição de amarrar o fio na janela e esperar.</p>
+      <p><br>Você não precisa ter tudo resolvido para ser encontrada. Só precisa deixar o fio visível.</p>
+      <p><br><em>Estar por um fio não é estar perdida. É estar no limite onde Deus age."</em></p>
+    </div>
+  </div>
+
+  <div class="frase-impacto">
+    <blockquote>"O fio que você achava que ia arrebentar era o único que te prendia ao que importava. Não o corte. Siga-o."</blockquote>
+  </div>
+</section>
+
+<section id="testemunho">
+  <div class="secao-label">04 · Orientação</div>
+  <h2 class="secao-titulo">Testemunho Real<br><em>09:30 — 20 minutos</em></h2>
+  <p style="font-size:14px;opacity:0.65;line-height:1.7;margin-bottom:32px;">O testemunho carrega o peso emocional mais alto da manhã. Escolher e preparar a testemunha com mínimo 2 semanas de antecedência.</p>
+  <div class="roteiro-bloco">
+    <div class="roteiro-header"><span class="roteiro-num">QUEM</span><span class="roteiro-titulo">Como Escolher</span></div>
+    <p style="font-size:14px;opacity:0.65;line-height:1.7;">Uma mulher que a Angélica conhece bem, que passou por período real de esgotamento ou crise e que hoje está em outro lugar. Quanto mais específica, mais impacto.</p>
+  </div>
+  <div class="roteiro-bloco">
+    <div class="roteiro-header"><span class="roteiro-num">ARCO</span><span class="roteiro-titulo">Estrutura do Testemunho</span></div>
+    <div>
+      <div class="arco-item"><div class="arco-etapa">1 · Como era</div><div class="arco-conteudo">O momento específico de esgotamento, com detalhe real. O dia, o lugar, o sentimento exato.</div></div>
+      <div class="arco-item"><div class="arco-etapa">2 · O que ela tentou</div><div class="arco-conteudo">O que não funcionou. Isso valida a experiência das mulheres na sala que também tentaram e não conseguiram.</div></div>
+      <div class="arco-item"><div class="arco-etapa">3 · O fio</div><div class="arco-conteudo">O que ficou quando tudo parecia acabar. Pode ser a fé, uma palavra, uma pessoa, uma decisão pequena.</div></div>
+      <div class="arco-item"><div class="arco-etapa">4 · O que mudou</div><div class="arco-conteudo">Pode ser uma mudança de postura, uma clareza, uma decisão de ficar no processo.</div></div>
+      <div class="arco-item"><div class="arco-etapa">5 · Para a sala</div><div class="arco-conteudo">Falar diretamente para as mulheres. Olho no olho, sem microfone se possível.</div></div>
+    </div>
+  </div>
+  <div class="evitar">
+    <div class="evitar-titulo">⚠ O que evitar</div>
+    <div class="evitar-texto">Testemunho que termina em vitória absoluta e resolução total cria distância. O mais poderoso termina em processo: <em>"ainda estou no caminho, mas estou de pé."</em></div>
+  </div>
+</section>
+
+<section id="dinamica">
+  <div class="secao-label">05 · Experiência</div>
+  <h2 class="secao-titulo"><em>O Fio na Mão</em><br>09:55 — 35 minutos</h2>
+  <p style="font-size:14px;opacity:0.65;line-height:1.7;margin-bottom:40px;">A experiência mais poderosa da manhã. Cada mulher sai com algo nas mãos que representa o que ela trouxe e o que escolhe fazer com isso.</p>
+  <div class="dinamica-passos">
+    <div class="passo">
+      <div class="passo-num">1</div>
+      <div class="passo-conteudo">
+        <div class="passo-titulo">Distribuição do Fio</div>
+        <div class="passo-desc">Cada mulher recebe um pedaço de fio dourado de aproximadamente 30cm. Angélica diz: <em>"Este fio é seu. Por enquanto, só segure. Não faça nada com ele."</em></div>
+        <div class="passo-tempo">5 minutos</div>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">2</div>
+      <div class="passo-conteudo">
+        <div class="passo-titulo">Reflexão Guiada — 3 Perguntas</div>
+        <div class="passo-desc">Uma pergunta por vez, com 3 a 4 minutos de silêncio entre elas. As mulheres escrevem. Músicos tocam suavemente ao fundo.</div>
+        <div class="passo-tempo">15 minutos</div>
+        <div class="perguntas-lista" style="margin-top:16px;">
+          <div class="pergunta-item"><span class="pergunta-num">P1</span><span class="pergunta-texto">"O que você está segurando por um fio nesta temporada da sua vida?"</span></div>
+          <div class="pergunta-item"><span class="pergunta-num">P2</span><span class="pergunta-texto">"O que você teria coragem de soltar se soubesse que seria sustentada?"</span></div>
+          <div class="pergunta-item"><span class="pergunta-num">P3</span><span class="pergunta-texto">"O que você quer que este fio represente quando você sair daqui hoje?"</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">3</div>
+      <div class="passo-conteudo">
+        <div class="passo-titulo">O Gesto de Entrega</div>
+        <div class="passo-desc">Angélica convida cada mulher a fazer um gesto com o fio. Cada gesto é válido. Ninguém precisa explicar o que escolheu.</div>
+        <div class="passo-tempo">10 minutos</div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;">
+          <div style="background:var(--linho);padding:12px 16px;flex:1;min-width:150px;"><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ambar);opacity:0.7;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Enrolar no pulso</div><div style="font-size:12px;opacity:0.6;line-height:1.5;">Lembrança do que ficou</div></div>
+          <div style="background:var(--linho);padding:12px 16px;flex:1;min-width:150px;"><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ambar);opacity:0.7;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Deixar na cadeira</div><div style="font-size:12px;opacity:0.6;line-height:1.5;">Ato de soltura</div></div>
+          <div style="background:var(--linho);padding:12px 16px;flex:1;min-width:150px;"><div style="font-family:'DM Mono',monospace;font-size:9px;color:var(--ambar);opacity:0.7;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">Guardar no bolso</div><div style="font-size:12px;opacity:0.6;line-height:1.5;">Compromisso que leva</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="passo">
+      <div class="passo-num">4</div>
+      <div class="passo-conteudo">
+        <div class="passo-titulo">Compartilhamento Voluntário</div>
+        <div class="passo-desc">Angélica pergunta se alguém quer dizer <em>uma palavra</em> sobre o que o fio representa agora. Três ou quatro mulheres falam espontaneamente. Silêncio também é resposta válida.</div>
+        <div class="passo-tempo">5 minutos</div>
+      </div>
+    </div>
+  </div>
+  <div class="nota-logistica">
+    <span class="nota-icone">🧵</span>
+    <span class="nota-texto"><strong>Logística:</strong> Comprar fio dourado ou âmbar em rolos. Cortar 30cm por participante antes do evento com <strong>20% extra</strong>. Muitas mulheres vão embora com o fio no pulso.</span>
+  </div>
+</section>
+
+<section id="oracao">
+  <div class="secao-label">06 · Encerramento</div>
+  <h2 class="secao-titulo">Oração de Envio<br><em>10:30 — 30 minutos</em></h2>
+  <div class="roteiro-bloco">
+    <div class="roteiro-header"><span class="roteiro-num">INSTRUÇÃO</span><span class="roteiro-titulo">Como conduzir</span></div>
+    <p style="font-size:14px;opacity:0.65;line-height:1.7;margin-bottom:16px;">Músicos voltam com música instrumental suave. O ambiente retorna ao mesmo tom da chegada, agora mais carregado de presença.</p>
+    <p style="font-size:14px;opacity:0.65;line-height:1.7;">Angélica ora pelo que foi nomeado na manhã. Pelos fios, pela exaustão, pela fome que não tinha nome, pela mulher que chegou sem esperança e está ali.</p>
+  </div>
+  <div class="frase-impacto">
+    <blockquote>"Antes de você ir, eu quero te dizer uma coisa.</blockquote>
+    <blockquote style="margin-top:12px;">Você não veio aqui por acaso. E esse encontro não aconteceu por acaso.</blockquote>
+    <blockquote style="margin-top:12px;">Existe algo sendo tecido na sua vida que você ainda não consegue ver, porque você está olhando para o fio e não para o tecido.</blockquote>
+    <blockquote style="margin-top:12px;">Vá. E quando a semana pesar, olhe para o fio na sua mão. Ele não arrebentou. Você também não vai."</blockquote>
+  </div>
+  <div class="aviso">
+    <span class="aviso-icone">⚠️</span>
+    <span class="aviso-texto">Resistir à tentação de terminar com energia alta e aplausos. O que foi vivido nessa manhã precisa de silêncio para assentar.</span>
+  </div>
+</section>
+
+<section id="proximos-passos">
+  <div class="secao-label">07 · Estratégia</div>
+  <h2 class="secao-titulo">Mesa de<br><em>Próximos Passos</em></h2>
+  <p style="font-size:14px;opacity:0.65;line-height:1.7;margin-bottom:40px;">11:00 às 11:30. Café, música suave, Angélica disponível. A semente do próximo encontro é plantada de forma orgânica.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-bottom:32px;">
+    <div class="roteiro-bloco" style="margin-bottom:0;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--ambar);opacity:0.7;text-transform:uppercase;margin-bottom:12px;">01 · Cartão</div>
+      <div style="font-family:'Cormorant',serif;font-size:16px;font-style:italic;color:var(--cedro-escuro);line-height:1.6;">"Se esta manhã tocou algo em você e você quer ir mais fundo, existe um próximo passo. Escreva seu nome e WhatsApp aqui."</div>
+    </div>
+    <div class="roteiro-bloco" style="margin-bottom:0;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--ambar);opacity:0.7;text-transform:uppercase;margin-bottom:12px;">02 · QR Code</div>
+      <div style="font-size:14px;opacity:0.65;line-height:1.6;">Aponta para lista de transmissão no WhatsApp ou página de interesse para o próximo passo.</div>
+    </div>
+    <div class="roteiro-bloco" style="margin-bottom:0;">
+      <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--ambar);opacity:0.7;text-transform:uppercase;margin-bottom:12px;">03 · Angélica</div>
+      <div style="font-size:14px;opacity:0.65;line-height:1.6;">Conversando, presente. As mulheres vão perguntar o que vem a seguir porque querem continuar.</div>
+    </div>
+  </div>
+
+  <div class="regra-ouro">
+    <div class="regra-ouro-icone">💡</div>
+    <div class="regra-ouro-texto">Sua credibilidade, Angélica, e o impacto do encontro fazem o trabalho. Quem sentiu vai perguntar. Quem pergunta já está pronta.</div>
+  </div>
+
+  <div class="separador"><div class="separador-linha"></div><div class="separador-losango"></div><div class="separador-linha"></div></div>
+
+  <h3 style="font-family:'Cormorant',serif;font-size:28px;font-weight:300;color:var(--cedro);margin-bottom:24px;">Este retiro no funil</h3>
+  <div class="funil">
+    <div class="funil-camada">
+      <div class="camada-num">Camada 01 · Este Retiro</div>
+      <div class="camada-nome">Por um Fio — Retiro de Manhã</div>
+      <span class="camada-atual">→ Onde estamos</span>
+      <div class="camada-details">
+        <span class="camada-detalhe">50–100 mulheres</span>
+        <span class="camada-detalhe">4 horas</span>
+        <span class="camada-detalhe">Gratuito ou simbólico</span>
+        <span class="camada-detalhe">Público misto</span>
+      </div>
+    </div>
+    <div class="funil-seta">↓</div>
+    <div class="funil-camada">
+      <div class="camada-num">Camada 02 · 2–3 meses depois</div>
+      <div class="camada-nome">Retiro de 2 Dias</div>
+      <div class="camada-details">
+        <span class="camada-detalhe">20–40 mulheres</span>
+        <span class="camada-detalhe">Aprofundamento</span>
+        <span class="camada-detalhe">Pago</span>
+        <span class="camada-detalhe">Indicadas pelo boca a boca</span>
+      </div>
+    </div>
+    <div class="funil-seta">↓</div>
+    <div class="funil-camada">
+      <div class="camada-num">Camada 03 · 6 meses depois</div>
+      <div class="camada-nome">Mentoria "Mulheres que Edificam Destinos"</div>
+      <div class="camada-details">
+        <span class="camada-detalhe">10–20 mulheres</span>
+        <span class="camada-detalhe">7 módulos</span>
+        <span class="camada-detalhe">Turma fechada</span>
+        <span class="camada-detalhe">Formação completa</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARTA CONVITE -->
+<section id="carta">
+  <div class="secao-label">08 · Carta Convite</div>
+  <h2 class="secao-titulo">Para quem você, Angélica,<br><em>sentir no coração</em></h2>
+
+  <p style="font-size:14px;opacity:0.65;line-height:1.7;margin-bottom:16px;">A carta abaixo é para ser entregue ou enviada individualmente para cada mulher que você sentir chamada a convidar. Quem recebe precisa sentir que foi enxergada por Deus, que recebeu um chamado pessoal, um sinal de esperança.</p>
+
+  <div class="aviso" style="margin-bottom:40px;">
+    <span class="aviso-icone">✉️</span>
+    <span class="aviso-texto">Esta carta é escrita no singular. Para a mulher que vai lê-la, ela é a única que recebeu. O impacto depende de preservar essa intimidade. Não enviar em grupos ou como mensagem coletiva.</span>
+  </div>
+
+  <div class="carta-wrap">
+    <div class="carta-ornamento">
+      <div class="carta-ornamento-linha"></div>
+      <div class="carta-ornamento-losango"></div>
+      <div class="carta-ornamento-linha"></div>
+    </div>
+
+    <div class="carta-titulo">Por um Fio · Carta de Convite · 2026</div>
+
+    <p style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.15em;color:var(--ambar);opacity:0.5;text-transform:uppercase;text-align:center;margin-bottom:32px;">sugestão de texto · Angélica pode alterar conforme desejar</p>
+
+    <div class="carta-corpo">
+      <p>Esse chamado é para você!</p>
+
+      <p>Quando sentei e rezei para pensar em quem convidar para este encontro, o seu nome veio ao meu coração.</p>
+
+      <p>Eu não sei exatamente o que está acontecendo na sua vida agora. Mas sei que uma mulher carrega muito, às vezes, muito além das suas forças. Você cuida de muita gente. Você segura muita coisa em pé. Por isso, esse será um momento especial para você se sentir sustentada.</p>
+
+      <p>Em <strong>[DATA]</strong>, a partir das <strong>7h30</strong>, eu quero te convidar para um encontro diferente.</p>
+
+      <p><em>Por um Fio</em> é um retiro de manhã. Quatro horas. Com música ao vivo, com a Palavra, com silêncio de verdade e com espaço para você respirar.</p>
+
+      <p>Você pode chegar exatamente como você está.</p>
+
+      <p>Uma passagem bíblica narra a história de Raabe, uma mulher que tinha apenas um fio nas mãos e foi esse o sinal da sua salvação. A salvação precisava de um sinal para encontrá-la. Ela não tinha força para oferecer. Tinha o fio. E o fio foi o suficiente.</p>
+
+      <p>Espero que você venha!</p>
+    </div>
+
+    <div class="carta-assinatura">
+      <div class="carta-assinatura-nome">Angélica Pires</div>
+      <div class="carta-assinatura-titulo">Angélica Pires · Formação de Mulheres · 2026</div>
+    </div>
+
+    <div class="confirmacao-wrap">
+      <div class="confirmacao-titulo">Confirme sua presença</div>
+      <div class="confirmacao-texto">Este encontro tem vagas limitadas e cada participante é esperada com cuidado. Este convite foi feito pensando em você. Confirme seu nome e deixe o seu contato.</div>
+      <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap;position:relative;z-index:1;">
+        <div class="qr-placeholder">
+          <div class="qr-box">QR Code<br>inserir<br>aqui</div>
+          <div class="qr-label">Confirmar presença</div>
+        </div>
+        <div style="flex:1;min-width:200px;">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:0.2em;color:var(--ambar-claro);opacity:0.6;text-transform:uppercase;margin-bottom:12px;">Ou acesse</div>
+          <div style="font-family:'Cormorant',serif;font-size:17px;font-style:italic;color:var(--ambar-claro);line-height:1.6;opacity:0.8;">[link da página de confirmação]</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist">
+  <div class="secao-label">09 · Produção</div>
+  <h2 class="secao-titulo"><em>Checklist</em><br>O que precisa estar pronto</h2>
+
+  <div class="aviso" style="margin-bottom:16px;">
+    <span class="aviso-icone">📅</span>
+    <span class="aviso-texto">Data em definição para 2026. Quando confirmada, cada item recebe um prazo. Clique nos itens para marcar como concluído.</span>
+  </div>
+
+  <div class="checklist-progress">
+    <div class="progress-bar-wrap"><div class="progress-bar" id="progressBar"></div></div>
+    <div class="progress-text" id="progressText">0 de 0 itens concluídos</div>
+  </div>
+
+  <div class="checklist-grid">
+    <div class="checklist-categoria">
+      <div class="cat-titulo">🏛 Espaço e Ambiente</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Local confirmado, capacidade para 100 pessoas, com luz natural preferencialmente</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Cadeiras em semicírculo ou fileiras com espaço para respirar</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Iluminação amarela, se possível — evitar luz fluorescente</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Mesa de acolhida na entrada: café, vela e cartões da pergunta inicial</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Mesa discreta ao fundo com cartões de interesse e QR Code</span></div>
+    </div>
+
+    <div class="checklist-categoria">
+      <div class="cat-titulo">🎵 Música</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Dois ou três músicos confirmados: violão ou piano com voz</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Repertório definido com músicas de entrega</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Soundcheck realizado antes de abrir os portões</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Músicos cientes de que permanecem durante dinâmica e oração</span></div>
+    </div>
+
+    <div class="checklist-categoria">
+      <div class="cat-titulo">🧵 Materiais</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Fio dourado cortado em 30cm, um por participante com 20% extra</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Cartão da pergunta inicial impresso</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Caneta para cada participante</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Cartão kraft pequeno para anotações da dinâmica</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">QR Code impresso para confirmação e próximo passo</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Cartões com campo para nome e WhatsApp</span></div>
+    </div>
+
+    <div class="checklist-categoria">
+      <div class="cat-titulo">👥 Pessoas</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Testemunha escolhida e preparada com mínimo 2 semanas de antecedência</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Duas pessoas de apoio confirmadas para acolhida e organização</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Responsável designado para lista de presenças e coleta de cartões</span></div>
+    </div>
+
+    <div class="checklist-categoria">
+      <div class="cat-titulo">✉️ Convites</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Lista de convidadas definida pela Angélica</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Cartas impressas ou enviadas digitalmente com link personalizado</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Google Forms criado para confirmação de presença</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">QR Code do formulário gerado e testado</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Mensagem de acolhida enviada às confirmadas 3 dias antes</span></div>
+    </div>
+
+    <div class="checklist-categoria">
+      <div class="cat-titulo">📣 Comunicação</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Convite geral divulgado com o fio como elemento visual</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Mensagem de lembrança enviada 3 dias antes: "Venha como você está"</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Nenhum spoiler do que vai acontecer no encontro</span></div>
+    </div>
+
+    <div class="checklist-categoria">
+      <div class="cat-titulo">💻 Apresentação</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Notebook para projeção no encontro</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Projetor ou TV testado no local com antecedência</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Abertura no Chrome em tela cheia, setas para navegar entre seções</span></div>
+    </div>
+
+    <div class="checklist-categoria">
+      <div class="cat-titulo">🕊️ Angélica</div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Roteiro lido e internalizado com antecedência</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Momento de oração pessoal antes do início do evento</span></div>
+      <div class="checklist-item" onclick="toggleCheck(this)"><div class="check-box"></div><span class="check-texto">Chegada confirmada pelo menos 40 minutos antes da abertura</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="encerramento">
+  <div class="ornamento" style="margin-bottom:32px;">
+    <div class="ornamento-linha"></div>
+    <div class="ornamento-losango"></div>
+    <div class="ornamento-linha"></div>
+  </div>
+  <div class="encerramento-texto">
+    "Eu te fortaleço e venho em teu socorro.<br>
+    Eu te amparo com minha destra vitoriosa."<br>
+    <span style="font-family:'DM Mono',monospace;font-size:13px;letter-spacing:0.15em;opacity:0.5;font-style:normal;">Isaías 41,10</span>
+  </div>
+  <div class="encerramento-assinatura">Por um Fio · Retiro de Manhã · Angélica Pires · 2026<br>Documento elaborado por Maria Loyola · Estrategista de Conteúdo & Storytelling</div>
+</div>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+
+function toggleCheck(item) {
+  item.classList.toggle('checked');
+  updateProgress();
+  saveState();
+}
+
+function updateProgress() {
+  const all = document.querySelectorAll('.checklist-item');
+  const checked = document.querySelectorAll('.checklist-item.checked');
+  const pct = all.length > 0 ? Math.round((checked.length / all.length) * 100) : 0;
+  document.getElementById('progressBar').style.width = pct + '%';
+  document.getElementById('progressText').textContent = checked.length + ' de ' + all.length + ' itens concluídos';
+}
+
+function saveState() {
+  const items = document.querySelectorAll('.checklist-item');
+  const state = Array.from(items).map(i => i.classList.contains('checked'));
+  try { localStorage.setItem('puf_checklist_2026', JSON.stringify(state)); } catch(e) {}
+}
+
+function loadState() {
+  try {
+    const saved = localStorage.getItem('puf_checklist_2026');
+    if (saved) {
+      const state = JSON.parse(saved);
+      const items = document.querySelectorAll('.checklist-item');
+      items.forEach((item, i) => { if (state[i]) item.classList.add('checked'); });
+    }
+  } catch(e) {}
+  updateProgress();
+}
+
+document.addEventListener('DOMContentLoaded', loadState);
+</script>
+</body>
+</html>
