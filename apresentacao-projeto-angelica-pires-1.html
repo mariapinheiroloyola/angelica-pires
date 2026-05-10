@@ -1,0 +1,1700 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projeto Angélica Pires · Apresentação</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rosa-vinho: #7C3E52;
+    --rosa-escuro: #6A3346;
+    --rosa-deep: #5A2A3A;
+    --champagne: #D4B896;
+    --champagne-claro: #EAD5BF;
+    --bege: #F2E8EC;
+    --blush: #E8D5DD;
+    --salvia: #6B7C6A;
+    --marfim: #FAF7F2;
+    --tinta: #2A1F24;
+    --cedro: #5C3D2E;
+    --ambar: #C4965A;
+    --linho: #F5EDE0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--marfim);
+    color: var(--tinta);
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 247, 242, 0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(124, 62, 82, 0.12);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--rosa-vinho);
+    letter-spacing: 0.04em;
+  }
+
+  .nav-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--champagne);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .nav-dots {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .nav-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--blush);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .nav-dot.active { background: var(--rosa-vinho); transform: scale(1.3); }
+
+  /* SECTIONS */
+  section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 7rem 3rem 4rem;
+    position: relative;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  section.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .container {
+    max-width: 960px;
+    width: 100%;
+  }
+
+  /* ORNAMENTO */
+  .ornamento {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .ornamento-linha {
+    height: 1px;
+    width: 40px;
+    background: var(--champagne);
+    opacity: 0.7;
+  }
+
+  .ornamento-losango {
+    width: 7px; height: 7px;
+    background: transparent;
+    border: 1px solid var(--champagne);
+    transform: rotate(45deg);
+    opacity: 0.8;
+  }
+
+  /* ============ SLIDE 1 — CAPA ============ */
+  #capa {
+    background: var(--rosa-deep);
+    min-height: 100vh;
+  }
+
+  #capa::after {
+    content: '';
+    position: absolute;
+    bottom: 0; right: 0;
+    width: 45vw; height: 60vh;
+    background: radial-gradient(ellipse at bottom right, rgba(212, 184, 150, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .capa-content {
+    max-width: 860px;
+    width: 100%;
+  }
+
+  .capa-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    opacity: 0.7;
+    margin-bottom: 3rem;
+  }
+
+  .capa-titulo {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(3.5rem, 7vw, 6.5rem);
+    font-weight: 700;
+    color: var(--marfim);
+    line-height: 1.0;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .capa-titulo em {
+    font-style: italic;
+    color: var(--champagne-claro);
+  }
+
+  .capa-subtitulo {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.05rem;
+    color: rgba(234, 213, 191, 0.7);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+
+  .capa-assinatura {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .assinatura-linha {
+    width: 40px; height: 1px;
+    background: var(--champagne);
+    opacity: 0.5;
+  }
+
+  .assinatura-texto {
+    font-family: 'Cormorant', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--champagne);
+    opacity: 0.8;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0.4;
+    animation: pulseDown 2.5s ease-in-out infinite;
+  }
+
+  .scroll-hint span {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--champagne);
+  }
+
+  .scroll-hint-arrow {
+    width: 1px; height: 30px;
+    background: var(--champagne);
+  }
+
+  @keyframes pulseDown {
+    0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+    50% { opacity: 0.6; transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ============ SLIDE 2 — ONDE ESTAMOS ============ */
+  #status {
+    background: var(--marfim);
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    margin-bottom: 1rem;
+  }
+
+  .section-titulo {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 700;
+    color: var(--rosa-deep);
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+
+  .section-titulo em {
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .section-intro {
+    font-size: 1.05rem;
+    color: var(--tinta);
+    opacity: 0.7;
+    max-width: 540px;
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+
+  .status-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--blush);
+    border: 1px solid var(--blush);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .status-item {
+    background: var(--marfim);
+    padding: 1.4rem 1.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: background 0.2s;
+  }
+
+  .status-item:hover { background: var(--bege); }
+
+  .status-check {
+    width: 22px; height: 22px;
+    border-radius: 50%;
+    background: var(--rosa-vinho);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .status-check svg {
+    width: 10px; height: 10px;
+    stroke: white;
+    fill: none;
+    stroke-width: 2.5;
+  }
+
+  .status-check.pending {
+    background: transparent;
+    border: 1.5px solid var(--champagne);
+  }
+
+  .status-check.pending svg { stroke: var(--champagne); }
+
+  .status-texto {
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--tinta);
+  }
+
+  /* ============ SLIDE 3 — POSICIONAMENTO ============ */
+  #posicionamento {
+    background: var(--rosa-vinho);
+  }
+
+  .pos-grande {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(1.8rem, 4vw, 3.2rem);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--marfim);
+    line-height: 1.3;
+    max-width: 680px;
+    margin-bottom: 3rem;
+    border-left: 2px solid var(--champagne);
+    padding-left: 2rem;
+    opacity: 0.95;
+  }
+
+  .pos-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .pos-card {
+    background: rgba(90, 42, 58, 0.5);
+    border: 1px solid rgba(212, 184, 150, 0.2);
+    border-radius: 4px;
+    padding: 1.8rem 1.5rem;
+  }
+
+  .pos-card-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--champagne);
+    opacity: 0.6;
+    letter-spacing: 0.15em;
+    margin-bottom: 0.8rem;
+  }
+
+  .pos-card-titulo {
+    font-family: 'Cormorant', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--champagne-claro);
+    margin-bottom: 0.6rem;
+  }
+
+  .pos-card-texto {
+    font-size: 0.82rem;
+    color: rgba(234, 213, 191, 0.65);
+    line-height: 1.65;
+  }
+
+  /* ============ SLIDE 4 — FUNIL ============ */
+  #funil {
+    background: var(--linho);
+  }
+
+  .funil-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .funil-esq {}
+
+  .funil-camadas {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    margin-top: 2rem;
+  }
+
+  .camada {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.6rem 1.8rem;
+    border-left: 3px solid transparent;
+    transition: all 0.3s;
+    cursor: default;
+    position: relative;
+  }
+
+  .camada:hover {
+    background: rgba(124, 62, 82, 0.04);
+  }
+
+  .camada-1 { border-color: var(--rosa-vinho); }
+  .camada-2 { border-color: var(--ambar); }
+  .camada-3 { border-color: var(--cedro); }
+
+  .camada-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--champagne);
+    opacity: 0.6;
+    margin-top: 4px;
+    flex-shrink: 0;
+    letter-spacing: 0.1em;
+  }
+
+  .camada-conteudo {}
+
+  .camada-titulo {
+    font-family: 'Cormorant', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--tinta);
+    margin-bottom: 0.3rem;
+  }
+
+  .camada-subtitulo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ambar);
+    margin-bottom: 0.5rem;
+  }
+
+  .camada-desc {
+    font-size: 0.83rem;
+    color: var(--tinta);
+    opacity: 0.65;
+    line-height: 1.6;
+  }
+
+  .seta-funil {
+    text-align: center;
+    padding: 0.3rem 0;
+    color: var(--champagne);
+    opacity: 0.5;
+    font-size: 1.2rem;
+  }
+
+  .funil-dir {
+    padding-top: 4rem;
+  }
+
+  .funil-quote {
+    font-family: 'Cormorant', serif;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--cedro);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--ambar);
+    opacity: 0.9;
+  }
+
+  .funil-logica {
+    font-size: 0.85rem;
+    color: var(--tinta);
+    opacity: 0.6;
+    line-height: 1.75;
+  }
+
+  /* ============ SLIDE 5 — IDENTIDADE ============ */
+  #identidade {
+    background: var(--tinta);
+  }
+
+  .ident-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2rem;
+  }
+
+  .cores-titulo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--champagne);
+    opacity: 0.6;
+    margin-bottom: 1.2rem;
+  }
+
+  .paleta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .cor-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .cor-swatch {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .cor-info {}
+
+  .cor-nome {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--champagne);
+    opacity: 0.6;
+    display: block;
+    letter-spacing: 0.08em;
+  }
+
+  .cor-uso {
+    font-size: 0.78rem;
+    color: rgba(250, 247, 242, 0.45);
+  }
+
+  .tipo-bloco {
+    margin-bottom: 1.5rem;
+  }
+
+  .tipo-exemplo {
+    margin-bottom: 0.5rem;
+  }
+
+  .tipo-cormorant {
+    font-family: 'Cormorant', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--marfim);
+    line-height: 1.1;
+  }
+
+  .tipo-cormorant-i {
+    font-family: 'Cormorant', serif;
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--champagne-claro);
+  }
+
+  .tipo-dm {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: 0.9rem;
+    color: rgba(250, 247, 242, 0.6);
+    line-height: 1.6;
+  }
+
+  .tipo-mono {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--champagne);
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+  }
+
+  .tipo-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--champagne);
+    opacity: 0.35;
+    margin-top: 0.3rem;
+  }
+
+  /* ============ SLIDE 6 — CONTEÚDO ============ */
+  #conteudo {
+    background: var(--bege);
+  }
+
+  .conteudo-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .pilar-card {
+    background: var(--marfim);
+    border: 1px solid var(--blush);
+    border-radius: 4px;
+    padding: 1.6rem;
+    transition: box-shadow 0.3s;
+  }
+
+  .pilar-card:hover {
+    box-shadow: 0 4px 20px rgba(124, 62, 82, 0.08);
+  }
+
+  .pilar-pct {
+    font-family: 'Cormorant', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--rosa-vinho);
+    opacity: 0.3;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .pilar-titulo {
+    font-family: 'Cormorant', serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--tinta);
+    margin-bottom: 0.4rem;
+  }
+
+  .pilar-desc {
+    font-size: 0.8rem;
+    color: var(--tinta);
+    opacity: 0.55;
+    line-height: 1.6;
+  }
+
+  .cadencia-bloco {
+    margin-top: 2.5rem;
+    background: var(--rosa-deep);
+    border-radius: 4px;
+    padding: 1.5rem 2rem;
+  }
+
+  .cadencia-titulo {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--champagne);
+    opacity: 0.6;
+    margin-bottom: 1rem;
+  }
+
+  .cadencia-dias {
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .dia-chip {
+    background: rgba(90, 42, 58, 0.6);
+    border: 1px solid rgba(212, 184, 150, 0.2);
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .dia-nome {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--champagne);
+    opacity: 0.5;
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .dia-tipo {
+    font-size: 0.78rem;
+    color: var(--champagne-claro);
+    font-weight: 300;
+  }
+
+  /* ============ SLIDE 7 — RETIRO ============ */
+  #retiro {
+    background: var(--marfim);
+  }
+
+  .retiro-header {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 2rem;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .tl-item {
+    display: flex;
+    gap: 1.2rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--blush);
+  }
+
+  .tl-item:last-child { border-bottom: none; }
+
+  .tl-hora {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--champagne);
+    opacity: 0.7;
+    flex-shrink: 0;
+    width: 55px;
+    padding-top: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .tl-conteudo {}
+
+  .tl-titulo {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--tinta);
+    margin-bottom: 0.2rem;
+  }
+
+  .tl-desc {
+    font-size: 0.76rem;
+    color: var(--tinta);
+    opacity: 0.5;
+    line-height: 1.5;
+  }
+
+  .retiro-dados {
+    padding-top: 0.5rem;
+  }
+
+  .dado-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--blush);
+  }
+
+  .dado-item:last-child { border-bottom: none; }
+
+  .dado-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--champagne);
+    opacity: 0.7;
+    margin-bottom: 0.3rem;
+  }
+
+  .dado-valor {
+    font-family: 'Cormorant', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--rosa-deep);
+  }
+
+  .retiro-regra {
+    margin-top: 2rem;
+    background: var(--rosa-vinho);
+    border-radius: 4px;
+    padding: 1.2rem 1.5rem;
+    font-family: 'Cormorant', serif;
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--champagne-claro);
+    line-height: 1.5;
+  }
+
+  /* ============ SLIDE 8 — MENTORIA ============ */
+  #mentoria {
+    background: var(--cedro);
+  }
+
+  .modulos-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0;
+    margin-top: 2.5rem;
+    border: 1px solid rgba(196, 150, 90, 0.2);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .modulo-col {
+    padding: 1.5rem 1rem;
+    border-right: 1px solid rgba(196, 150, 90, 0.15);
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .modulo-col:last-child { border-right: none; }
+  .modulo-col:hover { background: rgba(196, 150, 90, 0.06); }
+
+  .mod-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.6rem;
+    color: var(--ambar);
+    opacity: 0.5;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.8rem;
+  }
+
+  .mod-arquetipo {
+    font-family: 'Cormorant', serif;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--ambar);
+    opacity: 0.8;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .mod-titulo {
+    font-size: 0.75rem;
+    color: rgba(245, 237, 224, 0.7);
+    line-height: 1.5;
+  }
+
+  .mentoria-detalhe {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .det-card {
+    background: rgba(74, 46, 31, 0.5);
+    border: 1px solid rgba(196, 150, 90, 0.15);
+    border-radius: 4px;
+    padding: 1.2rem;
+  }
+
+  .det-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ambar);
+    opacity: 0.6;
+    margin-bottom: 0.4rem;
+  }
+
+  .det-valor {
+    font-family: 'Cormorant', serif;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--linho);
+  }
+
+  /* ============ SLIDE 9 — PRÓXIMOS PASSOS ============ */
+  #proximos {
+    background: var(--rosa-deep);
+  }
+
+  .passos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: rgba(212, 184, 150, 0.15);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 2rem;
+  }
+
+  .passo-item {
+    background: rgba(90, 42, 58, 0.5);
+    padding: 1.8rem 2rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    transition: background 0.3s;
+    cursor: default;
+  }
+
+  .passo-item:hover { background: rgba(90, 42, 58, 0.8); }
+
+  .passo-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--champagne);
+    opacity: 0.2;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .passo-conteudo {}
+
+  .passo-titulo {
+    font-family: 'Cormorant', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--champagne-claro);
+    margin-bottom: 0.4rem;
+  }
+
+  .passo-desc {
+    font-size: 0.82rem;
+    color: rgba(234, 213, 191, 0.5);
+    line-height: 1.6;
+  }
+
+  /* ============ SLIDE 10 — ENCERRAMENTO ============ */
+  #encerramento {
+    background: var(--tinta);
+    text-align: center;
+  }
+
+  .enc-titulo {
+    font-family: 'Cormorant', serif;
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    color: var(--marfim);
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .enc-titulo em {
+    font-style: italic;
+    color: var(--champagne-claro);
+  }
+
+  .enc-frase {
+    font-family: 'Cormorant', serif;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--champagne);
+    opacity: 0.7;
+    max-width: 500px;
+    margin: 0 auto 3rem;
+    line-height: 1.6;
+  }
+
+  .enc-assinatura {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--champagne);
+    opacity: 0.4;
+  }
+
+  /* PROGRESS BAR */
+  .progress-bar {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    background: var(--champagne);
+    z-index: 200;
+    transition: width 0.2s ease;
+    width: 0%;
+  }
+
+  /* SECTION NUMBER */
+  .sec-count {
+    position: fixed;
+    bottom: 2rem;
+    right: 2.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--champagne);
+    opacity: 0.4;
+    letter-spacing: 0.1em;
+    z-index: 100;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    section { padding: 6rem 1.5rem 3rem; }
+    .status-grid, .pos-cards, .funil-wrapper, .ident-grid,
+    .conteudo-grid, .retiro-header, .mentoria-detalhe,
+    .passos-grid { grid-template-columns: 1fr; }
+    .modulos-grid { grid-template-columns: repeat(3, 1fr) !important; }
+    .cadencia-dias { gap: 0.5rem; }
+    .nav-dots { display: none; }
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(25px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .capa-content > * {
+    animation: fadeInUp 0.9s ease both;
+  }
+  .capa-label { animation-delay: 0.1s; }
+  .capa-titulo { animation-delay: 0.25s; }
+  .capa-subtitulo { animation-delay: 0.4s; }
+  .capa-assinatura { animation-delay: 0.55s; }
+  .scroll-hint { animation-delay: 0.9s; }
+</style>
+</head>
+<body>
+
+<div class="progress-bar" id="progressBar"></div>
+
+<nav>
+  <div class="nav-logo">Angélica Pires · Projeto</div>
+  <div class="nav-dots" id="navDots"></div>
+  <div class="nav-meta">Apresentação · Maria Loyola</div>
+</nav>
+
+<div class="sec-count" id="secCount">01 / 10</div>
+
+<!-- ====== SLIDE 1 · CAPA ====== -->
+<section id="capa">
+  <div class="capa-content">
+    <div class="capa-label">Estratégia Completa · 2026</div>
+    <h1 class="capa-titulo">Formo mulheres<br>que edificam<br><em>destinos.</em></h1>
+    <p class="capa-subtitulo">Tudo que foi construído para o seu projeto, onde estamos e para onde vamos agora.</p>
+    <div class="capa-assinatura">
+      <div class="assinatura-linha"></div>
+      <span class="assinatura-texto">Preparado por Maria Loyola · Estrategista de Conteúdo & Storytelling</span>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <span>rolar</span>
+    <div class="scroll-hint-arrow"></div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 2 · STATUS ====== -->
+<section id="status">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha"></div>
+      <div class="ornamento-losango"></div>
+      <div class="ornamento-linha"></div>
+    </div>
+    <div class="section-label">01 · Onde estamos</div>
+    <h2 class="section-titulo">O que já<br><em>foi construído.</em></h2>
+    <p class="section-intro">Antes de iniciarmos concretamente, Angélica, quero te mostrar o que já construímos.</p>
+    <div class="status-grid">
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>Posicionamento definido</strong> · "Formo mulheres que edificam destinos"</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>@ estratégico definido</strong> · @angelicamendespires é a sugestão mais adequada: usa seu nome completo, é único, profissional e localizável. O @angelicapires_s tem sufixo "_s" que não comunica nada, dificulta buscas e não representa quem você é hoje.</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>Identidade visual criada</strong> · Paleta Rosa Vinho, tipografia e padrões de grid</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>Bio do perfil escrita</strong> · Texto final para o @angelicamendespires</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>3 Pins fixados</strong> · Arco completo: apresentação, autoridade e chamado</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>Calendário do Mês 1</strong> · 4 semanas, 20 posts, objetivos por semana</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>5 roteiros de Reels</strong> · Prontos para gravar, palavra por palavra</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>5 carrosséis estruturados</strong> · Slide por slide, com CTAs</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>Retiro "Por um Fio"</strong> · Estrutura completa, roteiros e checklist de produção</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>7 módulos da mentoria</strong> · Roteiros completos, palavra por palavra</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check pending"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>Acesso ao Meta Business Suite</strong> · Aguardando você me dar acesso como administradora. Vou te mostrar aqui, passo a passo, como fazer isso.</div>
+      </div>
+      <div class="status-item">
+        <div class="status-check pending"><svg viewBox="0 0 12 12"><polyline points="2,6 5,9 10,3"/></svg></div>
+        <div class="status-texto"><strong>Data do retiro</strong> · Definir o mês mais adequado para iniciar a divulgação do Retiro "Por um Fio" e a data e local em que acontecerá.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 3 · POSICIONAMENTO ====== -->
+<section id="posicionamento">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+      <div class="ornamento-losango" style="border-color:var(--champagne)"></div>
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+    </div>
+    <div class="section-label" style="color:var(--champagne);opacity:0.6">02 · Posicionamento</div>
+    <blockquote class="pos-grande">"Formo mulheres que edificam destinos."</blockquote>
+    <div class="pos-cards">
+      <div class="pos-card">
+        <div class="pos-card-num">QUEM VOCÊ É</div>
+        <div class="pos-card-titulo">A formadora</div>
+        <div class="pos-card-texto">Quase 4 décadas formando pessoas. 3 escolas. Mais de 1.000 alunos. O que você sempre fez não era gestão. Era formação humana.</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-card-num">PARA QUEM VOCÊ FALA</div>
+        <div class="pos-card-titulo">Mulheres de 25 a 45 anos</div>
+        <div class="pos-card-texto">De qualquer área. Esgotadas. Com fé mas desconectadas do propósito. Que sentem que foram chamadas para algo maior e ainda não encontraram o caminho.</div>
+      </div>
+      <div class="pos-card">
+        <div class="pos-card-num">O QUE TE DIFERENCIA</div>
+        <div class="pos-card-titulo">Você não motiva. Você forma.</div>
+        <div class="pos-card-texto">Motivação começa com fogo. Formação começa com raiz. Essa distinção é o que torna o seu trabalho necessário, não opcional.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 4 · FUNIL ====== -->
+<section id="funil">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha" style="background:var(--ambar)"></div>
+      <div class="ornamento-losango" style="border-color:var(--ambar)"></div>
+      <div class="ornamento-linha" style="background:var(--ambar)"></div>
+    </div>
+    <div class="funil-wrapper">
+      <div class="funil-esq">
+        <div class="section-label" style="color:var(--cedro)">03 · Funil em 3 camadas</div>
+        <h2 class="section-titulo" style="color:var(--cedro)">A lógica<br><em>do projeto.</em></h2>
+        <div class="funil-camadas">
+          <div class="camada camada-1">
+            <div class="camada-num">01</div>
+            <div class="camada-conteudo">
+              <div class="camada-subtitulo">Maio</div>
+              <div class="camada-titulo">Retiro "Por um Fio"</div>
+              <div class="camada-desc">4 horas · 50 a 100 mulheres · gratuito ou simbólico. Primeira experiência real com você. Objetivo: reconhecimento emocional.</div>
+            </div>
+          </div>
+          <div class="seta-funil">↓</div>
+          <div class="camada camada-2">
+            <div class="camada-num">02</div>
+            <div class="camada-conteudo">
+              <div class="camada-subtitulo">2 a 3 meses depois</div>
+              <div class="camada-titulo">Retiro de 2 Dias</div>
+              <div class="camada-desc">20 a 40 mulheres · pago · indicadas pelo boca a boca. Aprofundamento e compromisso maior.</div>
+            </div>
+          </div>
+          <div class="seta-funil">↓</div>
+          <div class="camada camada-3">
+            <div class="camada-num">03</div>
+            <div class="camada-conteudo">
+              <div class="camada-subtitulo">6 meses depois</div>
+              <div class="camada-titulo">Mentoria "Mulheres que Edificam Destinos"</div>
+              <div class="camada-desc">10 a 20 mulheres · turma fechada · 7 módulos. Apenas para quem passou pelas camadas anteriores.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="funil-dir">
+        <blockquote class="funil-quote">"Você não lança a mentoria para estranhas. Lança para mulheres que já foram tocadas por você."</blockquote>
+        <p class="funil-logica">A venda da mentoria acontece como continuidade, não como convencimento. Quem viveu o retiro vai pedir o próximo passo. O Instagram é a porta de entrada. O retiro é a primeira experiência real. A mentoria é a formação completa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 5 · IDENTIDADE VISUAL ====== -->
+<section id="identidade">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+      <div class="ornamento-losango" style="border-color:var(--champagne)"></div>
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+    </div>
+    <div class="section-label" style="color:var(--champagne);opacity:0.5">04 · Identidade visual</div>
+    <h2 class="section-titulo" style="color:var(--marfim)">Paleta Rosa Vinho<br><em>e tipografia.</em></h2>
+    <div class="ident-grid">
+      <div>
+        <div class="cores-titulo">Paleta do Perfil @angelicamendespires</div>
+        <div class="paleta">
+          <div class="cor-item">
+            <div class="cor-swatch" style="background:#7C3E52"></div>
+            <div class="cor-info">
+              <span class="cor-nome">#7C3E52 · Rosa Vinho</span>
+              <div class="cor-uso">Cor principal · capas · destaques</div>
+            </div>
+          </div>
+          <div class="cor-item">
+            <div class="cor-swatch" style="background:#D4B896"></div>
+            <div class="cor-info">
+              <span class="cor-nome">#D4B896 · Champagne</span>
+              <div class="cor-uso">Ornamentos · handles · destaque</div>
+            </div>
+          </div>
+          <div class="cor-item">
+            <div class="cor-swatch" style="background:#F2E8EC"></div>
+            <div class="cor-info">
+              <span class="cor-nome">#F2E8EC · Bege Rosado</span>
+              <div class="cor-uso">Fundo dos slides de conteúdo</div>
+            </div>
+          </div>
+          <div class="cor-item">
+            <div class="cor-swatch" style="background:#6B7C6A"></div>
+            <div class="cor-info">
+              <span class="cor-nome">#6B7C6A · Sálvia</span>
+              <div class="cor-uso">Fé · natureza · máx. 1 por bloco de 9</div>
+            </div>
+          </div>
+          <div class="cor-item">
+            <div class="cor-swatch" style="background:#FAF7F2; border: 1px solid #E8D5DD"></div>
+            <div class="cor-info">
+              <span class="cor-nome">#FAF7F2 · Marfim</span>
+              <div class="cor-uso">Fundo base · nunca branco puro</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="cores-titulo">Tipografia no Canva</div>
+        <div class="tipo-bloco">
+          <div class="tipo-exemplo">
+            <div class="tipo-cormorant">Cormorant</div>
+            <div class="tipo-cormorant-i">Bold & Italic</div>
+          </div>
+          <div class="tipo-label">Títulos e ganchos</div>
+        </div>
+        <div class="tipo-bloco">
+          <div class="tipo-exemplo">
+            <div class="tipo-dm">DM Sans Light & SemiBold</div>
+            <div class="tipo-dm" style="font-weight:500">Corpo e conteúdo</div>
+          </div>
+          <div class="tipo-label">Corpo e conteúdo</div>
+        </div>
+        <div class="tipo-bloco">
+          <div class="tipo-exemplo">
+            <div class="tipo-mono">DM Mono Regular · @handle · 01/07</div>
+          </div>
+          <div class="tipo-label">Handles e numeração</div>
+        </div>
+        <div style="margin-top:1.5rem; padding:1rem 1.2rem; background:rgba(255,255,255,0.03); border:1px solid rgba(212,184,150,0.15); border-radius:4px;">
+          <div class="cores-titulo" style="margin-bottom:0.7rem">Ritmo do grid</div>
+          <div class="tipo-dm" style="font-size:0.78rem; opacity:0.55; line-height:1.7">
+            Nunca 2 posts claros seguidos.<br>
+            Ritmo: escuro · claro · escuro / escuro · escuro · claro.<br>
+            Textura grain em todos os posts: 4 a 6% de opacidade.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 6 · CONTEÚDO ====== -->
+<section id="conteudo">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha"></div>
+      <div class="ornamento-losango"></div>
+      <div class="ornamento-linha"></div>
+    </div>
+    <div class="section-label">05 · Conteúdo do Instagram</div>
+    <h2 class="section-titulo">5 pilares.<br><em>Cadência definitiva.</em></h2>
+    <div class="conteudo-grid">
+      <div class="pilar-card">
+        <div class="pilar-pct">30%</div>
+        <div class="pilar-titulo">Formação de Mulheres</div>
+        <div class="pilar-desc">Histórias, reflexões, chamados para qualquer mulher que quer edificar algo além do que já faz.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-pct">25%</div>
+        <div class="pilar-titulo">Liderança com Fé</div>
+        <div class="pilar-desc">Fé aplicada ao cotidiano como estrutura, não como enfeite. O que ancora tudo.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-pct">20%</div>
+        <div class="pilar-titulo">Trajetória & Autoridade</div>
+        <div class="pilar-desc">Quase 4 décadas, 3 escolas, 4 filhos. As provas vivas que tornam o seu trabalho incontestável.</div>
+      </div>
+      <div class="pilar-card">
+        <div class="pilar-pct">15%</div>
+        <div class="pilar-titulo">Humanização</div>
+        <div class="pilar-desc">Dia a dia, bastidores, família, fé no cotidiano. A Angélica que as pessoas precisam conhecer.</div>
+      </div>
+    </div>
+    <div class="cadencia-bloco">
+      <div class="cadencia-titulo">Cadência semanal definitiva</div>
+      <div class="cadencia-dias">
+        <div class="dia-chip"><span class="dia-nome">Seg</span><span class="dia-tipo">Carrossel</span></div>
+        <div class="dia-chip"><span class="dia-nome">Ter</span><span class="dia-tipo">Stories</span></div>
+        <div class="dia-chip"><span class="dia-nome">Qua</span><span class="dia-tipo">Reels</span></div>
+        <div class="dia-chip"><span class="dia-nome">Qui</span><span class="dia-tipo">Post</span></div>
+        <div class="dia-chip"><span class="dia-nome">Sex</span><span class="dia-tipo">Carrossel</span></div>
+        <div class="dia-chip"><span class="dia-nome">Sáb</span><span class="dia-tipo">Stories</span></div>
+        <div class="dia-chip"><span class="dia-nome">Dom</span><span class="dia-tipo">Reels</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 7 · RETIRO ====== -->
+<section id="retiro">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha"></div>
+      <div class="ornamento-losango"></div>
+      <div class="ornamento-linha"></div>
+    </div>
+    <div class="section-label">06 · Retiro "Por um Fio"</div>
+    <h2 class="section-titulo">A primeira<br><em>experiência real.</em></h2>
+    <div class="retiro-header">
+      <div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-hora">07:30</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Chegada e acolhida</div>
+              <div class="tl-desc">Música instrumental ao vivo, cartão com pergunta inicial. O ambiente fala antes de qualquer palavra.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-hora">08:00</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Abertura · a primeira confrontação</div>
+              <div class="tl-desc">Não começa com boas-vindas. Começa com silêncio e uma pergunta que para a sala.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-hora">08:20</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Música de imersão ao vivo</div>
+              <div class="tl-desc">Músicas de entrega, não de animação. A sala precisa abrir antes da Palavra.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-hora">08:45</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Mensagem Central "Por um Fio"</div>
+              <div class="tl-desc">45 min · 3 movimentos: o reconhecimento, as mulheres que estiveram por um fio, a virada.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-hora">09:30</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Testemunho real</div>
+              <div class="tl-desc">Uma mulher que a Angélica conhece bem. Preparada com 2 semanas de antecedência.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-hora">09:55</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Dinâmica "O Fio na Mão"</div>
+              <div class="tl-desc">Fio dourado físico · 3 perguntas em silêncio · gesto de entrega. A experiência mais poderosa da manhã.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-hora">10:30</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Oração de envio</div>
+              <div class="tl-desc">Músicos voltam suavemente. Angélica ora pelo que foi nomeado, não pelo nome de cada uma.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-hora">11:00</div>
+            <div class="tl-conteudo">
+              <div class="tl-titulo">Momento livre + próximos passos</div>
+              <div class="tl-desc">Mesa discreta. QR Code. A Angélica disponível, não vendendo, conversando.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="retiro-dados">
+        <div class="dado-item">
+          <div class="dado-label">Nome</div>
+          <div class="dado-valor">Por um Fio</div>
+        </div>
+        <div class="dado-item">
+          <div class="dado-label">Quando</div>
+          <div class="dado-valor">Data em definição</div>
+        </div>
+        <div class="dado-item">
+          <div class="dado-label">Duração</div>
+          <div class="dado-valor">4 horas</div>
+        </div>
+        <div class="dado-item">
+          <div class="dado-label">Público esperado</div>
+          <div class="dado-valor">50 a 100 mulheres</div>
+        </div>
+        <div class="dado-item">
+          <div class="dado-label">Entrada</div>
+          <div class="dado-valor">Gratuita ou simbólica</div>
+        </div>
+        <div class="dado-item">
+          <div class="dado-label">Formato</div>
+          <div class="dado-valor">Imersivo · Música ao vivo · Dinâmica · Oração</div>
+        </div>
+        <div class="retiro-regra">
+          "Terminar em silêncio, não em aplausos. O silêncio é o espaço onde o que foi plantado começa a crescer."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 8 · MENTORIA ====== -->
+<section id="mentoria">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha" style="background:var(--ambar)"></div>
+      <div class="ornamento-losango" style="border-color:var(--ambar)"></div>
+      <div class="ornamento-linha" style="background:var(--ambar)"></div>
+    </div>
+    <div class="section-label" style="color:var(--ambar);opacity:0.6">07 · Mentoria</div>
+    <h2 class="section-titulo" style="color:var(--linho)">Mulheres que<br><em>Edificam Destinos.</em></h2>
+    <div class="modulos-grid">
+      <div class="modulo-col">
+        <div class="mod-num">M01</div>
+        <div class="mod-arquetipo">Rute</div>
+        <div class="mod-titulo">Antes de Edificar, Conhece-te</div>
+      </div>
+      <div class="modulo-col">
+        <div class="mod-num">M02</div>
+        <div class="mod-arquetipo">Ester</div>
+        <div class="mod-titulo">Para um Tempo Como Este</div>
+      </div>
+      <div class="modulo-col">
+        <div class="mod-num">M03</div>
+        <div class="mod-arquetipo">Débora</div>
+        <div class="mod-titulo">A Mulher que Julga com Justiça</div>
+      </div>
+      <div class="modulo-col">
+        <div class="mod-num">M04</div>
+        <div class="mod-arquetipo">Rute</div>
+        <div class="mod-titulo">A Arte de Sustentar Processos</div>
+      </div>
+      <div class="modulo-col">
+        <div class="mod-num">M05</div>
+        <div class="mod-arquetipo">Samaritana</div>
+        <div class="mod-titulo">A Verdade que Liberta e Obriga</div>
+      </div>
+      <div class="modulo-col">
+        <div class="mod-num">M06</div>
+        <div class="mod-arquetipo">Maria</div>
+        <div class="mod-titulo">O Fiat da Mulher que Responde</div>
+      </div>
+      <div class="modulo-col">
+        <div class="mod-num">M07</div>
+        <div class="mod-arquetipo">Priscila</div>
+        <div class="mod-titulo">Edificar com as Próprias Mãos</div>
+      </div>
+    </div>
+    <div class="mentoria-detalhe">
+      <div class="det-card">
+        <div class="det-label">Formato</div>
+        <div class="det-valor">7 módulos · 90 min cada · turma fechada</div>
+      </div>
+      <div class="det-card">
+        <div class="det-label">Participantes</div>
+        <div class="det-valor">10 a 20 mulheres · preferencialmente, mas não exclusivo, para quem viveu o retiro</div>
+      </div>
+      <div class="det-card">
+        <div class="det-label">Valor sugerido</div>
+        <div class="det-valor">R$ 1.200 · ou 12x de R$ 110</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 9 · PRÓXIMOS PASSOS ====== -->
+<section id="proximos">
+  <div class="container">
+    <div class="ornamento">
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+      <div class="ornamento-losango" style="border-color:var(--champagne)"></div>
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+    </div>
+    <div class="section-label" style="color:var(--champagne);opacity:0.6">08 · O que fazemos agora</div>
+    <h2 class="section-titulo" style="color:var(--marfim)">Próximos passos,<br><em>em ordem.</em></h2>
+    <div class="passos-grid">
+      <div class="passo-item">
+        <div class="passo-num">01</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Atualizar o Instagram</div>
+          <div class="passo-desc">Nova bio no ar. Publicar os 3 Pins na ordem inversa: Pin 03 primeiro, Pin 01 por último. O Instagram mostra o mais recente à esquerda.</div>
+        </div>
+      </div>
+      <div class="passo-item">
+        <div class="passo-num">02</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Alterar o @</div>
+          <div class="passo-desc">Migrar para @angelicamendespires. Quanto ao @diretoranotamil: a decisão é sua. A sugestão é um post de encerramento com redirecionamento, ou deixar o perfil em stand-by enquanto você faz seu discernimento.</div>
+        </div>
+      </div>
+      <div class="passo-item">
+        <div class="passo-num">03</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Acesso ao Meta Business Suite</div>
+          <div class="passo-desc">Você me adiciona como administradora. Isso me permite agendar todos os posts do calendário mensal aprovado. O passo a passo está no final desta apresentação.</div>
+        </div>
+      </div>
+      <div class="passo-item">
+        <div class="passo-num">04</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Gravar os primeiros Reels</div>
+          <div class="passo-desc">Os roteiros estão prontos. Começar pelo Reel 01: "Motivação te faz começar, formação te faz permanecer."</div>
+        </div>
+      </div>
+      <div class="passo-item">
+        <div class="passo-num">05</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Definir a data do retiro</div>
+          <div class="passo-desc">Definir o mês mais adequado, o local e a data em que acontecerá. Confirmar também os músicos e a testemunha. A divulgação começa na Semana 3 do primeiro mês de conteúdo.</div>
+        </div>
+      </div>
+      <div class="passo-item">
+        <div class="passo-num">06</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Executar o calendário do Mês 1</div>
+          <div class="passo-desc">Maria agenda tudo via Meta Business Suite. Você mantém autonomia total nos stories e conteúdo espontâneo, sem aprovação necessária.</div>
+        </div>
+      </div>
+      <div class="passo-item">
+        <div class="passo-num">07</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Executar o retiro</div>
+          <div class="passo-desc">Roteiro completo pronto. Checklist de produção.</div>
+        </div>
+      </div>
+      <div class="passo-item">
+        <div class="passo-num">08</div>
+        <div class="passo-conteudo">
+          <div class="passo-titulo">Lançar a mentoria</div>
+          <div class="passo-desc">Preferencialmente para quem participou do retiro. Anunciada como continuidade, não como produto novo.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 10 · ENCERRAMENTO ====== -->
+<section id="encerramento">
+  <div class="container" style="text-align:center; max-width:700px">
+    <div class="ornamento" style="justify-content:center">
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+      <div class="ornamento-losango" style="border-color:var(--champagne)"></div>
+      <div class="ornamento-linha" style="background:var(--champagne)"></div>
+    </div>
+    <h2 class="enc-titulo">Já demos<br><em>alguns passos.</em></h2>
+    <p class="enc-frase">"A colheita pertence à mulher que ainda estava no campo quando as outras já tinham ido embora."</p>
+    <p style="font-size:0.88rem; color:rgba(250,247,242,0.45); max-width:460px; margin:0 auto 3rem; line-height:1.75; font-family:'DM Sans',sans-serif; font-weight:300">
+      O projeto já está em preparação. Tudo que está nesta apresentação foi pensado para você, com cuidado e com estratégia.<br><br>
+      <strong style="color:rgba(250,247,242,0.65)">Fique no campo.</strong>
+    </p>
+    <div class="enc-assinatura">Com amor · Maria Loyola · Estrategista de Conteúdo & Storytelling</div>
+  </div>
+</section>
+
+<!-- ====== SLIDE 11 · INFORMAÇÕES PRÁTICAS ====== -->
+<section id="praticas" style="background:var(--marfim); min-height:auto; padding-top:5rem; padding-bottom:5rem">
+  <div class="container" style="max-width:860px">
+    <div class="ornamento">
+      <div class="ornamento-linha"></div>
+      <div class="ornamento-losango"></div>
+      <div class="ornamento-linha"></div>
+    </div>
+    <div class="section-label">09 · Para você guardar</div>
+    <h2 class="section-titulo">Informações<br><em>práticas.</em></h2>
+
+    <!-- DRIVE -->
+    <div style="margin-top:2.5rem; margin-bottom:2.5rem;">
+      <div style="display:flex; align-items:flex-start; gap:1.5rem; padding:2rem; background:var(--bege); border-radius:4px; border-left:3px solid var(--rosa-vinho);">
+        <div style="font-size:1.6rem; line-height:1; margin-top:2px;">🗂</div>
+        <div>
+          <div style="font-family:'DM Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--champagne); margin-bottom:0.5rem;">Pasta compartilhada no Google Drive</div>
+          <div style="font-family:'Cormorant',serif; font-size:1.3rem; font-weight:600; color:var(--rosa-deep); margin-bottom:0.6rem;">Já criada e pronta para usar</div>
+          <div style="font-size:0.85rem; color:var(--tinta); opacity:0.65; line-height:1.75;">
+            Ali você pode colocar tudo que quiser compartilhar comigo: fotos suas, da família, da escola, das palestras, eventos, registros que você ache que podem virar conteúdo. Sem pressa, sem obrigação de organizar. Só vai colocando conforme for surgindo.<br><br>
+            <strong style="opacity:0.9">Subpastas já organizadas:</strong> Fotos pessoais · Escola & eventos · Palestras & registros · Referências que você gosta
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- META BUSINESS SUITE TUTORIAL -->
+    <div style="margin-bottom:2.5rem;">
+      <div style="padding:2rem; background:var(--rosa-deep); border-radius:4px;">
+        <div style="font-family:'DM Mono',monospace; font-size:0.65rem; text-transform:uppercase; letter-spacing:0.15em; color:var(--champagne); opacity:0.6; margin-bottom:0.8rem;">Como me adicionar no Meta Business Suite</div>
+        <div style="font-family:'Cormorant',serif; font-size:1.3rem; font-weight:600; color:var(--champagne-claro); margin-bottom:0.5rem;">Meu e-mail: mariapinheiroloyola@gmail.com</div>
+        <div style="font-size:0.82rem; color:rgba(234,213,191,0.6); line-height:1.7; margin-bottom:1.5rem;">Me adicione como <strong style="color:rgba(234,213,191,0.85)">Administradora</strong> da conta. Isso me dá acesso para agendar os posts do calendário mensal. Você continua com controle total.</div>
+
+        <div style="display:flex; flex-direction:column; gap:0.8rem;">
+          <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+            <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ambar); opacity:0.7; flex-shrink:0; width:24px; padding-top:1px;">01</div>
+            <div style="font-size:0.82rem; color:rgba(234,213,191,0.65); line-height:1.6;">Acesse <strong style="color:rgba(234,213,191,0.85)">business.facebook.com</strong> no computador e entre com sua conta do Facebook</div>
+          </div>
+          <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+            <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ambar); opacity:0.7; flex-shrink:0; width:24px; padding-top:1px;">02</div>
+            <div style="font-size:0.82rem; color:rgba(234,213,191,0.65); line-height:1.6;">No menu lateral esquerdo, clique em <strong style="color:rgba(234,213,191,0.85)">Configurações</strong> (ícone de engrenagem)</div>
+          </div>
+          <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+            <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ambar); opacity:0.7; flex-shrink:0; width:24px; padding-top:1px;">03</div>
+            <div style="font-size:0.82rem; color:rgba(234,213,191,0.65); line-height:1.6;">Vá em <strong style="color:rgba(234,213,191,0.85)">Pessoas</strong> e clique em <strong style="color:rgba(234,213,191,0.85)">Adicionar</strong></div>
+          </div>
+          <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+            <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ambar); opacity:0.7; flex-shrink:0; width:24px; padding-top:1px;">04</div>
+            <div style="font-size:0.82rem; color:rgba(234,213,191,0.65); line-height:1.6;">Digite o e-mail <strong style="color:rgba(234,213,191,0.9)">mariapinheiroloyola@gmail.com</strong> e selecione a função <strong style="color:rgba(234,213,191,0.85)">Administrador</strong></div>
+          </div>
+          <div style="display:flex; gap:1.2rem; align-items:flex-start;">
+            <div style="font-family:'DM Mono',monospace; font-size:0.7rem; color:var(--ambar); opacity:0.7; flex-shrink:0; width:24px; padding-top:1px;">05</div>
+            <div style="font-size:0.82rem; color:rgba(234,213,191,0.65); line-height:1.6;">Confirme. Vou receber um e-mail de convite e pronto. Qualquer dúvida, me manda mensagem no WhatsApp.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGRADECIMENTO -->
+    <div style="padding:2.5rem 2rem; background:var(--tinta); border-radius:4px; text-align:center;">
+      <div style="font-family:'Cormorant',serif; font-size:2rem; font-style:italic; font-weight:400; color:var(--champagne-claro); line-height:1.3; margin-bottom:1.2rem;">
+        Angélica, obrigada.<br>Pela confiança. Pela amizade de quase 30 anos.
+      </div>
+      <p style="font-size:0.88rem; color:rgba(250,247,242,0.45); max-width:500px; margin:0 auto 2rem; line-height:1.85; font-family:'DM Sans',sans-serif; font-weight:300">
+        É uma honra poder colocar estratégia e execução a serviço do que você construiu e do que ainda vai construir. Você passou quase 4 décadas formando pessoas. Agora é hora de deixar esse trabalho chegar mais longe, nas pessoas certas, no momento certo.<br><br>
+        Estou aqui para isso. E estou comprometida com cada passo desse projeto.
+      </p>
+      <div style="font-family:'DM Mono',monospace; font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--champagne); opacity:0.5;">
+        Com amor · Maria Loyola<br>
+        <span style="opacity:0.6">Estrategista de Conteúdo & Storytelling</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // INTERSECTION OBSERVER for section animations
+  const sections = document.querySelectorAll('section');
+  const navDots = document.getElementById('navDots');
+  const secCount = document.getElementById('secCount');
+  const progressBar = document.getElementById('progressBar');
+
+  // Create nav dots
+  sections.forEach((sec, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'nav-dot' + (i === 0 ? ' active' : '');
+    dot.addEventListener('click', () => sec.scrollIntoView({ behavior: 'smooth' }));
+    navDots.appendChild(dot);
+  });
+
+  const dots = document.querySelectorAll('.nav-dot');
+
+  // Observe sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        const idx = Array.from(sections).indexOf(entry.target);
+        dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+        secCount.textContent = String(idx + 1).padStart(2, '0') + ' / ' + String(sections.length).padStart(2, '0');      }
+    });
+  }, { threshold: 0.2 });
+
+  sections.forEach(s => observer.observe(s));
+
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    progressBar.style.width = pct + '%';
+  });
+
+  // First section visible immediately
+  sections[0].classList.add('visible');
+</script>
+</body>
+</html>
